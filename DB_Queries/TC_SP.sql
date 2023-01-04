@@ -79,11 +79,11 @@ go
 
 /*========================================				     Rol  	    				===========================================================*/
 
---create procedure ppInsertRol
---	@rol varchar(60)
---as
---	insert into Rol(rol) values(@rol)
---go
+create procedure ppInsertRol
+	@rol varchar(60)
+as
+	insert into Rol(rol) values(@rol)
+go
 
 create procedure ppReadRol
 as
@@ -141,11 +141,11 @@ go
 
 create procedure ppInsertServicio
 	@serviceName varchar(70),
---	@description text,
+	@description text,
 	@servicePrice decimal(10,2)
 as
-	insert into Servicio(serviceName/*,description*/,servicePrice)
-	values (@serviceName/*,@description*/,@servicePrice)
+	insert into Servicio(serviceName,description,servicePrice)
+	values (@serviceName,@description,@servicePrice)
 go
 
 create procedure ppReadServicio
@@ -254,7 +254,7 @@ create procedure ppInsertCotizacion
 	@tax decimal(3,2),
 	@total decimal(10,2)
 as
-	insert into Cotizacion(@cliente,@subTotal,@tax,@total) values (@cliente,@subTotal,@tax,@total)
+	insert into Cotizacion(cliente,subTotal,tax,total) values (@cliente,@subTotal,@tax,@total)
 go
 
 create procedure ppReadCotizacion
@@ -360,23 +360,24 @@ go
 
 /*====================================================================================================================================================*/
 --select * from Cotizacion
---Insert into Cliente(username,password,nombre,apellido,cedula,correo,sexo,telefono) values
---		('oel','12345678','Joel','Mauricio','12034567894','joel@email.com','M','8099990000')
 --insert into Cotizacion(cliente,subTotal,tax,total) values(1,0,0,0)
 --go
---insert into Producto(productName,size,description,productPrice,stock)
---	values ('Colchon A15','Full','n/a',10000,5)
---	go
 --select * from Producto
 
---Insert into Rol(rol) values
---('Admin'),
---('Mantenimiento'),
---('Consuta');
---Insert into Usuario(username,password,nombre,apellido,cedula,correo,sexo,telefono) values
---		('Joel','123456789','Joel','Mauricio','10120120112','joel@email.com','M','8099990000')
---go
-
+--exec ppInsertRol 'Admin'
+--exec ppInsertRol 'Mantenimiento'
+--exec ppInsertRol 'Consuta'
+--exec ppInsertProducto 'Colchon A15','Full','n/a',15000,5
+--exec ppInsertProducto 'Colchon A16','Full','n/a',20000,5
+--exec ppInsertCliente 'Joel','12345678','Joel','Mauricio','12034567894','joel@email.com','M','8099990000'
+--exec ppInsertUsuario 'Joel','123456789','Joel','Mauricio','10120120112','joel@email.com','M','8099990000'
+--exec ppInsertCotizacion 1,0,0,0
+--exec ppInsertCotizacionProducto 1,1,10
+--exec ppInsertCotizacionProducto 1,2,10
 --exec ppUpdateCotizacionProducto 1,2,9
 --exec ppUpdateCotizacion 1
-
+--exec ppReadCotizacion
+--exec ppInsertFactura 1,1,default,''
+--exec ppReadFactura
+--exec ppInsertCuentaCobrar 1 
+--exec ppReadCuentaCobrar
