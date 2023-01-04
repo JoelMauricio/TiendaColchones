@@ -1,10 +1,10 @@
---create database TiendaColchones
---go
+create database TiendaColchones
+go
 
 --drop database TiendaColchones
 
---use TiendaColchones
---go
+use TiendaColchones
+go
 
 
 CREATE TABLE [Cliente] (
@@ -55,6 +55,7 @@ GO
 CREATE TABLE [Servicio] (
   [id] int PRIMARY KEY IDENTITY(1, 1),
   [serviceName] varchar(70) NOT NULL,
+  [description] text not null default 'n/a',
   [servicePrice] decimal(10,2) NOT NULL
 )
 GO
@@ -63,7 +64,8 @@ CREATE TABLE [Cotizacion_Producto] (
   [noCotizacion] int NOT NULL,
   [productId] int,
   [cantidad] int NOT NULL DEFAULT (1),
-  [subTotal] decimal(10,2) NOT NULL
+  [subTotal] decimal(10,2) NOT NULL,
+  unique(noCotizacion,productId)
 )
 GO
 
@@ -71,7 +73,8 @@ CREATE TABLE [Cotizacion_Servicio] (
   [noCotizacion] int NOT NULL,
   [serviceId] int,
   [cantidad] int NOT NULL DEFAULT (1),
-  [subTotal] decimal(10,2) NOT NULL
+  [subTotal] decimal(10,2) NOT NULL,
+  unique(noCotizacion,serviceId)
 )
 GO
 
@@ -92,7 +95,7 @@ CREATE TABLE [Factura] (
   [cliente] int NOT NULL,
   [tipoComprobante] nvarchar(18) NOT NULL DEFAULT 'Consumidor final',
   [comprobanteFiscal] nvarchar(13) NOT NULL,
-  [metodoPago] nvarchar NOT NULL DEFAULT 'Tarjeta',
+  [metodoPago] nvarchar(20) NOT NULL DEFAULT 'Tarjeta',
   [created_at] datetime DEFAULT getdate(),
   [state] bit NOT NULL DEFAULT (0)
 )
