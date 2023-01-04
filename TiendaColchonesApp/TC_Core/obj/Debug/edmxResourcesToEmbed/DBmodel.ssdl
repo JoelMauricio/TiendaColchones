@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TiendaColchonesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="cedula" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="apellido" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="sexo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="telefono" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="correo" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="state" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cotizacion">
+    <Key>
+      <PropertyRef Name="noCotizacion" />
+    </Key>
+    <Property Name="noCotizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cliente" Type="int" Nullable="false" />
+    <Property Name="subTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="tax" Type="decimal" Precision="3" Scale="2" />
+    <Property Name="total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="state" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TiendaColchonesDB.dbo.Cotizacion_Producto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Cotizacion_Producto">
+    <Key>
+      <PropertyRef Name="noCotizacion" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="subTotal" />
+    </Key>
+    <Property Name="noCotizacion" Type="int" Nullable="false" />
+    <Property Name="productId" Type="int" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="subTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TiendaColchonesDB.dbo.Cotizacion_Servicio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Cotizacion_Servicio">
+    <Key>
+      <PropertyRef Name="noCotizacion" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="subTotal" />
+    </Key>
+    <Property Name="noCotizacion" Type="int" Nullable="false" />
+    <Property Name="serviceId" Type="int" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="subTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TiendaColchonesDB.dbo.Cuentas_Cobrar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Cuentas_Cobrar">
+    <Key>
+      <PropertyRef Name="noFactura" />
+      <PropertyRef Name="estadoPago" />
+    </Key>
+    <Property Name="noFactura" Type="int" Nullable="false" />
+    <Property Name="montoDeuda" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="fechaPago" Type="datetime" />
+    <Property Name="fechaLimitePago" Type="datetime" />
+    <Property Name="estadoPago" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="noFactura" />
+    </Key>
+    <Property Name="noFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="noCotizacion" Type="int" />
+    <Property Name="cliente" Type="int" Nullable="false" />
+    <Property Name="tipoComprobante" Type="nvarchar" MaxLength="18" Nullable="false" />
+    <Property Name="comprobanteFiscal" Type="nvarchar" MaxLength="13" Nullable="false" />
+    <Property Name="metodoPago" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="state" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productName" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="size" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="description" Type="text" Nullable="false" />
+    <Property Name="productPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="stock" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rol" Type="varchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="serviceName" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="description" Type="text" Nullable="false" />
+    <Property Name="servicePrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="cedula" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="apellido" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="sexo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="telefono" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="correo" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="rol" Type="int" Nullable="false" />
+    <Property Name="state" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Cotizacio__clien__47DBAE45">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cotizacion">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__noCot__44FF419A">
+    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="1" />
+    <End Role="Cotizacion_Producto" Type="Self.Cotizacion_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cotizacion">
+        <PropertyRef Name="noCotizacion" />
+      </Principal>
+      <Dependent Role="Cotizacion_Producto">
+        <PropertyRef Name="noCotizacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__noCot__46E78A0C">
+    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="1" />
+    <End Role="Cotizacion_Servicio" Type="Self.Cotizacion_Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cotizacion">
+        <PropertyRef Name="noCotizacion" />
+      </Principal>
+      <Dependent Role="Cotizacion_Servicio">
+        <PropertyRef Name="noCotizacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__produ__440B1D61">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Cotizacion_Producto" Type="Self.Cotizacion_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cotizacion_Producto">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__servi__45F365D3">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+    <End Role="Cotizacion_Servicio" Type="Self.Cotizacion_Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cotizacion_Servicio">
+        <PropertyRef Name="serviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cuentas_C__noFac__4AB81AF0">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="Cuentas_Cobrar" Type="Self.Cuentas_Cobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="noFactura" />
+      </Principal>
+      <Dependent Role="Cuentas_Cobrar">
+        <PropertyRef Name="noFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Factura__cliente__49C3F6B7">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Factura__noCotiz__48CFD27E">
+    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="0..1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cotizacion">
+        <PropertyRef Name="noCotizacion" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="noCotizacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__rol__4316F928">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TiendaColchonesDBModelStoreContainer">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cotizacion_Producto" EntityType="Self.Cotizacion_Producto" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Cotizacion_Producto].[noCotizacion] AS [noCotizacion], 
+    [Cotizacion_Producto].[productId] AS [productId], 
+    [Cotizacion_Producto].[cantidad] AS [cantidad], 
+    [Cotizacion_Producto].[subTotal] AS [subTotal]
+    FROM [dbo].[Cotizacion_Producto] AS [Cotizacion_Producto]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Cotizacion_Servicio" EntityType="Self.Cotizacion_Servicio" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Cotizacion_Servicio].[noCotizacion] AS [noCotizacion], 
+    [Cotizacion_Servicio].[serviceId] AS [serviceId], 
+    [Cotizacion_Servicio].[cantidad] AS [cantidad], 
+    [Cotizacion_Servicio].[subTotal] AS [subTotal]
+    FROM [dbo].[Cotizacion_Servicio] AS [Cotizacion_Servicio]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Cuentas_Cobrar" EntityType="Self.Cuentas_Cobrar" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Cuentas_Cobrar].[noFactura] AS [noFactura], 
+    [Cuentas_Cobrar].[montoDeuda] AS [montoDeuda], 
+    [Cuentas_Cobrar].[fechaPago] AS [fechaPago], 
+    [Cuentas_Cobrar].[fechaLimitePago] AS [fechaLimitePago], 
+    [Cuentas_Cobrar].[estadoPago] AS [estadoPago]
+    FROM [dbo].[Cuentas_Cobrar] AS [Cuentas_Cobrar]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Cotizacio__clien__47DBAE45" Association="Self.FK__Cotizacio__clien__47DBAE45">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Cotizacion" EntitySet="Cotizacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__noCot__44FF419A" Association="Self.FK__Cotizacio__noCot__44FF419A">
+      <End Role="Cotizacion" EntitySet="Cotizacion" />
+      <End Role="Cotizacion_Producto" EntitySet="Cotizacion_Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__noCot__46E78A0C" Association="Self.FK__Cotizacio__noCot__46E78A0C">
+      <End Role="Cotizacion" EntitySet="Cotizacion" />
+      <End Role="Cotizacion_Servicio" EntitySet="Cotizacion_Servicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__produ__440B1D61" Association="Self.FK__Cotizacio__produ__440B1D61">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Cotizacion_Producto" EntitySet="Cotizacion_Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__servi__45F365D3" Association="Self.FK__Cotizacio__servi__45F365D3">
+      <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="Cotizacion_Servicio" EntitySet="Cotizacion_Servicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cuentas_C__noFac__4AB81AF0" Association="Self.FK__Cuentas_C__noFac__4AB81AF0">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="Cuentas_Cobrar" EntitySet="Cuentas_Cobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Factura__cliente__49C3F6B7" Association="Self.FK__Factura__cliente__49C3F6B7">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Factura__noCotiz__48CFD27E" Association="Self.FK__Factura__noCotiz__48CFD27E">
+      <End Role="Cotizacion" EntitySet="Cotizacion" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__rol__4316F928" Association="Self.FK__Usuario__rol__4316F928">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

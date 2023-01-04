@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TiendaColchonesDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cedula" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="correo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cotizacions" Relationship="Self.FK__Cotizacio__clien__47DBAE45" FromRole="Cliente" ToRole="Cotizacion" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK__Factura__cliente__49C3F6B7" FromRole="Cliente" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="Cotizacion">
+    <Key>
+      <PropertyRef Name="noCotizacion" />
+    </Key>
+    <Property Name="noCotizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cliente" Type="Int32" Nullable="false" />
+    <Property Name="subTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="tax" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cliente1" Relationship="Self.FK__Cotizacio__clien__47DBAE45" FromRole="Cotizacion" ToRole="Cliente" />
+    <NavigationProperty Name="Cotizacion_Producto" Relationship="Self.FK__Cotizacio__noCot__44FF419A" FromRole="Cotizacion" ToRole="Cotizacion_Producto" />
+    <NavigationProperty Name="Cotizacion_Servicio" Relationship="Self.FK__Cotizacio__noCot__46E78A0C" FromRole="Cotizacion" ToRole="Cotizacion_Servicio" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK__Factura__noCotiz__48CFD27E" FromRole="Cotizacion" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="noFactura" />
+    </Key>
+    <Property Name="noFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="noCotizacion" Type="Int32" />
+    <Property Name="cliente" Type="Int32" Nullable="false" />
+    <Property Name="tipoComprobante" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="comprobanteFiscal" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="metodoPago" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cliente1" Relationship="Self.FK__Factura__cliente__49C3F6B7" FromRole="Factura" ToRole="Cliente" />
+    <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Factura__noCotiz__48CFD27E" FromRole="Factura" ToRole="Cotizacion" />
+    <NavigationProperty Name="Cuentas_Cobrar" Relationship="Self.FK__Cuentas_C__noFac__4AB81AF0" FromRole="Factura" ToRole="Cuentas_Cobrar" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productName" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="size" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="productPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="stock" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cotizacion_Producto" Relationship="Self.FK__Cotizacio__produ__440B1D61" FromRole="Producto" ToRole="Cotizacion_Producto" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rol1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuario__rol__4316F928" FromRole="Rol" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="serviceName" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="servicePrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Cotizacion_Servicio" Relationship="Self.FK__Cotizacio__servi__45F365D3" FromRole="Servicio" ToRole="Cotizacion_Servicio" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cedula" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="correo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rol" Type="Int32" Nullable="false" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Rol1" Relationship="Self.FK__Usuario__rol__4316F928" FromRole="Usuario" ToRole="Rol" />
+  </EntityType>
+  <EntityType Name="Cotizacion_Producto">
+    <Key>
+      <PropertyRef Name="noCotizacion" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="subTotal" />
+    </Key>
+    <Property Name="noCotizacion" Type="Int32" Nullable="false" />
+    <Property Name="productId" Type="Int32" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="subTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Cotizacio__noCot__44FF419A" FromRole="Cotizacion_Producto" ToRole="Cotizacion" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__Cotizacio__produ__440B1D61" FromRole="Cotizacion_Producto" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Cotizacion_Servicio">
+    <Key>
+      <PropertyRef Name="noCotizacion" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="subTotal" />
+    </Key>
+    <Property Name="noCotizacion" Type="Int32" Nullable="false" />
+    <Property Name="serviceId" Type="Int32" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="subTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Cotizacio__noCot__46E78A0C" FromRole="Cotizacion_Servicio" ToRole="Cotizacion" />
+    <NavigationProperty Name="Servicio" Relationship="Self.FK__Cotizacio__servi__45F365D3" FromRole="Cotizacion_Servicio" ToRole="Servicio" />
+  </EntityType>
+  <EntityType Name="Cuentas_Cobrar">
+    <Key>
+      <PropertyRef Name="noFactura" />
+      <PropertyRef Name="estadoPago" />
+    </Key>
+    <Property Name="noFactura" Type="Int32" Nullable="false" />
+    <Property Name="montoDeuda" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="fechaPago" Type="DateTime" Precision="3" />
+    <Property Name="fechaLimitePago" Type="DateTime" Precision="3" />
+    <Property Name="estadoPago" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Factura" Relationship="Self.FK__Cuentas_C__noFac__4AB81AF0" FromRole="Cuentas_Cobrar" ToRole="Factura" />
+  </EntityType>
+  <Association Name="FK__Cotizacio__clien__47DBAE45">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cotizacion">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Factura__cliente__49C3F6B7">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__noCot__44FF419A">
+    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="1" />
+    <End Role="Cotizacion_Producto" Type="Self.Cotizacion_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cotizacion">
+        <PropertyRef Name="noCotizacion" />
+      </Principal>
+      <Dependent Role="Cotizacion_Producto">
+        <PropertyRef Name="noCotizacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__noCot__46E78A0C">
+    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="1" />
+    <End Role="Cotizacion_Servicio" Type="Self.Cotizacion_Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cotizacion">
+        <PropertyRef Name="noCotizacion" />
+      </Principal>
+      <Dependent Role="Cotizacion_Servicio">
+        <PropertyRef Name="noCotizacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Factura__noCotiz__48CFD27E">
+    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="0..1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cotizacion">
+        <PropertyRef Name="noCotizacion" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="noCotizacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cuentas_C__noFac__4AB81AF0">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="Cuentas_Cobrar" Type="Self.Cuentas_Cobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="noFactura" />
+      </Principal>
+      <Dependent Role="Cuentas_Cobrar">
+        <PropertyRef Name="noFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__produ__440B1D61">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Cotizacion_Producto" Type="Self.Cotizacion_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cotizacion_Producto">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__rol__4316F928">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__servi__45F365D3">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+    <End Role="Cotizacion_Servicio" Type="Self.Cotizacion_Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cotizacion_Servicio">
+        <PropertyRef Name="serviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TiendaColchonesDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="Cotizacions" EntityType="Self.Cotizacion" />
+    <EntitySet Name="Facturas" EntityType="Self.Factura" />
+    <EntitySet Name="Productoes" EntityType="Self.Producto" />
+    <EntitySet Name="Rols" EntityType="Self.Rol" />
+    <EntitySet Name="Servicios" EntityType="Self.Servicio" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <EntitySet Name="Cotizacion_Producto" EntityType="Self.Cotizacion_Producto" />
+    <EntitySet Name="Cotizacion_Servicio" EntityType="Self.Cotizacion_Servicio" />
+    <EntitySet Name="Cuentas_Cobrar" EntityType="Self.Cuentas_Cobrar" />
+    <AssociationSet Name="FK__Cotizacio__clien__47DBAE45" Association="Self.FK__Cotizacio__clien__47DBAE45">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Cotizacion" EntitySet="Cotizacions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Factura__cliente__49C3F6B7" Association="Self.FK__Factura__cliente__49C3F6B7">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Factura" EntitySet="Facturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__noCot__44FF419A" Association="Self.FK__Cotizacio__noCot__44FF419A">
+      <End Role="Cotizacion" EntitySet="Cotizacions" />
+      <End Role="Cotizacion_Producto" EntitySet="Cotizacion_Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__noCot__46E78A0C" Association="Self.FK__Cotizacio__noCot__46E78A0C">
+      <End Role="Cotizacion" EntitySet="Cotizacions" />
+      <End Role="Cotizacion_Servicio" EntitySet="Cotizacion_Servicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Factura__noCotiz__48CFD27E" Association="Self.FK__Factura__noCotiz__48CFD27E">
+      <End Role="Cotizacion" EntitySet="Cotizacions" />
+      <End Role="Factura" EntitySet="Facturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cuentas_C__noFac__4AB81AF0" Association="Self.FK__Cuentas_C__noFac__4AB81AF0">
+      <End Role="Factura" EntitySet="Facturas" />
+      <End Role="Cuentas_Cobrar" EntitySet="Cuentas_Cobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__produ__440B1D61" Association="Self.FK__Cotizacio__produ__440B1D61">
+      <End Role="Producto" EntitySet="Productoes" />
+      <End Role="Cotizacion_Producto" EntitySet="Cotizacion_Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__rol__4316F928" Association="Self.FK__Usuario__rol__4316F928">
+      <End Role="Rol" EntitySet="Rols" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__servi__45F365D3" Association="Self.FK__Cotizacio__servi__45F365D3">
+      <End Role="Servicio" EntitySet="Servicios" />
+      <End Role="Cotizacion_Servicio" EntitySet="Cotizacion_Servicio" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

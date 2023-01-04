@@ -1,0 +1,2 @@
+2023-01-04 12:40:33,482 [6] INFO TC_Core.TCCoreService - El logger funciona
+2023-01-04 17:08:01,038 [11] INFO TC_Core.TCCoreService - Se llama el metodo GetClientes() del Core
