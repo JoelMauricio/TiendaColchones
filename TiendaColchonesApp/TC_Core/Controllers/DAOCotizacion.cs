@@ -23,12 +23,13 @@ namespace TC_Core.Controllers
             return db.Cotizacions.Find(id);
         }
 
-        static public int RegistrarCotizacion(Cotizacion Cotizacion)
+        static public int RegistrarCotizacion(Cotizacion C)
         {
             db.Configuration.ProxyCreationEnabled = false;
             try
             {
-                db.Cotizacions.Add(Cotizacion);
+                //db.Cotizacions.Add(Cotizacion);
+                db.ppInsertCotizacion(C.cliente,C.subTotal,C.tax,C.total);
                 return db.SaveChanges();
             }
             catch (Exception e)
@@ -40,15 +41,17 @@ namespace TC_Core.Controllers
         static public int UpdateCotizacion(Cotizacion Cotizacion) //Actualizar el Total
         {
             db.Configuration.ProxyCreationEnabled = false;
-            var retrievedCotizacion = db.Cotizacions.Find(Cotizacion.noCotizacion);
-            retrievedCotizacion.total = Cotizacion.total;
+            //var retrievedCotizacion = db.Cotizacions.Find(Cotizacion.noCotizacion);
+            //retrievedCotizacion.total = Cotizacion.total;
+            db.ppUpdateCotizacion(Cotizacion.noCotizacion);
             return db.SaveChanges();
         }
 
-        static public int DeleteCotizacion(Cotizacion Cotizacion)
+        static public int DeleteCotizacion(int cotId)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            db.Cotizacions.Remove(Cotizacion);
+            //db.Cotizacions.Remove(Cotizacion);
+            db.ppDeleteCotizacion(cotId);
             return db.SaveChanges();
         }
     }

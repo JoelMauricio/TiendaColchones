@@ -233,10 +233,10 @@ namespace TC_Core
         }
 
         [WebMethod]
-        public int DeleteCotizaciones(Cotizacion cotizacion)
+        public int DeleteCotizaciones(int cotizacionId)
         {
             log.Info("Se llama el metodo DeleteCotizaciones() del Core");
-            return DAOCotizacion.DeleteCotizacion(cotizacion);
+            return DAOCotizacion.DeleteCotizacion(cotizacionId);
         }
 
         /*================================== Factura ===================================*/
@@ -269,10 +269,10 @@ namespace TC_Core
         }
 
         [WebMethod]
-        public int DeleteFacturaes(Factura Factura)
+        public int DeleteFacturaes(int FacturaId)
         {
             log.Info("Se llama el metodo DeleteFacturaes() del Core");
-            return DAOFactura.DeleteFactura(Factura);
+            return DAOFactura.DeleteFactura(FacturaId);
         }
     }
 }

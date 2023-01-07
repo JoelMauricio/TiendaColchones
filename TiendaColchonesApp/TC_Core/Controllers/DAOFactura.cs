@@ -23,12 +23,13 @@ namespace TC_Core.Controllers
             return db.Facturas.Find(id);
         }
 
-        static public int RegistrarFactura(Factura Factura)
+        static public int RegistrarFactura(Factura F)
         {
             db.Configuration.ProxyCreationEnabled = false;
             try
             {
-                db.Facturas.Add(Factura);
+                //db.Facturas.Add(Factura);
+                db.ppInsertFactura(F.noCotizacion,F.cliente,F.tipoComprobante,F.comprobanteFiscal,F.metodoPago);
                 return db.SaveChanges();
             }
             catch (Exception e)
@@ -45,10 +46,10 @@ namespace TC_Core.Controllers
             return db.SaveChanges();
         }
 
-        static public int DeleteFactura(Factura Factura)
+        static public int DeleteFactura(int FacturaId)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            db.Facturas.Remove(Factura);
+            db.ppDeleteFactura(FacturaId);
             return db.SaveChanges();
         }
     }
