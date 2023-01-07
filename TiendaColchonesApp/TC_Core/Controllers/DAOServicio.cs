@@ -23,12 +23,13 @@ namespace TC_Core.Controllers
             return db.Servicios.Find(id);
         }
 
-        static public int RegistrarServicio(Servicio Servicio)
+        static public int RegistrarServicio(Servicio S)
         {
             db.Configuration.ProxyCreationEnabled = false;
             try
             {
-                db.Servicios.Add(Servicio);
+                //db.Servicios.Add(Servicio);
+                db.ppInsertServicio(S.serviceName,S.description,S.servicePrice);
                 return db.SaveChanges();
             }
             catch (Exception e)
@@ -45,10 +46,10 @@ namespace TC_Core.Controllers
             return db.SaveChanges();
         }
 
-        static public int DeleteServicio(Servicio Servicio)
+        static public int DeleteServicio(int sId)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            db.Servicios.Remove(Servicio);
+            db.ppDeleteServicio(sId);
             return db.SaveChanges();
         }
     }

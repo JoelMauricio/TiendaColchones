@@ -23,12 +23,13 @@ namespace TC_Core.Controllers
             return db.Usuarios.Find(id);
         }
 
-        static public int RegistrarUsuario(Usuario Usuario)
+        static public int RegistrarUsuario(Usuario Us)
         {
             db.Configuration.ProxyCreationEnabled = false;
             try
             {
-                db.Usuarios.Add(Usuario);
+                //db.Usuarios.Add(Usuario);
+                db.ppInsertUsuario(Us.username,Us.password,Us.cedula,Us.nombre,Us.apellido,Us.sexo,Us.telefono,Us.correo);
                 return db.SaveChanges();
             }
             catch (Exception e)
@@ -45,10 +46,10 @@ namespace TC_Core.Controllers
             return db.SaveChanges();
         }
 
-        static public int DeleteUsuario(Usuario Usuario)
+        static public int DeleteUsuario(int UserId)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            db.Usuarios.Remove(Usuario);
+            db.ppDeleteUsuario(UserId);
             return db.SaveChanges();
         }
     }

@@ -122,5 +122,42 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ppInsertCliente" FunctionName="TiendaColchonesDBModel.Store.ppInsertCliente" />
+    <FunctionImportMapping FunctionImportName="ppInsertCotizacion" FunctionName="TiendaColchonesDBModel.Store.ppInsertCotizacion" />
+    <FunctionImportMapping FunctionImportName="ppInsertCotizacionProducto" FunctionName="TiendaColchonesDBModel.Store.ppInsertCotizacionProducto" />
+    <FunctionImportMapping FunctionImportName="ppInsertCotizacionServicio" FunctionName="TiendaColchonesDBModel.Store.ppInsertCotizacionServicio" />
+    <FunctionImportMapping FunctionImportName="ppInsertCuentaCobrar" FunctionName="TiendaColchonesDBModel.Store.ppInsertCuentaCobrar" />
+    <FunctionImportMapping FunctionImportName="ppInsertFactura" FunctionName="TiendaColchonesDBModel.Store.ppInsertFactura" />
+    <FunctionImportMapping FunctionImportName="ppInsertProducto" FunctionName="TiendaColchonesDBModel.Store.ppInsertProducto" />
+    <FunctionImportMapping FunctionImportName="ppInsertRol" FunctionName="TiendaColchonesDBModel.Store.ppInsertRol" />
+    <FunctionImportMapping FunctionImportName="ppInsertServicio" FunctionName="TiendaColchonesDBModel.Store.ppInsertServicio" />
+    <FunctionImportMapping FunctionImportName="ppInsertUsuario" FunctionName="TiendaColchonesDBModel.Store.ppInsertUsuario" />
+    <FunctionImportMapping FunctionImportName="ppDeleteCliente" FunctionName="TiendaColchonesDBModel.Store.ppDeleteCliente" />
+    <FunctionImportMapping FunctionImportName="ppDeleteCotizacion" FunctionName="TiendaColchonesDBModel.Store.ppDeleteCotizacion" />
+    <FunctionImportMapping FunctionImportName="ppDeleteCotizacionProducto" FunctionName="TiendaColchonesDBModel.Store.ppDeleteCotizacionProducto" />
+    <FunctionImportMapping FunctionImportName="ppDeleteCotizacionServicio" FunctionName="TiendaColchonesDBModel.Store.ppDeleteCotizacionServicio" />
+    <FunctionImportMapping FunctionImportName="ppDeleteCuentaCobrar" FunctionName="TiendaColchonesDBModel.Store.ppDeleteCuentaCobrar" />
+    <FunctionImportMapping FunctionImportName="ppDeleteFactura" FunctionName="TiendaColchonesDBModel.Store.ppDeleteFactura" />
+    <FunctionImportMapping FunctionImportName="ppDeleteProducto" FunctionName="TiendaColchonesDBModel.Store.ppDeleteProducto" />
+    <FunctionImportMapping FunctionImportName="ppDeleteRol" FunctionName="TiendaColchonesDBModel.Store.ppDeleteRol" />
+    <FunctionImportMapping FunctionImportName="ppDeleteServicio" FunctionName="TiendaColchonesDBModel.Store.ppDeleteServicio" />
+    <FunctionImportMapping FunctionImportName="ppDeleteUsuario" FunctionName="TiendaColchonesDBModel.Store.ppDeleteUsuario" />
+    <FunctionImportMapping FunctionImportName="ppReadCliente" FunctionName="TiendaColchonesDBModel.Store.ppReadCliente" />
+    <FunctionImportMapping FunctionImportName="ppReadCotizacion" FunctionName="TiendaColchonesDBModel.Store.ppReadCotizacion" />
+    <FunctionImportMapping FunctionImportName="ppReadCotizacionProducto" FunctionName="TiendaColchonesDBModel.Store.ppReadCotizacionProducto" />
+    <FunctionImportMapping FunctionImportName="ppReadCotizacionServicio" FunctionName="TiendaColchonesDBModel.Store.ppReadCotizacionServicio" />
+    <FunctionImportMapping FunctionImportName="ppReadCuentaCobrar" FunctionName="TiendaColchonesDBModel.Store.ppReadCuentaCobrar" />
+    <FunctionImportMapping FunctionImportName="ppReadFactura" FunctionName="TiendaColchonesDBModel.Store.ppReadFactura" />
+    <FunctionImportMapping FunctionImportName="ppReadProducto" FunctionName="TiendaColchonesDBModel.Store.ppReadProducto" />
+    <FunctionImportMapping FunctionImportName="ppReadRol" FunctionName="TiendaColchonesDBModel.Store.ppReadRol" />
+    <FunctionImportMapping FunctionImportName="ppReadServicio" FunctionName="TiendaColchonesDBModel.Store.ppReadServicio" />
+    <FunctionImportMapping FunctionImportName="ppReadUsuario" FunctionName="TiendaColchonesDBModel.Store.ppReadUsuario" />
+    <FunctionImportMapping FunctionImportName="ppUpdateCotizacion" FunctionName="TiendaColchonesDBModel.Store.ppUpdateCotizacion" />
+    <FunctionImportMapping FunctionImportName="ppUpdateCotizacionProducto" FunctionName="TiendaColchonesDBModel.Store.ppUpdateCotizacionProducto" />
+    <FunctionImportMapping FunctionImportName="ppUpdateCotizacionServicio" FunctionName="TiendaColchonesDBModel.Store.ppUpdateCotizacionServicio" />
+    <FunctionImportMapping FunctionImportName="ppUpdateCuentaCobrar" FunctionName="TiendaColchonesDBModel.Store.ppUpdateCuentaCobrar" />
+    <FunctionImportMapping FunctionImportName="ppUpdateFactura" FunctionName="TiendaColchonesDBModel.Store.ppUpdateFactura" />
+    <FunctionImportMapping FunctionImportName="ppUpdatePrecioServicio" FunctionName="TiendaColchonesDBModel.Store.ppUpdatePrecioServicio" />
+    <FunctionImportMapping FunctionImportName="ppUpdateProductoInventario" FunctionName="TiendaColchonesDBModel.Store.ppUpdateProductoInventario" />
   </EntityContainerMapping>
 </Mapping>

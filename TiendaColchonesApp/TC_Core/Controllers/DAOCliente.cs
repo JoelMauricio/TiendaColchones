@@ -23,12 +23,13 @@ namespace TC_Core.Controllers
             return db.Clientes.Find(id);
         }
 
-        static public int RegistrarCliente(Cliente Cliente)
+        static public int RegistrarCliente(Cliente Cli)
         {
             db.Configuration.ProxyCreationEnabled = false;
             try
             {
-                db.Clientes.Add(Cliente);
+                //db.Clientes.Add(Cliente);
+                db.ppInsertCliente(Cli.username, Cli.password, Cli.cedula, Cli.nombre, Cli.apellido, Cli.sexo, Cli.telefono, Cli.correo);
                 return db.SaveChanges();
             }
             catch (Exception e)
@@ -45,10 +46,10 @@ namespace TC_Core.Controllers
             return db.SaveChanges();
         }
 
-        static public int DeleteCliente(Cliente Cliente)
+        static public int DeleteCliente(int ClienteId)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            db.Clientes.Remove(Cliente);
+            db.ppDeleteCliente(ClienteId);
             return db.SaveChanges();
         }
     }

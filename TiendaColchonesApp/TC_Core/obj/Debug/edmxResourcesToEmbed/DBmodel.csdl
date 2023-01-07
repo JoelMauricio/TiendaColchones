@@ -289,5 +289,219 @@
       <End Role="Servicio" EntitySet="Servicios" />
       <End Role="Cotizacion_Servicio" EntitySet="Cotizacion_Servicio" />
     </AssociationSet>
+    <FunctionImport Name="ppInsertCliente">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellido" Mode="In" Type="String" />
+      <Parameter Name="sexo" Mode="In" Type="String" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertCotizacion">
+      <Parameter Name="cliente" Mode="In" Type="Int32" />
+      <Parameter Name="subTotal" Mode="In" Type="Decimal" />
+      <Parameter Name="tax" Mode="In" Type="Decimal" />
+      <Parameter Name="total" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertCotizacionProducto">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="productId" Mode="In" Type="Int32" />
+      <Parameter Name="cantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertCotizacionServicio">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="serviceId" Mode="In" Type="Int32" />
+      <Parameter Name="cantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertCuentaCobrar">
+      <Parameter Name="noFactura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertFactura">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="cliente" Mode="In" Type="Int32" />
+      <Parameter Name="tipoComprobante" Mode="In" Type="String" />
+      <Parameter Name="comprobanteFiscal" Mode="In" Type="String" />
+      <Parameter Name="metodoPago" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertProducto">
+      <Parameter Name="productName" Mode="In" Type="String" />
+      <Parameter Name="size" Mode="In" Type="String" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="productPrice" Mode="In" Type="Decimal" />
+      <Parameter Name="stock" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertRol">
+      <Parameter Name="rol" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertServicio">
+      <Parameter Name="serviceName" Mode="In" Type="String" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="servicePrice" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertUsuario">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellido" Mode="In" Type="String" />
+      <Parameter Name="sexo" Mode="In" Type="String" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteCliente">
+      <Parameter Name="targetCliente" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteCotizacion">
+      <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteCotizacionProducto">
+      <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="targetProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteCotizacionServicio">
+      <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="targetServicio" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteCuentaCobrar">
+      <Parameter Name="targetFactura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteFactura">
+      <Parameter Name="targetFactura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteProducto">
+      <Parameter Name="targetProduct" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteRol">
+      <Parameter Name="targetRol" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteServicio">
+      <Parameter Name="targetServicio" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteUsuario">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppReadCliente" EntitySet="Clientes" ReturnType="Collection(TiendaColchonesDBModel.Cliente)" />
+    <FunctionImport Name="ppReadCotizacion" EntitySet="Cotizacions" ReturnType="Collection(TiendaColchonesDBModel.Cotizacion)" />
+    <FunctionImport Name="ppReadCotizacionProducto" EntitySet="Cotizacion_Producto" ReturnType="Collection(TiendaColchonesDBModel.Cotizacion_Producto)" />
+    <FunctionImport Name="ppReadCotizacionServicio" EntitySet="Cotizacion_Servicio" ReturnType="Collection(TiendaColchonesDBModel.Cotizacion_Servicio)" />
+    <FunctionImport Name="ppReadCuentaCobrar" EntitySet="Cuentas_Cobrar" ReturnType="Collection(TiendaColchonesDBModel.Cuentas_Cobrar)" />
+    <FunctionImport Name="ppReadFactura" EntitySet="Facturas" ReturnType="Collection(TiendaColchonesDBModel.Factura)" />
+    <FunctionImport Name="ppReadProducto" EntitySet="Productoes" ReturnType="Collection(TiendaColchonesDBModel.Producto)" />
+    <FunctionImport Name="ppReadRol" EntitySet="Rols" ReturnType="Collection(TiendaColchonesDBModel.Rol)" />
+    <FunctionImport Name="ppReadServicio" EntitySet="Servicios" ReturnType="Collection(TiendaColchonesDBModel.Servicio)" />
+    <FunctionImport Name="ppReadUsuario" EntitySet="Usuarios" ReturnType="Collection(TiendaColchonesDBModel.Usuario)" />
+    <FunctionImport Name="ppUpdateCotizacion">
+      <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppUpdateCotizacionProducto">
+      <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="targetProduct" Mode="In" Type="Int32" />
+      <Parameter Name="newCantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppUpdateCotizacionServicio">
+      <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="targetServicio" Mode="In" Type="Int32" />
+      <Parameter Name="newCantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppUpdateCuentaCobrar">
+      <Parameter Name="targetFactura" Mode="In" Type="Int32" />
+      <Parameter Name="newEstadoPago" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="ppUpdateFactura">
+      <Parameter Name="targetFactura" Mode="In" Type="Int32" />
+      <Parameter Name="tipoComprobante" Mode="In" Type="String" />
+      <Parameter Name="comprobanteFiscal" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ppUpdatePrecioServicio">
+      <Parameter Name="targetServicio" Mode="In" Type="Int32" />
+      <Parameter Name="newPrecio" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ppUpdateProductoInventario">
+      <Parameter Name="targetProduct" Mode="In" Type="Int32" />
+      <Parameter Name="changeStock" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="ppReadCliente_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="cedula" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="apellido" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="sexo" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="telefono" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="correo" Nullable="false" MaxLength="200" />
+    <Property Type="Boolean" Name="state" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppReadCotizacion_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="cliente" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="tax" Nullable="true" Precision="3" Scale="2" />
+    <Property Type="Decimal" Name="total" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="state" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppReadCotizacionProducto_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="productId" Nullable="true" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppReadCotizacionServicio_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="serviceId" Nullable="true" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppReadCuentaCobrar_Result">
+    <Property Type="Int32" Name="noFactura" Nullable="false" />
+    <Property Type="Decimal" Name="montoDeuda" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="fechaPago" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaLimitePago" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="estadoPago" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppReadFactura_Result">
+    <Property Type="Int32" Name="noFactura" Nullable="false" />
+    <Property Type="Int32" Name="noCotizacion" Nullable="true" />
+    <Property Type="Int32" Name="cliente" Nullable="false" />
+    <Property Type="String" Name="tipoComprobante" Nullable="false" MaxLength="18" />
+    <Property Type="String" Name="comprobanteFiscal" Nullable="false" MaxLength="13" />
+    <Property Type="String" Name="metodoPago" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="state" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppReadProducto_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="productName" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="size" Nullable="false" MaxLength="6" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="Max" />
+    <Property Type="Decimal" Name="productPrice" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Int32" Name="stock" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppReadRol_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="rol" Nullable="false" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="ppReadServicio_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="serviceName" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="Max" />
+    <Property Type="Decimal" Name="servicePrice" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppReadUsuario_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="cedula" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="apellido" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="sexo" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="telefono" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="correo" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="rol" Nullable="false" />
+    <Property Type="Boolean" Name="state" Nullable="false" />
+  </ComplexType>
 </Schema>

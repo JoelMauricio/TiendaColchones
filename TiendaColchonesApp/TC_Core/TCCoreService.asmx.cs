@@ -49,10 +49,10 @@ namespace TC_Core
         }
 
         [WebMethod]
-        public int DeleteRoles(Rol rol)
+        public int DeleteRoles(int rolId)
         {
             log.Info("Se llama el metodo DeleteRoles() del Core");
-            return DAORoles.DeleteRol(rol);
+            return DAORoles.DeleteRol(rolId);
         }
 
 
@@ -86,10 +86,10 @@ namespace TC_Core
         }
 
         [WebMethod]
-        public int DeleteClientees(Cliente cliente)
+        public int DeleteClientees(int clienteId)
         {
             log.Info("Se llama el metodo DeleteClientees() del Core");
-            return DAOCliente.DeleteCliente(cliente);
+            return DAOCliente.DeleteCliente(clienteId);
         }
 
 
@@ -123,10 +123,10 @@ namespace TC_Core
         }
 
         [WebMethod]
-        public int DeleteUsuarioes(Usuario usuario)
+        public int DeleteUsuario(int userId)
         {
             log.Info("Se llama el metodo DeleteUsuarios() del Core");
-            return DAOUsuario.DeleteUsuario(usuario);
+            return DAOUsuario.DeleteUsuario(userId);
         }
 
         /*================================== Producto ===================================*/
@@ -159,10 +159,10 @@ namespace TC_Core
         }
 
         [WebMethod]
-        public int DeleteProductoes(Producto producto)
+        public int DeleteProductoes(int productoId)
         {
             log.Info("Se llama el metodo DeleteProductoes() del Core");
-            return DAOProduto.DeleteProducto(producto);
+            return DAOProduto.DeleteProducto(productoId);
         }
 
 
@@ -196,10 +196,10 @@ namespace TC_Core
         }
 
         [WebMethod]
-        public int DeleteServicioes(Servicio servicio)
+        public int DeleteServicioes(int servicioId)
         {
             log.Info("Se llama el metodo DeleteServicioes() del Core");
-            return DAOServicio.DeleteServicio(servicio);
+            return DAOServicio.DeleteServicio(servicioId);
         }
 
 

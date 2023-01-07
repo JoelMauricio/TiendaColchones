@@ -28,7 +28,8 @@ namespace TC_Core.Controllers
             db.Configuration.ProxyCreationEnabled = false;
             try
             {
-                db.Rols.Add(Rol);
+                //db.Rols.Add(Rol);
+                db.ppInsertRol(Rol.rol1);
                 return db.SaveChanges();
             }
             catch (Exception e)
@@ -45,10 +46,11 @@ namespace TC_Core.Controllers
             return db.SaveChanges();
         }
 
-        static public int DeleteRol(Rol Rol)
+        static public int DeleteRol(int rolId)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            db.Rols.Remove(Rol);
+            //db.Rols.Remove(Rol);
+            db.ppDeleteRol(rolId);
             return db.SaveChanges();
         }
     }

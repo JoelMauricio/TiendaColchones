@@ -23,12 +23,13 @@ namespace TC_Core.Controllers
             return db.Productos.Find(id);
         }
 
-        static public int RegistrarProducto(Producto Producto)
+        static public int RegistrarProducto(Producto P)
         {
             db.Configuration.ProxyCreationEnabled = false;
             try
             {
-                db.Productos.Add(Producto);
+                //db.Productos.Add(Producto);
+                db.ppInsertProducto(P.productName,P.size,P.description,P.productPrice,P.stock);
                 return db.SaveChanges();
             }
             catch (Exception e)
@@ -45,10 +46,10 @@ namespace TC_Core.Controllers
             return db.SaveChanges();
         }
 
-        static public int DeleteProducto(Producto Producto)
+        static public int DeleteProducto(int ProductoId)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            db.Productos.Remove(Producto);
+            db.ppDeleteProducto(ProductoId);
             return db.SaveChanges();
         }
     }

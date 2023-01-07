@@ -230,6 +230,139 @@ warning 6002: The table/view 'TiendaColchonesDB.dbo.Cuentas_Cobrar' does not hav
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="ppDeleteCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetCliente" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppDeleteCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetCotizacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppDeleteCotizacionProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetCotizacion" Type="int" Mode="In" />
+    <Parameter Name="targetProducto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppDeleteCotizacionServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetCotizacion" Type="int" Mode="In" />
+    <Parameter Name="targetServicio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppDeleteCuentaCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetFactura" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppDeleteFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetFactura" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppDeleteProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetProduct" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppDeleteRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetRol" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppDeleteServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetServicio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppDeleteUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppInsertCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+    <Parameter Name="cedula" Type="nvarchar" Mode="In" />
+    <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="apellido" Type="nvarchar" Mode="In" />
+    <Parameter Name="sexo" Type="char" Mode="In" />
+    <Parameter Name="telefono" Type="nvarchar" Mode="In" />
+    <Parameter Name="correo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ppInsertCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cliente" Type="int" Mode="In" />
+    <Parameter Name="subTotal" Type="decimal" Mode="In" />
+    <Parameter Name="tax" Type="decimal" Mode="In" />
+    <Parameter Name="total" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="ppInsertCotizacionProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="noCotizacion" Type="int" Mode="In" />
+    <Parameter Name="productId" Type="int" Mode="In" />
+    <Parameter Name="cantidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppInsertCotizacionServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="noCotizacion" Type="int" Mode="In" />
+    <Parameter Name="serviceId" Type="int" Mode="In" />
+    <Parameter Name="cantidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppInsertCuentaCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="noFactura" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppInsertFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="noCotizacion" Type="int" Mode="In" />
+    <Parameter Name="cliente" Type="int" Mode="In" />
+    <Parameter Name="tipoComprobante" Type="nvarchar" Mode="In" />
+    <Parameter Name="comprobanteFiscal" Type="nvarchar" Mode="In" />
+    <Parameter Name="metodoPago" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ppInsertProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="productName" Type="varchar" Mode="In" />
+    <Parameter Name="size" Type="varchar" Mode="In" />
+    <Parameter Name="description" Type="text" Mode="In" />
+    <Parameter Name="productPrice" Type="decimal" Mode="In" />
+    <Parameter Name="stock" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppInsertRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="rol" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ppInsertServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="serviceName" Type="varchar" Mode="In" />
+    <Parameter Name="description" Type="text" Mode="In" />
+    <Parameter Name="servicePrice" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="ppInsertUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+    <Parameter Name="cedula" Type="nvarchar" Mode="In" />
+    <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="apellido" Type="nvarchar" Mode="In" />
+    <Parameter Name="sexo" Type="char" Mode="In" />
+    <Parameter Name="telefono" Type="nvarchar" Mode="In" />
+    <Parameter Name="correo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ppReadCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ppReadCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ppReadCotizacionProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ppReadCotizacionServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ppReadCuentaCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ppReadFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ppReadProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ppReadRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ppReadServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ppReadUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ppUpdateCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetCotizacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppUpdateCotizacionProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetCotizacion" Type="int" Mode="In" />
+    <Parameter Name="targetProduct" Type="int" Mode="In" />
+    <Parameter Name="newCantidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppUpdateCotizacionServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetCotizacion" Type="int" Mode="In" />
+    <Parameter Name="targetServicio" Type="int" Mode="In" />
+    <Parameter Name="newCantidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppUpdateCuentaCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetFactura" Type="int" Mode="In" />
+    <Parameter Name="newEstadoPago" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="ppUpdateFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetFactura" Type="int" Mode="In" />
+    <Parameter Name="tipoComprobante" Type="nvarchar" Mode="In" />
+    <Parameter Name="comprobanteFiscal" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ppUpdatePrecioServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetServicio" Type="int" Mode="In" />
+    <Parameter Name="newPrecio" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="ppUpdateProductoInventario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="targetProduct" Type="int" Mode="In" />
+    <Parameter Name="changeStock" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="TiendaColchonesDBModelStoreContainer">
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" Schema="dbo" store:Type="Tables" />
