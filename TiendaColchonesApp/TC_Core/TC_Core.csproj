@@ -97,6 +97,9 @@
     </Compile>
     <Compile Include="Controllers\DAOCliente.cs" />
     <Compile Include="Controllers\DAOCotizacion.cs" />
+    <Compile Include="Controllers\DAOCotizacionProducto.cs" />
+    <Compile Include="Controllers\DAOCotizacionServicio.cs" />
+    <Compile Include="Controllers\DAOCuentasCobrar.cs" />
     <Compile Include="Controllers\DAOFactura.cs" />
     <Compile Include="Controllers\DAOProduto.cs" />
     <Compile Include="Controllers\DAORoles.cs" />

@@ -274,5 +274,77 @@ namespace TC_Core
             log.Info("Se llama el metodo DeleteFacturaes() del Core");
             return DAOFactura.DeleteFactura(FacturaId);
         }
+
+        /*================================== Cotizacion_Producto ===================================*/
+        [WebMethod]
+        public List<Cotizacion_Producto> GetCotizacionesProductos()
+        {
+            log.Info("Se llama el metodo GetCotizaciones() del Core");
+            return DAOCotizacionProducto.GetCotizacion_Productos().ToList();
+        }
+
+        [WebMethod]
+        public Cotizacion_Producto GetCotizacionProdcuto(int id)
+        {
+            log.Info("Se llama el metodo GetCotizacion() del Core");
+            return DAOCotizacionProducto.GetCotizacion_Producto(id);
+        }
+
+        [WebMethod]
+        public int RegistrarCotizacionProducto(Cotizacion_Producto c_p)
+        {
+            log.Info("Se llama el metodo RegistrarCotizaciones() del Core");
+            return DAOCotizacionProducto.RegistrarCotizacion_Producto(c_p);
+        }
+
+        [WebMethod]
+        public int UpdateCotizacionProducto(Cotizacion_Producto c_p)
+        {
+            log.Info("Se llama el metodo UpdateCotizaciones() del Core");
+            return DAOCotizacionProducto.UpdateCotizacion_Producto(c_p);
+        }
+
+        [WebMethod]
+        public int DeleteCotizacionProducto(Cotizacion_Producto c_p)
+        {
+            log.Info("Se llama el metodo DeleteCotizaciones() del Core");
+            return DAOCotizacionProducto.DeleteCotizacion_Producto(c_p);
+        }
+
+        /*================================== Cuentas_Cobrar ===================================*/
+        [WebMethod]
+        public List<Cuentas_Cobrar> GetCuentasCobrar()
+        {
+            log.Info("Se llama el metodo GetCotizaciones() del Core");
+            return DAOCuentasCobrar.GetCuentas_Cobrars().ToList();
+        }
+
+        [WebMethod]
+        public Cuentas_Cobrar GetCuentaCobrar(int id)
+        {
+            log.Info("Se llama el metodo GetCotizacion() del Core");
+            return DAOCuentasCobrar.GetCuentas_Cobrar(id);
+        }
+
+        [WebMethod]
+        public int RegistrarCuentaCobrar(Cuentas_Cobrar cc)
+        {
+            log.Info("Se llama el metodo RegistrarCotizaciones() del Core");
+            return DAOCuentasCobrar.RegistrarCuentas_Cobrar(cc);
+        }
+
+        [WebMethod]
+        public int UpdateCotizacionServicio(Cuentas_Cobrar cc)
+        {
+            log.Info("Se llama el metodo UpdateCotizaciones() del Core");
+            return DAOCuentasCobrar.UpdateCuentas_Cobrar(cc);
+        }
+
+        [WebMethod]
+        public int DeleteCotizacionServicio(Cuentas_Cobrar cc)
+        {
+            log.Info("Se llama el metodo DeleteCotizaciones() del Core");
+            return DAOCuentasCobrar.DeleteCuentas_Cobrar(cc);
+        }
     }
 }
