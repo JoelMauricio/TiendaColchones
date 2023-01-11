@@ -381,3 +381,37 @@ go
 --exec ppReadFactura
 --exec ppInsertCuentaCobrar 1 
 --exec ppReadCuentaCobrar
+
+/*=================================================			Actualizaciones necesarioas		=========================================================*/
+
+Create procedure ppGetCotizacionProducto
+	@noCotizacion int,
+	@idProducto int
+as
+	select * from Cotizacion_Producto where noCotizacion =@noCotizacion and productId = @idProducto
+go
+
+Create procedure ppGetProductsCotizacion
+	@noCotizacion int
+as
+	select * from Cotizacion_Producto where noCotizacion =@noCotizacion
+go
+
+Create procedure ppGetCotizacionServicio
+	@noCotizacion int,
+	@idServicio int
+as
+	select * from Cotizacion_Servicio where noCotizacion =@noCotizacion and serviceId = @idServicio
+go
+
+Create procedure ppGetServicioCotizacion
+	@noCotizacion int
+as
+	select * from Cotizacion_Servicio where noCotizacion = @noCotizacion
+go
+
+create procedure ppGetCuentaCobrar
+	@noFactura int
+as
+	select * from Cuentas_Cobrar where noFactura = @noFactura
+go
