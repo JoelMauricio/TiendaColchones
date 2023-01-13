@@ -262,6 +262,23 @@ warning 6002: The table/view 'TiendaColchonesDB.dbo.Cuentas_Cobrar' does not hav
   <Function Name="ppDeleteUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="int" Mode="In" />
   </Function>
+  <Function Name="ppGetCotizacionProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="noCotizacion" Type="int" Mode="In" />
+    <Parameter Name="idProducto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppGetCotizacionServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="noCotizacion" Type="int" Mode="In" />
+    <Parameter Name="idServicio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppGetCuentaCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="noFactura" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppGetProductsCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="noCotizacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ppGetServicioCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="noCotizacion" Type="int" Mode="In" />
+  </Function>
   <Function Name="ppInsertCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="username" Type="nvarchar" Mode="In" />
     <Parameter Name="password" Type="nvarchar" Mode="In" />

@@ -422,6 +422,23 @@
       <Parameter Name="targetProduct" Mode="In" Type="Int32" />
       <Parameter Name="changeStock" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="ppGetCotizacionProducto" EntitySet="Cotizacion_Producto" ReturnType="Collection(TiendaColchonesDBModel.Cotizacion_Producto)">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="idProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppGetCotizacionServicio" EntitySet="Cotizacion_Servicio" ReturnType="Collection(TiendaColchonesDBModel.Cotizacion_Servicio)">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="idServicio" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppGetCuentaCobrar" EntitySet="Cuentas_Cobrar" ReturnType="Collection(TiendaColchonesDBModel.Cuentas_Cobrar)">
+      <Parameter Name="noFactura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppGetProductsCotizacion" EntitySet="Cotizacion_Producto" ReturnType="Collection(TiendaColchonesDBModel.Cotizacion_Producto)">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppGetServicioCotizacion" EntitySet="Cotizacion_Servicio" ReturnType="Collection(TiendaColchonesDBModel.Cotizacion_Servicio)">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="ppReadCliente_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
@@ -503,5 +520,36 @@
     <Property Type="String" Name="correo" Nullable="false" MaxLength="200" />
     <Property Type="Int32" Name="rol" Nullable="false" />
     <Property Type="Boolean" Name="state" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppGetCotizacionProducto_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="productId" Nullable="true" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppGetCotizacionServicio_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="serviceId" Nullable="true" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppGetCuentaCobrar_Result">
+    <Property Type="Int32" Name="noFactura" Nullable="false" />
+    <Property Type="Decimal" Name="montoDeuda" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="fechaPago" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaLimitePago" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="estadoPago" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppGetProductsCotizacion_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="productId" Nullable="true" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppGetServicioCotizacion_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="serviceId" Nullable="true" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
   </ComplexType>
 </Schema>

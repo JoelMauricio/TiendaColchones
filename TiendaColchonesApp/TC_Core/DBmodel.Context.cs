@@ -548,5 +548,111 @@ namespace TC_Core
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ppUpdateProductoInventario", targetProductParameter, changeStockParameter);
         }
+    
+        public virtual ObjectResult<Cotizacion_Producto> ppGetCotizacionProducto(Nullable<int> noCotizacion, Nullable<int> idProducto)
+        {
+            var noCotizacionParameter = noCotizacion.HasValue ?
+                new ObjectParameter("noCotizacion", noCotizacion) :
+                new ObjectParameter("noCotizacion", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("idProducto", idProducto) :
+                new ObjectParameter("idProducto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cotizacion_Producto>("ppGetCotizacionProducto", noCotizacionParameter, idProductoParameter);
+        }
+    
+        public virtual ObjectResult<Cotizacion_Producto> ppGetCotizacionProducto(Nullable<int> noCotizacion, Nullable<int> idProducto, MergeOption mergeOption)
+        {
+            var noCotizacionParameter = noCotizacion.HasValue ?
+                new ObjectParameter("noCotizacion", noCotizacion) :
+                new ObjectParameter("noCotizacion", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("idProducto", idProducto) :
+                new ObjectParameter("idProducto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cotizacion_Producto>("ppGetCotizacionProducto", mergeOption, noCotizacionParameter, idProductoParameter);
+        }
+    
+        public virtual ObjectResult<Cotizacion_Servicio> ppGetCotizacionServicio(Nullable<int> noCotizacion, Nullable<int> idServicio)
+        {
+            var noCotizacionParameter = noCotizacion.HasValue ?
+                new ObjectParameter("noCotizacion", noCotizacion) :
+                new ObjectParameter("noCotizacion", typeof(int));
+    
+            var idServicioParameter = idServicio.HasValue ?
+                new ObjectParameter("idServicio", idServicio) :
+                new ObjectParameter("idServicio", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cotizacion_Servicio>("ppGetCotizacionServicio", noCotizacionParameter, idServicioParameter);
+        }
+    
+        public virtual ObjectResult<Cotizacion_Servicio> ppGetCotizacionServicio(Nullable<int> noCotizacion, Nullable<int> idServicio, MergeOption mergeOption)
+        {
+            var noCotizacionParameter = noCotizacion.HasValue ?
+                new ObjectParameter("noCotizacion", noCotizacion) :
+                new ObjectParameter("noCotizacion", typeof(int));
+    
+            var idServicioParameter = idServicio.HasValue ?
+                new ObjectParameter("idServicio", idServicio) :
+                new ObjectParameter("idServicio", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cotizacion_Servicio>("ppGetCotizacionServicio", mergeOption, noCotizacionParameter, idServicioParameter);
+        }
+    
+        public virtual ObjectResult<Cuentas_Cobrar> ppGetCuentaCobrar(Nullable<int> noFactura)
+        {
+            var noFacturaParameter = noFactura.HasValue ?
+                new ObjectParameter("noFactura", noFactura) :
+                new ObjectParameter("noFactura", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cuentas_Cobrar>("ppGetCuentaCobrar", noFacturaParameter);
+        }
+    
+        public virtual ObjectResult<Cuentas_Cobrar> ppGetCuentaCobrar(Nullable<int> noFactura, MergeOption mergeOption)
+        {
+            var noFacturaParameter = noFactura.HasValue ?
+                new ObjectParameter("noFactura", noFactura) :
+                new ObjectParameter("noFactura", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cuentas_Cobrar>("ppGetCuentaCobrar", mergeOption, noFacturaParameter);
+        }
+    
+        public virtual ObjectResult<Cotizacion_Producto> ppGetProductsCotizacion(Nullable<int> noCotizacion)
+        {
+            var noCotizacionParameter = noCotizacion.HasValue ?
+                new ObjectParameter("noCotizacion", noCotizacion) :
+                new ObjectParameter("noCotizacion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cotizacion_Producto>("ppGetProductsCotizacion", noCotizacionParameter);
+        }
+    
+        public virtual ObjectResult<Cotizacion_Producto> ppGetProductsCotizacion(Nullable<int> noCotizacion, MergeOption mergeOption)
+        {
+            var noCotizacionParameter = noCotizacion.HasValue ?
+                new ObjectParameter("noCotizacion", noCotizacion) :
+                new ObjectParameter("noCotizacion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cotizacion_Producto>("ppGetProductsCotizacion", mergeOption, noCotizacionParameter);
+        }
+    
+        public virtual ObjectResult<Cotizacion_Servicio> ppGetServicioCotizacion(Nullable<int> noCotizacion)
+        {
+            var noCotizacionParameter = noCotizacion.HasValue ?
+                new ObjectParameter("noCotizacion", noCotizacion) :
+                new ObjectParameter("noCotizacion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cotizacion_Servicio>("ppGetServicioCotizacion", noCotizacionParameter);
+        }
+    
+        public virtual ObjectResult<Cotizacion_Servicio> ppGetServicioCotizacion(Nullable<int> noCotizacion, MergeOption mergeOption)
+        {
+            var noCotizacionParameter = noCotizacion.HasValue ?
+                new ObjectParameter("noCotizacion", noCotizacion) :
+                new ObjectParameter("noCotizacion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cotizacion_Servicio>("ppGetServicioCotizacion", mergeOption, noCotizacionParameter);
+        }
     }
 }

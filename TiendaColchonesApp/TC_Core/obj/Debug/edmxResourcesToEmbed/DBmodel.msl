@@ -159,5 +159,10 @@
     <FunctionImportMapping FunctionImportName="ppUpdateFactura" FunctionName="TiendaColchonesDBModel.Store.ppUpdateFactura" />
     <FunctionImportMapping FunctionImportName="ppUpdatePrecioServicio" FunctionName="TiendaColchonesDBModel.Store.ppUpdatePrecioServicio" />
     <FunctionImportMapping FunctionImportName="ppUpdateProductoInventario" FunctionName="TiendaColchonesDBModel.Store.ppUpdateProductoInventario" />
+    <FunctionImportMapping FunctionImportName="ppGetCotizacionProducto" FunctionName="TiendaColchonesDBModel.Store.ppGetCotizacionProducto" />
+    <FunctionImportMapping FunctionImportName="ppGetCotizacionServicio" FunctionName="TiendaColchonesDBModel.Store.ppGetCotizacionServicio" />
+    <FunctionImportMapping FunctionImportName="ppGetCuentaCobrar" FunctionName="TiendaColchonesDBModel.Store.ppGetCuentaCobrar" />
+    <FunctionImportMapping FunctionImportName="ppGetProductsCotizacion" FunctionName="TiendaColchonesDBModel.Store.ppGetProductsCotizacion" />
+    <FunctionImportMapping FunctionImportName="ppGetServicioCotizacion" FunctionName="TiendaColchonesDBModel.Store.ppGetServicioCotizacion" />
   </EntityContainerMapping>
 </Mapping>

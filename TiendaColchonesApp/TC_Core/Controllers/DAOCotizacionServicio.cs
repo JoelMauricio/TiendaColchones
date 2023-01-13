@@ -17,11 +17,17 @@ namespace TC_Core.Controllers
             return db.Cotizacion_Servicio.ToList();
         }
 
-        static public Cotizacion_Servicio GetCotizacion_Servicio(int id)
+        static public List<Cotizacion_Servicio> GetCotizacion_Servicios_PerCotizacion(int noCot)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            return db.ppGetServicioCotizacion(noCot).ToList();
+        }
+
+        static public Cotizacion_Servicio GetCotizacion_Servicio(int noCot, int idSer)
         {
             
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Cotizacion_Servicio.Find(id);
+            return db.ppGetCotizacionServicio(noCot,idSer).First();
         }
 
         static public int RegistrarCotizacion_Servicio(Cotizacion_Servicio C_S)
