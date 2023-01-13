@@ -7,6 +7,7 @@ namespace TC_Core.Controllers
 {
     public class DAOCotizacionServicio
     {
+
         static TiendaColchonesDBEntities db = new TiendaColchonesDBEntities();
 
         // GET: api/Cotizacion_Productos
@@ -18,6 +19,7 @@ namespace TC_Core.Controllers
 
         static public Cotizacion_Servicio GetCotizacion_Servicio(int id)
         {
+            
             db.Configuration.ProxyCreationEnabled = false;
             return db.Cotizacion_Servicio.Find(id);
         }

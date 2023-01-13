@@ -95,3 +95,13 @@
 2023-01-07 11:36:29,743 [36] INFO TC_Core.TCCoreService - Se llama el metodo GetFacturaes() del Core
 2023-01-07 11:36:43,783 [36] INFO TC_Core.TCCoreService - Se llama el metodo DeleteFacturaes() del Core
 2023-01-07 11:36:48,071 [39] INFO TC_Core.TCCoreService - Se llama el metodo GetFacturaes() del Core
+2023-01-11 15:27:03,426 [8] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-11 15:27:08,522 [9] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-11 15:27:12,522 [12] INFO TC_Core.TCCoreService - Se llama el metodo GetFacturaes() del Core
+2023-01-12 09:47:26,864 [12] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-12 09:52:30,312 [13] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacion() del Core
+2023-01-12 09:52:31,155 [13] ERROR TC_Core.Controllers.DAOCotizacionServicio - No se pudieron recuperar los registros de la cotizacion_servicio
+2023-01-12 09:55:50,534 [29] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacion() del Core
+2023-01-12 09:58:35,175 [34] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacion() del Core
+2023-01-12 10:03:02,557 [10] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacion() del Core
+2023-01-12 10:05:10,255 [39] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacion() del Core

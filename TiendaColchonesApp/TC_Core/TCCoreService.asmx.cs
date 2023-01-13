@@ -334,17 +334,71 @@ namespace TC_Core
         }
 
         [WebMethod]
-        public int UpdateCotizacionServicio(Cuentas_Cobrar cc)
+        public int UpdateCuentaCobrar(Cuentas_Cobrar cc)
         {
             log.Info("Se llama el metodo UpdateCotizaciones() del Core");
             return DAOCuentasCobrar.UpdateCuentas_Cobrar(cc);
         }
 
         [WebMethod]
-        public int DeleteCotizacionServicio(Cuentas_Cobrar cc)
+        public int DeleteCuentaCobrar(Cuentas_Cobrar cc)
         {
             log.Info("Se llama el metodo DeleteCotizaciones() del Core");
             return DAOCuentasCobrar.DeleteCuentas_Cobrar(cc);
+        }
+
+        /*================================== Cotizacion_Servicio ===================================*/
+        readonly Cotizacion_Servicio dummyCS = new Cotizacion_Servicio();
+
+        [WebMethod]
+        public List<Cotizacion_Servicio> GetCotizacionesServicios()
+        {
+            log.Info("Se llama el metodo GetCotizaciones() del Core");
+            try
+            {
+                return DAOCotizacionServicio.GetCotizacion_Servicios().ToList();
+            }
+            catch (Exception)
+            {
+                List<Cotizacion_Servicio> dummyCSList = new List<Cotizacion_Servicio>();
+                return  dummyCSList;
+            }
+        }
+
+        [WebMethod]
+        public Cotizacion_Servicio GetCotizacionServicio(int id)
+        {
+            log.Info("Se llama el metodo GetCotizacion() del Core"); try
+            {
+                log.Info("Se intenta traer los datos");
+                return DAOCotizacionServicio.GetCotizacion_Servicio(id);
+            }
+            catch (Exception)
+            {
+                log.Error("Ha ocurrido un error al traer los datos de cotizacion_servicio");
+                return dummyCS;
+            }
+        }
+
+        [WebMethod]
+        public int RegistrarCotizacionServicio(Cotizacion_Servicio c_p)
+        {
+            log.Info("Se llama el metodo RegistrarCotizaciones() del Core");
+            return DAOCotizacionServicio.RegistrarCotizacion_Servicio(c_p);
+        }
+
+        [WebMethod]
+        public int UpdateCotizacionServicio(Cotizacion_Servicio c_p)
+        {
+            log.Info("Se llama el metodo UpdateCotizaciones() del Core");
+            return DAOCotizacionServicio.UpdateCotizacion_Servicio(c_p);
+        }
+
+        [WebMethod]
+        public int DeleteCotizacionServicio(Cotizacion_Servicio c_p)
+        {
+            log.Info("Se llama el metodo DeleteCotizaciones() del Core");
+            return DAOCotizacionServicio.DeleteCotizacion_Servicio(c_p);
         }
     }
 }
