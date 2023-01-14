@@ -20,8 +20,8 @@ namespace TC_Core
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         /*================================== Rol ===================================*/
-        readonly Rol dummyR = new Rol();
-        readonly List<Rol> dummyRList = new List<Rol>();
+        //readonly Rol dummyR = new Rol();
+        //readonly List<Rol> dummyRList = new List<Rol>();
 
         [WebMethod]
         public List<Rol> GetRoles()
@@ -35,7 +35,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer los registros de los roles");
-                return dummyRList;
+                return null;
             }
         }
 
@@ -51,7 +51,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Occurrio un error al traer el registro de Rol deseado");
-                return dummyR;
+                return null;
             }
         }
 
@@ -78,8 +78,8 @@ namespace TC_Core
 
 
         /*================================== Cliente ===================================*/
-        readonly Cliente dummyCl = new Cliente();
-        readonly List<Cliente> dummyClList = new List<Cliente>();
+        //readonly Cliente dummyCl = new Cliente();
+        //readonly List<Cliente> dummyClList = new List<Cliente>();
 
         [WebMethod]
         public List<Cliente> GetClientes()
@@ -93,7 +93,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer los registros de los clientes");
-                return dummyClList;
+                return null;
             }
         }
 
@@ -109,7 +109,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer el registro de Cliente deseado");
-                return dummyCl;
+                return null;
             }
         }
 
@@ -136,8 +136,8 @@ namespace TC_Core
 
 
         /*================================== Usuario ===================================*/
-        readonly Usuario dummyU = new Usuario();
-        readonly List<Usuario> dummyUList = new List<Usuario>();
+        //readonly Usuario dummyU = new Usuario();
+        //readonly List<Usuario> dummyUList = new List<Usuario>();
 
         [WebMethod]
         public List<Usuario> GetUsuarios()
@@ -151,7 +151,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer los registros de los Usuarios");
-                return dummyUList;
+                return null;
             }
         }
 
@@ -167,7 +167,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer el registro de Usuario deseado");
-                return dummyU;
+                return null;
             }
         }
 
@@ -193,8 +193,8 @@ namespace TC_Core
         }
 
         /*================================== Producto ===================================*/
-        readonly Producto dummyP = new Producto();
-        readonly List<Producto> dummyPList = new List<Producto>();
+        //readonly Producto dummyP = new Producto();
+        //readonly List<Producto> dummyPList = new List<Producto>();
 
         [WebMethod]
         public List<Producto> GetProductos()
@@ -208,7 +208,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer los registros de los productos");
-                return dummyPList;
+                return null;
             }
         }
 
@@ -224,7 +224,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer el registro de producto deseado");
-                return dummyP;
+                return null;
             }
         }
         
@@ -251,8 +251,8 @@ namespace TC_Core
 
 
         /*================================== Servicio ===================================*/
-        readonly Servicio dummyS = new Servicio();
-        readonly List<Servicio> dummySList = new List<Servicio>();
+        //readonly Servicio dummyS = new Servicio();
+        //readonly List<Servicio> dummySList = new List<Servicio>();
 
         [WebMethod]
         public List<Servicio> GetServicios()
@@ -266,7 +266,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer los registros de los Servicios");
-                return dummySList;
+                return null;
             }
         }
 
@@ -282,7 +282,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer el registro de Servicio deseado");
-                return dummyS;
+                return null;
             }
         }
 
@@ -309,8 +309,8 @@ namespace TC_Core
 
 
         /*================================== Cotizacion ===================================*/
-        readonly Cotizacion dummyC = new Cotizacion();
-        readonly List<Cotizacion> dummyCList = new List<Cotizacion>();
+        //readonly Cotizacion dummyC = new Cotizacion();
+        //readonly List<Cotizacion> dummyCList = new List<Cotizacion>();
 
         [WebMethod]
         public List<Cotizacion> GetCotizaciones()
@@ -324,7 +324,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer lso registros de las cotizaciones");
-                return dummyCList;
+                return null;
             }
         }
 
@@ -340,7 +340,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer el registro de Cotizacion deseado");
-                return dummyC;
+                return null;
             }
         }
 
@@ -366,8 +366,8 @@ namespace TC_Core
         }
 
         /*================================== Factura ===================================*/
-        readonly Factura dummyF = new Factura();
-        readonly List<Factura> dummyFList = new List<Factura>();
+        //readonly Factura dummyF = new Factura();
+        //readonly List<Factura> dummyFList = new List<Factura>();
 
         [WebMethod]
         public List<Factura> GetFacturaes()
@@ -381,7 +381,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer los registros de las Facturas");
-                return dummyFList;
+                return null;
             }
         }
 
@@ -397,7 +397,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer el registro de Factura deseado");
-                return dummyF;
+                return null;
             }
         }
 
@@ -424,8 +424,8 @@ namespace TC_Core
         }
 
         /*================================== Cotizacion_Producto ===================================*/
-        readonly Cotizacion_Producto dummyCP = new Cotizacion_Producto();
-        readonly List<Cotizacion_Producto> dummyCPList = new List<Cotizacion_Producto>();
+        //readonly Cotizacion_Producto dummyCP = new Cotizacion_Producto();
+        //readonly List<Cotizacion_Producto> dummyCPList = new List<Cotizacion_Producto>();
 
         [WebMethod]
         public List<Cotizacion_Producto> GetCotizacionesProductos()
@@ -439,23 +439,40 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer los registros de Cotizacion_Producto");
-                return dummyCPList;
+                return null;
+            }
+        }
+
+
+        [WebMethod]
+        public List<Cotizacion_Producto> GetProductosPorCotizacion(int noCotizacion)
+        {
+            log.Info("Se llama el metodo GetServiciosPorCotizacion() del Core");
+            try
+            {
+                log.Info("Se intenta traer los registros del metodo GetCotizacion_Servicio_PerCotizacion");
+                return DAOCotizacionProducto.GetCotizacion_Productos_PerCotizacion(noCotizacion);
+            }
+            catch (Exception)
+            {
+                log.Error("Ocurrio un error al registros del metodo GetCotizacion_Servicio_PerCotizacion");
+                return null;
             }
         }
 
         [WebMethod]
-        public Cotizacion_Producto GetCotizacionProdcuto(int id)
+        public Cotizacion_Producto GetCotizacionProdcuto(int noCotizacion, int idProducto)
         {
             log.Info("Se llama el metodo GetCotizacion() del Core");
             try
             {
                 log.Info("Se intenta traer el registro de Cotizacion_Producto deseado");
-                return DAOCotizacionProducto.GetCotizacion_Producto(id);
+                return DAOCotizacionProducto.GetCotizacion_Producto(noCotizacion,idProducto);
             }
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer el registro de Cotizacion_Prodcucto deseado");
-                return dummyCP;
+                return null;
             }
         }
 
@@ -481,8 +498,8 @@ namespace TC_Core
         }
 
         /*================================== Cuentas_Cobrar ===================================*/
-        readonly Cuentas_Cobrar dummyCC = new Cuentas_Cobrar();
-        readonly List<Cuentas_Cobrar> dummyCCList = new List<Cuentas_Cobrar>();
+        //readonly Cuentas_Cobrar dummyCC = new Cuentas_Cobrar();
+        //readonly List<Cuentas_Cobrar> dummyCCList = new List<Cuentas_Cobrar>();
 
         [WebMethod]
         public List<Cuentas_Cobrar> GetCuentasCobrar()
@@ -496,23 +513,23 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer los registros de Cuentas_Cobrar");
-                return dummyCCList;
+                return null;
             }
         }
 
         [WebMethod]
-        public Cuentas_Cobrar GetCuentaCobrar(int id)
+        public Cuentas_Cobrar GetCuentaCobrar(int noFactura)
         {
             log.Info("Se llama el metodo GetCotizacion() del Core");
             try
             {
                 log.Info("Se intenta traer el registro de Cuentas_Cobrar deseado");
-                return DAOCuentasCobrar.GetCuentas_Cobrar(id);
+                return DAOCuentasCobrar.GetCuentas_Cobrar(noFactura);
             }
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer el registro de Cuentas_Cobrar deseado");
-                return dummyCC;
+                return null;
             }
         }
 
@@ -538,8 +555,8 @@ namespace TC_Core
         }
 
         /*================================== Cotizacion_Servicio ===================================*/
-        readonly Cotizacion_Servicio dummyCS = new Cotizacion_Servicio();
-        readonly List<Cotizacion_Servicio> dummyCSList = new List<Cotizacion_Servicio>();
+        //readonly Cotizacion_Servicio dummyCS = new Cotizacion_Servicio();
+        //readonly List<Cotizacion_Servicio> dummyCSList = new List<Cotizacion_Servicio>();
 
         [WebMethod]
         public List<Cotizacion_Servicio> GetCotizacionesServicios()
@@ -553,7 +570,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al traer los registros del metodo GetCotizacion_Servicio");
-                return  dummyCSList;
+                return  null;
             }
         }
 
@@ -569,7 +586,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ocurrio un error al registros del metodo GetCotizacion_Servicio_PerCotizacion");
-                return dummyCSList;
+                return null;
             }
         }
 
@@ -585,7 +602,7 @@ namespace TC_Core
             catch (Exception)
             {
                 log.Error("Ha ocurrido un error al traer los datos de cotizacion_servicio");
-                return dummyCS;
+                return null;
             }
         }
 

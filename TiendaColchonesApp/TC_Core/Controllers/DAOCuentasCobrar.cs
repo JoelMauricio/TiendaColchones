@@ -16,10 +16,10 @@ namespace TC_Core.Controllers
             return db.Cuentas_Cobrar.ToList();
         }
 
-        static public Cuentas_Cobrar GetCuentas_Cobrar(int id)
+        static public Cuentas_Cobrar GetCuentas_Cobrar(int noFactura)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Cuentas_Cobrar.Find(id);
+            return db.ppGetCuentaCobrar(noFactura).First();
         }
 
         static public int RegistrarCuentas_Cobrar(Cuentas_Cobrar CC)

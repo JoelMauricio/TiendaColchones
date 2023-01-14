@@ -16,10 +16,16 @@ namespace TC_Core.Controllers
             return db.Cotizacion_Producto.ToList();
         }
 
-        static public Cotizacion_Producto GetCotizacion_Producto(int id)
+        static public List<Cotizacion_Producto> GetCotizacion_Productos_PerCotizacion(int noCot)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Cotizacion_Producto.Find(id);
+            return db.ppGetProductsCotizacion(noCot).ToList();
+        }
+
+        static public Cotizacion_Producto GetCotizacion_Producto(int noCotizacion, int idProducto)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            return db.ppGetCotizacionProducto(noCotizacion, idProducto).First();
         }
 
         static public int RegistrarCotizacion_Producto(Cotizacion_Producto C_P)
