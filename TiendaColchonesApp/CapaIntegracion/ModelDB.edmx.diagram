@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c093334d6bf440318bdc74f7cce8b911" Name="Diagram1">
+        <EntityTypeShape EntityType="CITiendaDBModel.Cliente" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITiendaDBModel.Cotizacion" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITiendaDBModel.Factura" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITiendaDBModel.Producto" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITiendaDBModel.Rol" Width="1.5" PointX="9.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITiendaDBModel.Servicio" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITiendaDBModel.Usuario" Width="1.5" PointX="12" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITiendaDBModel.Cotizacion_Producto" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITiendaDBModel.Cotizacion_Servicio" Width="1.5" PointX="8.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITiendaDBModel.Cuentas_Cobrar" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="CITiendaDBModel.FK__Cotizacio__clien__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="CITiendaDBModel.FK__Factura__cliente__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="CITiendaDBModel.FK__Cotizacio__noCot__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="CITiendaDBModel.FK__Cotizacio__noCot__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="CITiendaDBModel.FK__Factura__noCotiz__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="CITiendaDBModel.FK__Cuentas_C__noFac__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="CITiendaDBModel.FK__Cotizacio__produ__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="CITiendaDBModel.FK__Usuario__rol__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="CITiendaDBModel.FK__Cotizacio__servi__5812160E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

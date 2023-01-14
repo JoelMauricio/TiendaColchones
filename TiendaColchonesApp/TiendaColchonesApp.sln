@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProbardorCore", "ProbardorC
 		{283B415E-A252-40DE-888C-0CE70BA5A4DE} = {283B415E-A252-40DE-888C-0CE70BA5A4DE}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaIntegracion", "CapaIntegracion\CapaIntegracion.csproj", "{B7E59DB5-62CE-4049-B1D1-E9AE15A73604}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{A7857711-0B36-47AB-B8C7-B6665A05FE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7857711-0B36-47AB-B8C7-B6665A05FE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7857711-0B36-47AB-B8C7-B6665A05FE51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7E59DB5-62CE-4049-B1D1-E9AE15A73604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7E59DB5-62CE-4049-B1D1-E9AE15A73604}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7E59DB5-62CE-4049-B1D1-E9AE15A73604}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7E59DB5-62CE-4049-B1D1-E9AE15A73604}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

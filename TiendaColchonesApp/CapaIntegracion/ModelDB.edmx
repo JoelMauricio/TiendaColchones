@@ -1,0 +1,1222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CITiendaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="cedula" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="apellido" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="sexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="correo" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="state" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cotizacion">
+          <Key>
+            <PropertyRef Name="noCotizacion" />
+          </Key>
+          <Property Name="noCotizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cliente" Type="int" Nullable="false" />
+          <Property Name="subTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="tax" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="created_at" Type="datetime" />
+          <Property Name="state" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\MAURI\TIENDACOLCHONES\TIENDACOLCHONESAPP\CAPAINTEGRACION\APP_DATA\CITIENDADB.MDF.dbo.Cotizacion_Producto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Cotizacion_Producto">
+          <Key>
+            <PropertyRef Name="noCotizacion" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="subTotal" />
+          </Key>
+          <Property Name="noCotizacion" Type="int" Nullable="false" />
+          <Property Name="productId" Type="int" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="subTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\MAURI\TIENDACOLCHONES\TIENDACOLCHONESAPP\CAPAINTEGRACION\APP_DATA\CITIENDADB.MDF.dbo.Cotizacion_Servicio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Cotizacion_Servicio">
+          <Key>
+            <PropertyRef Name="noCotizacion" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="subTotal" />
+          </Key>
+          <Property Name="noCotizacion" Type="int" Nullable="false" />
+          <Property Name="serviceId" Type="int" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="subTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\MAURI\TIENDACOLCHONES\TIENDACOLCHONESAPP\CAPAINTEGRACION\APP_DATA\CITIENDADB.MDF.dbo.Cuentas_Cobrar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Cuentas_Cobrar">
+          <Key>
+            <PropertyRef Name="noFactura" />
+            <PropertyRef Name="estadoPago" />
+          </Key>
+          <Property Name="noFactura" Type="int" Nullable="false" />
+          <Property Name="montoDeuda" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="fechaPago" Type="datetime" />
+          <Property Name="fechaLimitePago" Type="datetime" />
+          <Property Name="estadoPago" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="noFactura" />
+          </Key>
+          <Property Name="noFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="noCotizacion" Type="int" />
+          <Property Name="cliente" Type="int" Nullable="false" />
+          <Property Name="tipoComprobante" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="comprobanteFiscal" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="metodoPago" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="created_at" Type="datetime" />
+          <Property Name="state" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productName" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="size" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="productPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="stock" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rol" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serviceName" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="servicePrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="cedula" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="apellido" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="sexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="correo" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="rol" Type="int" Nullable="false" />
+          <Property Name="state" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Cotizacio__clien__59FA5E80">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cotizacion">
+              <PropertyRef Name="cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cotizacio__noCot__571DF1D5">
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="1" />
+          <End Role="Cotizacion_Producto" Type="Self.Cotizacion_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cotizacion">
+              <PropertyRef Name="noCotizacion" />
+            </Principal>
+            <Dependent Role="Cotizacion_Producto">
+              <PropertyRef Name="noCotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cotizacio__noCot__59063A47">
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="1" />
+          <End Role="Cotizacion_Servicio" Type="Self.Cotizacion_Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cotizacion">
+              <PropertyRef Name="noCotizacion" />
+            </Principal>
+            <Dependent Role="Cotizacion_Servicio">
+              <PropertyRef Name="noCotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cotizacio__produ__5629CD9C">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+          <End Role="Cotizacion_Producto" Type="Self.Cotizacion_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cotizacion_Producto">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cotizacio__servi__5812160E">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+          <End Role="Cotizacion_Servicio" Type="Self.Cotizacion_Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cotizacion_Servicio">
+              <PropertyRef Name="serviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cuentas_C__noFac__5CD6CB2B">
+          <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+          <End Role="Cuentas_Cobrar" Type="Self.Cuentas_Cobrar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="noFactura" />
+            </Principal>
+            <Dependent Role="Cuentas_Cobrar">
+              <PropertyRef Name="noFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Factura__cliente__5BE2A6F2">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Factura__noCotiz__5AEE82B9">
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="0..1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cotizacion">
+              <PropertyRef Name="noCotizacion" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="noCotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario__rol__5535A963">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ppDeleteCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetCliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppDeleteCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetCotizacion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppDeleteCotizacionProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetCotizacion" Type="int" Mode="In" />
+          <Parameter Name="targetProducto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppDeleteCotizacionServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetCotizacion" Type="int" Mode="In" />
+          <Parameter Name="targetServicio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppDeleteCuentaCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetFactura" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppDeleteFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetFactura" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppDeleteProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetProduct" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppDeleteRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetRol" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppDeleteServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetServicio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppDeleteUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppGetCotizacionProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="noCotizacion" Type="int" Mode="In" />
+          <Parameter Name="idProducto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppGetCotizacionServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="noCotizacion" Type="int" Mode="In" />
+          <Parameter Name="idServicio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppGetCuentaCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="noFactura" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppGetProductsCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="noCotizacion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppGetServicioCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="noCotizacion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppInsertCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+          <Parameter Name="cedula" Type="nvarchar" Mode="In" />
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="apellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="sexo" Type="char" Mode="In" />
+          <Parameter Name="telefono" Type="nvarchar" Mode="In" />
+          <Parameter Name="correo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ppInsertCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cliente" Type="int" Mode="In" />
+          <Parameter Name="subTotal" Type="decimal" Mode="In" />
+          <Parameter Name="tax" Type="decimal" Mode="In" />
+          <Parameter Name="total" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="ppInsertCotizacionProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="noCotizacion" Type="int" Mode="In" />
+          <Parameter Name="productId" Type="int" Mode="In" />
+          <Parameter Name="cantidad" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppInsertCotizacionServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="noCotizacion" Type="int" Mode="In" />
+          <Parameter Name="serviceId" Type="int" Mode="In" />
+          <Parameter Name="cantidad" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppInsertCuentaCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="noFactura" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppInsertFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="noCotizacion" Type="int" Mode="In" />
+          <Parameter Name="cliente" Type="int" Mode="In" />
+          <Parameter Name="tipoComprobante" Type="nvarchar" Mode="In" />
+          <Parameter Name="comprobanteFiscal" Type="nvarchar" Mode="In" />
+          <Parameter Name="metodoPago" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ppInsertProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productName" Type="varchar" Mode="In" />
+          <Parameter Name="size" Type="varchar" Mode="In" />
+          <Parameter Name="description" Type="text" Mode="In" />
+          <Parameter Name="productPrice" Type="decimal" Mode="In" />
+          <Parameter Name="stock" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppInsertRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rol" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ppInsertServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serviceName" Type="varchar" Mode="In" />
+          <Parameter Name="description" Type="text" Mode="In" />
+          <Parameter Name="servicePrice" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="ppInsertUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+          <Parameter Name="cedula" Type="nvarchar" Mode="In" />
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="apellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="sexo" Type="char" Mode="In" />
+          <Parameter Name="telefono" Type="nvarchar" Mode="In" />
+          <Parameter Name="correo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ppReadCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ppReadCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ppReadCotizacionProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ppReadCotizacionServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ppReadCuentaCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ppReadFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ppReadProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ppReadRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ppReadServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ppReadUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ppUpdateCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetCotizacion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppUpdateCotizacionProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetCotizacion" Type="int" Mode="In" />
+          <Parameter Name="targetProduct" Type="int" Mode="In" />
+          <Parameter Name="newCantidad" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppUpdateCotizacionServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetCotizacion" Type="int" Mode="In" />
+          <Parameter Name="targetServicio" Type="int" Mode="In" />
+          <Parameter Name="newCantidad" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ppUpdateCuentaCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetFactura" Type="int" Mode="In" />
+          <Parameter Name="newEstadoPago" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="ppUpdateFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetFactura" Type="int" Mode="In" />
+          <Parameter Name="tipoComprobante" Type="nvarchar" Mode="In" />
+          <Parameter Name="comprobanteFiscal" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ppUpdatePrecioServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetServicio" Type="int" Mode="In" />
+          <Parameter Name="newPrecio" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="ppUpdateProductoInventario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="targetProduct" Type="int" Mode="In" />
+          <Parameter Name="changeStock" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="CITiendaDBModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cotizacion_Producto" EntityType="Self.Cotizacion_Producto" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Cotizacion_Producto].[noCotizacion] AS [noCotizacion], 
+    [Cotizacion_Producto].[productId] AS [productId], 
+    [Cotizacion_Producto].[cantidad] AS [cantidad], 
+    [Cotizacion_Producto].[subTotal] AS [subTotal]
+    FROM [dbo].[Cotizacion_Producto] AS [Cotizacion_Producto]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Cotizacion_Servicio" EntityType="Self.Cotizacion_Servicio" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Cotizacion_Servicio].[noCotizacion] AS [noCotizacion], 
+    [Cotizacion_Servicio].[serviceId] AS [serviceId], 
+    [Cotizacion_Servicio].[cantidad] AS [cantidad], 
+    [Cotizacion_Servicio].[subTotal] AS [subTotal]
+    FROM [dbo].[Cotizacion_Servicio] AS [Cotizacion_Servicio]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Cuentas_Cobrar" EntityType="Self.Cuentas_Cobrar" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Cuentas_Cobrar].[noFactura] AS [noFactura], 
+    [Cuentas_Cobrar].[montoDeuda] AS [montoDeuda], 
+    [Cuentas_Cobrar].[fechaPago] AS [fechaPago], 
+    [Cuentas_Cobrar].[fechaLimitePago] AS [fechaLimitePago], 
+    [Cuentas_Cobrar].[estadoPago] AS [estadoPago]
+    FROM [dbo].[Cuentas_Cobrar] AS [Cuentas_Cobrar]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Cotizacio__clien__59FA5E80" Association="Self.FK__Cotizacio__clien__59FA5E80">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Cotizacion" EntitySet="Cotizacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cotizacio__noCot__571DF1D5" Association="Self.FK__Cotizacio__noCot__571DF1D5">
+            <End Role="Cotizacion" EntitySet="Cotizacion" />
+            <End Role="Cotizacion_Producto" EntitySet="Cotizacion_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cotizacio__noCot__59063A47" Association="Self.FK__Cotizacio__noCot__59063A47">
+            <End Role="Cotizacion" EntitySet="Cotizacion" />
+            <End Role="Cotizacion_Servicio" EntitySet="Cotizacion_Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cotizacio__produ__5629CD9C" Association="Self.FK__Cotizacio__produ__5629CD9C">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Cotizacion_Producto" EntitySet="Cotizacion_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cotizacio__servi__5812160E" Association="Self.FK__Cotizacio__servi__5812160E">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Cotizacion_Servicio" EntitySet="Cotizacion_Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cuentas_C__noFac__5CD6CB2B" Association="Self.FK__Cuentas_C__noFac__5CD6CB2B">
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="Cuentas_Cobrar" EntitySet="Cuentas_Cobrar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Factura__cliente__5BE2A6F2" Association="Self.FK__Factura__cliente__5BE2A6F2">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Factura__noCotiz__5AEE82B9" Association="Self.FK__Factura__noCotiz__5AEE82B9">
+            <End Role="Cotizacion" EntitySet="Cotizacion" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario__rol__5535A963" Association="Self.FK__Usuario__rol__5535A963">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CITiendaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cedula" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="correo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="state" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cotizacions" Relationship="Self.FK__Cotizacio__clien__59FA5E80" FromRole="Cliente" ToRole="Cotizacion" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK__Factura__cliente__5BE2A6F2" FromRole="Cliente" ToRole="Factura" />
+        </EntityType>
+        <EntityType Name="Cotizacion">
+          <Key>
+            <PropertyRef Name="noCotizacion" />
+          </Key>
+          <Property Name="noCotizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cliente" Type="Int32" Nullable="false" />
+          <Property Name="subTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="tax" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <Property Name="state" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cliente1" Relationship="Self.FK__Cotizacio__clien__59FA5E80" FromRole="Cotizacion" ToRole="Cliente" />
+          <NavigationProperty Name="Cotizacion_Producto" Relationship="Self.FK__Cotizacio__noCot__571DF1D5" FromRole="Cotizacion" ToRole="Cotizacion_Producto" />
+          <NavigationProperty Name="Cotizacion_Servicio" Relationship="Self.FK__Cotizacio__noCot__59063A47" FromRole="Cotizacion" ToRole="Cotizacion_Servicio" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK__Factura__noCotiz__5AEE82B9" FromRole="Cotizacion" ToRole="Factura" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="noFactura" />
+          </Key>
+          <Property Name="noFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="noCotizacion" Type="Int32" />
+          <Property Name="cliente" Type="Int32" Nullable="false" />
+          <Property Name="tipoComprobante" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="comprobanteFiscal" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="metodoPago" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <Property Name="state" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cliente1" Relationship="Self.FK__Factura__cliente__5BE2A6F2" FromRole="Factura" ToRole="Cliente" />
+          <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Factura__noCotiz__5AEE82B9" FromRole="Factura" ToRole="Cotizacion" />
+          <NavigationProperty Name="Cuentas_Cobrar" Relationship="Self.FK__Cuentas_C__noFac__5CD6CB2B" FromRole="Factura" ToRole="Cuentas_Cobrar" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productName" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="size" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="productPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="stock" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cotizacion_Producto" Relationship="Self.FK__Cotizacio__produ__5629CD9C" FromRole="Producto" ToRole="Cotizacion_Producto" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rol1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuario__rol__5535A963" FromRole="Rol" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serviceName" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="servicePrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Cotizacion_Servicio" Relationship="Self.FK__Cotizacio__servi__5812160E" FromRole="Servicio" ToRole="Cotizacion_Servicio" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cedula" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="correo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rol" Type="Int32" Nullable="false" />
+          <Property Name="state" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Rol1" Relationship="Self.FK__Usuario__rol__5535A963" FromRole="Usuario" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="Cotizacion_Producto">
+          <Key>
+            <PropertyRef Name="noCotizacion" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="subTotal" />
+          </Key>
+          <Property Name="noCotizacion" Type="Int32" Nullable="false" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="subTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Cotizacio__noCot__571DF1D5" FromRole="Cotizacion_Producto" ToRole="Cotizacion" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__Cotizacio__produ__5629CD9C" FromRole="Cotizacion_Producto" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Cotizacion_Servicio">
+          <Key>
+            <PropertyRef Name="noCotizacion" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="subTotal" />
+          </Key>
+          <Property Name="noCotizacion" Type="Int32" Nullable="false" />
+          <Property Name="serviceId" Type="Int32" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="subTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Cotizacio__noCot__59063A47" FromRole="Cotizacion_Servicio" ToRole="Cotizacion" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK__Cotizacio__servi__5812160E" FromRole="Cotizacion_Servicio" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Cuentas_Cobrar">
+          <Key>
+            <PropertyRef Name="noFactura" />
+            <PropertyRef Name="estadoPago" />
+          </Key>
+          <Property Name="noFactura" Type="Int32" Nullable="false" />
+          <Property Name="montoDeuda" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="fechaPago" Type="DateTime" Precision="3" />
+          <Property Name="fechaLimitePago" Type="DateTime" Precision="3" />
+          <Property Name="estadoPago" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Factura" Relationship="Self.FK__Cuentas_C__noFac__5CD6CB2B" FromRole="Cuentas_Cobrar" ToRole="Factura" />
+        </EntityType>
+        <Association Name="FK__Cotizacio__clien__59FA5E80">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cotizacion">
+              <PropertyRef Name="cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Factura__cliente__5BE2A6F2">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cotizacio__noCot__571DF1D5">
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="1" />
+          <End Role="Cotizacion_Producto" Type="Self.Cotizacion_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cotizacion">
+              <PropertyRef Name="noCotizacion" />
+            </Principal>
+            <Dependent Role="Cotizacion_Producto">
+              <PropertyRef Name="noCotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cotizacio__noCot__59063A47">
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="1" />
+          <End Role="Cotizacion_Servicio" Type="Self.Cotizacion_Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cotizacion">
+              <PropertyRef Name="noCotizacion" />
+            </Principal>
+            <Dependent Role="Cotizacion_Servicio">
+              <PropertyRef Name="noCotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Factura__noCotiz__5AEE82B9">
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="0..1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cotizacion">
+              <PropertyRef Name="noCotizacion" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="noCotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cuentas_C__noFac__5CD6CB2B">
+          <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+          <End Role="Cuentas_Cobrar" Type="Self.Cuentas_Cobrar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="noFactura" />
+            </Principal>
+            <Dependent Role="Cuentas_Cobrar">
+              <PropertyRef Name="noFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cotizacio__produ__5629CD9C">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+          <End Role="Cotizacion_Producto" Type="Self.Cotizacion_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cotizacion_Producto">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario__rol__5535A963">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cotizacio__servi__5812160E">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+          <End Role="Cotizacion_Servicio" Type="Self.Cotizacion_Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cotizacion_Servicio">
+              <PropertyRef Name="serviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CITiendaDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+          <EntitySet Name="Cotizacions" EntityType="Self.Cotizacion" />
+          <EntitySet Name="Facturas" EntityType="Self.Factura" />
+          <EntitySet Name="Productoes" EntityType="Self.Producto" />
+          <EntitySet Name="Rols" EntityType="Self.Rol" />
+          <EntitySet Name="Servicios" EntityType="Self.Servicio" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+          <EntitySet Name="Cotizacion_Producto" EntityType="Self.Cotizacion_Producto" />
+          <EntitySet Name="Cotizacion_Servicio" EntityType="Self.Cotizacion_Servicio" />
+          <EntitySet Name="Cuentas_Cobrar" EntityType="Self.Cuentas_Cobrar" />
+          <AssociationSet Name="FK__Cotizacio__clien__59FA5E80" Association="Self.FK__Cotizacio__clien__59FA5E80">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="Cotizacion" EntitySet="Cotizacions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Factura__cliente__5BE2A6F2" Association="Self.FK__Factura__cliente__5BE2A6F2">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="Factura" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cotizacio__noCot__571DF1D5" Association="Self.FK__Cotizacio__noCot__571DF1D5">
+            <End Role="Cotizacion" EntitySet="Cotizacions" />
+            <End Role="Cotizacion_Producto" EntitySet="Cotizacion_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cotizacio__noCot__59063A47" Association="Self.FK__Cotizacio__noCot__59063A47">
+            <End Role="Cotizacion" EntitySet="Cotizacions" />
+            <End Role="Cotizacion_Servicio" EntitySet="Cotizacion_Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Factura__noCotiz__5AEE82B9" Association="Self.FK__Factura__noCotiz__5AEE82B9">
+            <End Role="Cotizacion" EntitySet="Cotizacions" />
+            <End Role="Factura" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cuentas_C__noFac__5CD6CB2B" Association="Self.FK__Cuentas_C__noFac__5CD6CB2B">
+            <End Role="Factura" EntitySet="Facturas" />
+            <End Role="Cuentas_Cobrar" EntitySet="Cuentas_Cobrar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cotizacio__produ__5629CD9C" Association="Self.FK__Cotizacio__produ__5629CD9C">
+            <End Role="Producto" EntitySet="Productoes" />
+            <End Role="Cotizacion_Producto" EntitySet="Cotizacion_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario__rol__5535A963" Association="Self.FK__Usuario__rol__5535A963">
+            <End Role="Rol" EntitySet="Rols" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cotizacio__servi__5812160E" Association="Self.FK__Cotizacio__servi__5812160E">
+            <End Role="Servicio" EntitySet="Servicios" />
+            <End Role="Cotizacion_Servicio" EntitySet="Cotizacion_Servicio" />
+          </AssociationSet>
+          <FunctionImport Name="ppDeleteCliente">
+            <Parameter Name="targetCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppDeleteCotizacion">
+            <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppDeleteCotizacionProducto">
+            <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+            <Parameter Name="targetProducto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppDeleteCotizacionServicio">
+            <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+            <Parameter Name="targetServicio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppDeleteCuentaCobrar">
+            <Parameter Name="targetFactura" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppDeleteFactura">
+            <Parameter Name="targetFactura" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppDeleteProducto">
+            <Parameter Name="targetProduct" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppDeleteRol">
+            <Parameter Name="targetRol" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppDeleteServicio">
+            <Parameter Name="targetServicio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppDeleteUsuario">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppGetCotizacionProducto" EntitySet="Cotizacion_Producto" ReturnType="Collection(CITiendaDBModel.Cotizacion_Producto)">
+            <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+            <Parameter Name="idProducto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppGetCotizacionServicio" EntitySet="Cotizacion_Servicio" ReturnType="Collection(CITiendaDBModel.Cotizacion_Servicio)">
+            <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+            <Parameter Name="idServicio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppGetCuentaCobrar" EntitySet="Cuentas_Cobrar" ReturnType="Collection(CITiendaDBModel.Cuentas_Cobrar)">
+            <Parameter Name="noFactura" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppGetProductsCotizacion" EntitySet="Cotizacion_Producto" ReturnType="Collection(CITiendaDBModel.Cotizacion_Producto)">
+            <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppGetServicioCotizacion" EntitySet="Cotizacion_Servicio" ReturnType="Collection(CITiendaDBModel.Cotizacion_Servicio)">
+            <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppInsertCliente">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="cedula" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellido" Mode="In" Type="String" />
+            <Parameter Name="sexo" Mode="In" Type="String" />
+            <Parameter Name="telefono" Mode="In" Type="String" />
+            <Parameter Name="correo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ppInsertCotizacion">
+            <Parameter Name="cliente" Mode="In" Type="Int32" />
+            <Parameter Name="subTotal" Mode="In" Type="Decimal" />
+            <Parameter Name="tax" Mode="In" Type="Decimal" />
+            <Parameter Name="total" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ppInsertCotizacionProducto">
+            <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+            <Parameter Name="productId" Mode="In" Type="Int32" />
+            <Parameter Name="cantidad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppInsertCotizacionServicio">
+            <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+            <Parameter Name="serviceId" Mode="In" Type="Int32" />
+            <Parameter Name="cantidad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppInsertCuentaCobrar">
+            <Parameter Name="noFactura" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppInsertFactura">
+            <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+            <Parameter Name="cliente" Mode="In" Type="Int32" />
+            <Parameter Name="tipoComprobante" Mode="In" Type="String" />
+            <Parameter Name="comprobanteFiscal" Mode="In" Type="String" />
+            <Parameter Name="metodoPago" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ppInsertProducto">
+            <Parameter Name="productName" Mode="In" Type="String" />
+            <Parameter Name="size" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="productPrice" Mode="In" Type="Decimal" />
+            <Parameter Name="stock" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppInsertRol">
+            <Parameter Name="rol" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ppInsertServicio">
+            <Parameter Name="serviceName" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="servicePrice" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ppInsertUsuario">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="cedula" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellido" Mode="In" Type="String" />
+            <Parameter Name="sexo" Mode="In" Type="String" />
+            <Parameter Name="telefono" Mode="In" Type="String" />
+            <Parameter Name="correo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ppReadCliente" EntitySet="Clientes" ReturnType="Collection(CITiendaDBModel.Cliente)" />
+          <FunctionImport Name="ppReadCotizacion" EntitySet="Cotizacions" ReturnType="Collection(CITiendaDBModel.Cotizacion)" />
+          <FunctionImport Name="ppReadCotizacionProducto" EntitySet="Cotizacion_Producto" ReturnType="Collection(CITiendaDBModel.Cotizacion_Producto)" />
+          <FunctionImport Name="ppReadCotizacionServicio" EntitySet="Cotizacion_Servicio" ReturnType="Collection(CITiendaDBModel.Cotizacion_Servicio)" />
+          <FunctionImport Name="ppReadCuentaCobrar" EntitySet="Cuentas_Cobrar" ReturnType="Collection(CITiendaDBModel.Cuentas_Cobrar)" />
+          <FunctionImport Name="ppReadFactura" EntitySet="Facturas" ReturnType="Collection(CITiendaDBModel.Factura)" />
+          <FunctionImport Name="ppReadProducto" EntitySet="Productoes" ReturnType="Collection(CITiendaDBModel.Producto)" />
+          <FunctionImport Name="ppReadRol" EntitySet="Rols" ReturnType="Collection(CITiendaDBModel.Rol)" />
+          <FunctionImport Name="ppReadServicio" EntitySet="Servicios" ReturnType="Collection(CITiendaDBModel.Servicio)" />
+          <FunctionImport Name="ppReadUsuario" EntitySet="Usuarios" ReturnType="Collection(CITiendaDBModel.Usuario)" />
+          <FunctionImport Name="ppUpdateCotizacion">
+            <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppUpdateCotizacionProducto">
+            <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+            <Parameter Name="targetProduct" Mode="In" Type="Int32" />
+            <Parameter Name="newCantidad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppUpdateCotizacionServicio">
+            <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+            <Parameter Name="targetServicio" Mode="In" Type="Int32" />
+            <Parameter Name="newCantidad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ppUpdateCuentaCobrar">
+            <Parameter Name="targetFactura" Mode="In" Type="Int32" />
+            <Parameter Name="newEstadoPago" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="ppUpdateFactura">
+            <Parameter Name="targetFactura" Mode="In" Type="Int32" />
+            <Parameter Name="tipoComprobante" Mode="In" Type="String" />
+            <Parameter Name="comprobanteFiscal" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ppUpdatePrecioServicio">
+            <Parameter Name="targetServicio" Mode="In" Type="Int32" />
+            <Parameter Name="newPrecio" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ppUpdateProductoInventario">
+            <Parameter Name="targetProduct" Mode="In" Type="Int32" />
+            <Parameter Name="changeStock" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="ppGetCotizacionProducto_Result">
+          <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+          <Property Type="Int32" Name="productId" Nullable="true" />
+          <Property Type="Int32" Name="cantidad" Nullable="false" />
+          <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ppGetCotizacionServicio_Result">
+          <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+          <Property Type="Int32" Name="serviceId" Nullable="true" />
+          <Property Type="Int32" Name="cantidad" Nullable="false" />
+          <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ppGetCuentaCobrar_Result">
+          <Property Type="Int32" Name="noFactura" Nullable="false" />
+          <Property Type="Decimal" Name="montoDeuda" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="DateTime" Name="fechaPago" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="fechaLimitePago" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="estadoPago" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ppGetProductsCotizacion_Result">
+          <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+          <Property Type="Int32" Name="productId" Nullable="true" />
+          <Property Type="Int32" Name="cantidad" Nullable="false" />
+          <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ppGetServicioCotizacion_Result">
+          <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+          <Property Type="Int32" Name="serviceId" Nullable="true" />
+          <Property Type="Int32" Name="cantidad" Nullable="false" />
+          <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ppReadCliente_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="cedula" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="apellido" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="sexo" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="telefono" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="correo" Nullable="false" MaxLength="200" />
+          <Property Type="Boolean" Name="state" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ppReadCotizacion_Result">
+          <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+          <Property Type="Int32" Name="cliente" Nullable="false" />
+          <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="tax" Nullable="true" Precision="3" Scale="2" />
+          <Property Type="Decimal" Name="total" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="state" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ppReadCotizacionProducto_Result">
+          <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+          <Property Type="Int32" Name="productId" Nullable="true" />
+          <Property Type="Int32" Name="cantidad" Nullable="false" />
+          <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ppReadCotizacionServicio_Result">
+          <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+          <Property Type="Int32" Name="serviceId" Nullable="true" />
+          <Property Type="Int32" Name="cantidad" Nullable="false" />
+          <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ppReadCuentaCobrar_Result">
+          <Property Type="Int32" Name="noFactura" Nullable="false" />
+          <Property Type="Decimal" Name="montoDeuda" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="DateTime" Name="fechaPago" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="fechaLimitePago" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="estadoPago" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ppReadFactura_Result">
+          <Property Type="Int32" Name="noFactura" Nullable="false" />
+          <Property Type="Int32" Name="noCotizacion" Nullable="true" />
+          <Property Type="Int32" Name="cliente" Nullable="false" />
+          <Property Type="String" Name="tipoComprobante" Nullable="false" MaxLength="18" />
+          <Property Type="String" Name="comprobanteFiscal" Nullable="false" MaxLength="13" />
+          <Property Type="String" Name="metodoPago" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="state" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ppReadProducto_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="productName" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="size" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="Max" />
+          <Property Type="Decimal" Name="productPrice" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="stock" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ppReadRol_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="rol" Nullable="false" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="ppReadServicio_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="serviceName" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="Max" />
+          <Property Type="Decimal" Name="servicePrice" Nullable="false" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ppReadUsuario_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="cedula" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="apellido" Nullable="false" MaxLength="70" />
+          <Property Type="String" Name="sexo" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="telefono" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="correo" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="rol" Nullable="false" />
+          <Property Type="Boolean" Name="state" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CITiendaDBModelStoreContainer" CdmEntityContainer="CITiendaDBEntities">
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="CITiendaDBModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cotizacions">
+            <EntityTypeMapping TypeName="CITiendaDBModel.Cotizacion">
+              <MappingFragment StoreEntitySet="Cotizacion">
+                <ScalarProperty Name="noCotizacion" ColumnName="noCotizacion" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="subTotal" ColumnName="subTotal" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facturas">
+            <EntityTypeMapping TypeName="CITiendaDBModel.Factura">
+              <MappingFragment StoreEntitySet="Factura">
+                <ScalarProperty Name="noFactura" ColumnName="noFactura" />
+                <ScalarProperty Name="noCotizacion" ColumnName="noCotizacion" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="tipoComprobante" ColumnName="tipoComprobante" />
+                <ScalarProperty Name="comprobanteFiscal" ColumnName="comprobanteFiscal" />
+                <ScalarProperty Name="metodoPago" ColumnName="metodoPago" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productoes">
+            <EntityTypeMapping TypeName="CITiendaDBModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="productPrice" ColumnName="productPrice" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rols">
+            <EntityTypeMapping TypeName="CITiendaDBModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="rol1" ColumnName="rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicios">
+            <EntityTypeMapping TypeName="CITiendaDBModel.Servicio">
+              <MappingFragment StoreEntitySet="Servicio">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="serviceName" ColumnName="serviceName" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="servicePrice" ColumnName="servicePrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="CITiendaDBModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cotizacion_Producto">
+            <EntityTypeMapping TypeName="CITiendaDBModel.Cotizacion_Producto">
+              <MappingFragment StoreEntitySet="Cotizacion_Producto">
+                <ScalarProperty Name="noCotizacion" ColumnName="noCotizacion" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="subTotal" ColumnName="subTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cotizacion_Servicio">
+            <EntityTypeMapping TypeName="CITiendaDBModel.Cotizacion_Servicio">
+              <MappingFragment StoreEntitySet="Cotizacion_Servicio">
+                <ScalarProperty Name="noCotizacion" ColumnName="noCotizacion" />
+                <ScalarProperty Name="serviceId" ColumnName="serviceId" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="subTotal" ColumnName="subTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cuentas_Cobrar">
+            <EntityTypeMapping TypeName="CITiendaDBModel.Cuentas_Cobrar">
+              <MappingFragment StoreEntitySet="Cuentas_Cobrar">
+                <ScalarProperty Name="noFactura" ColumnName="noFactura" />
+                <ScalarProperty Name="montoDeuda" ColumnName="montoDeuda" />
+                <ScalarProperty Name="fechaPago" ColumnName="fechaPago" />
+                <ScalarProperty Name="fechaLimitePago" ColumnName="fechaLimitePago" />
+                <ScalarProperty Name="estadoPago" ColumnName="estadoPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ppDeleteCliente" FunctionName="CITiendaDBModel.Store.ppDeleteCliente" />
+          <FunctionImportMapping FunctionImportName="ppDeleteCotizacion" FunctionName="CITiendaDBModel.Store.ppDeleteCotizacion" />
+          <FunctionImportMapping FunctionImportName="ppDeleteCotizacionProducto" FunctionName="CITiendaDBModel.Store.ppDeleteCotizacionProducto" />
+          <FunctionImportMapping FunctionImportName="ppDeleteCotizacionServicio" FunctionName="CITiendaDBModel.Store.ppDeleteCotizacionServicio" />
+          <FunctionImportMapping FunctionImportName="ppDeleteCuentaCobrar" FunctionName="CITiendaDBModel.Store.ppDeleteCuentaCobrar" />
+          <FunctionImportMapping FunctionImportName="ppDeleteFactura" FunctionName="CITiendaDBModel.Store.ppDeleteFactura" />
+          <FunctionImportMapping FunctionImportName="ppDeleteProducto" FunctionName="CITiendaDBModel.Store.ppDeleteProducto" />
+          <FunctionImportMapping FunctionImportName="ppDeleteRol" FunctionName="CITiendaDBModel.Store.ppDeleteRol" />
+          <FunctionImportMapping FunctionImportName="ppDeleteServicio" FunctionName="CITiendaDBModel.Store.ppDeleteServicio" />
+          <FunctionImportMapping FunctionImportName="ppDeleteUsuario" FunctionName="CITiendaDBModel.Store.ppDeleteUsuario" />
+          <FunctionImportMapping FunctionImportName="ppGetCotizacionProducto" FunctionName="CITiendaDBModel.Store.ppGetCotizacionProducto">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppGetCotizacionServicio" FunctionName="CITiendaDBModel.Store.ppGetCotizacionServicio">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppGetCuentaCobrar" FunctionName="CITiendaDBModel.Store.ppGetCuentaCobrar">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppGetProductsCotizacion" FunctionName="CITiendaDBModel.Store.ppGetProductsCotizacion">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppGetServicioCotizacion" FunctionName="CITiendaDBModel.Store.ppGetServicioCotizacion">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppInsertCliente" FunctionName="CITiendaDBModel.Store.ppInsertCliente" />
+          <FunctionImportMapping FunctionImportName="ppInsertCotizacion" FunctionName="CITiendaDBModel.Store.ppInsertCotizacion" />
+          <FunctionImportMapping FunctionImportName="ppInsertCotizacionProducto" FunctionName="CITiendaDBModel.Store.ppInsertCotizacionProducto" />
+          <FunctionImportMapping FunctionImportName="ppInsertCotizacionServicio" FunctionName="CITiendaDBModel.Store.ppInsertCotizacionServicio" />
+          <FunctionImportMapping FunctionImportName="ppInsertCuentaCobrar" FunctionName="CITiendaDBModel.Store.ppInsertCuentaCobrar" />
+          <FunctionImportMapping FunctionImportName="ppInsertFactura" FunctionName="CITiendaDBModel.Store.ppInsertFactura" />
+          <FunctionImportMapping FunctionImportName="ppInsertProducto" FunctionName="CITiendaDBModel.Store.ppInsertProducto" />
+          <FunctionImportMapping FunctionImportName="ppInsertRol" FunctionName="CITiendaDBModel.Store.ppInsertRol" />
+          <FunctionImportMapping FunctionImportName="ppInsertServicio" FunctionName="CITiendaDBModel.Store.ppInsertServicio" />
+          <FunctionImportMapping FunctionImportName="ppInsertUsuario" FunctionName="CITiendaDBModel.Store.ppInsertUsuario" />
+          <FunctionImportMapping FunctionImportName="ppReadCliente" FunctionName="CITiendaDBModel.Store.ppReadCliente">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppReadCotizacion" FunctionName="CITiendaDBModel.Store.ppReadCotizacion">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppReadCotizacionProducto" FunctionName="CITiendaDBModel.Store.ppReadCotizacionProducto">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppReadCotizacionServicio" FunctionName="CITiendaDBModel.Store.ppReadCotizacionServicio">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppReadCuentaCobrar" FunctionName="CITiendaDBModel.Store.ppReadCuentaCobrar">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppReadFactura" FunctionName="CITiendaDBModel.Store.ppReadFactura">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppReadProducto" FunctionName="CITiendaDBModel.Store.ppReadProducto">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppReadRol" FunctionName="CITiendaDBModel.Store.ppReadRol">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppReadServicio" FunctionName="CITiendaDBModel.Store.ppReadServicio">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppReadUsuario" FunctionName="CITiendaDBModel.Store.ppReadUsuario">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ppUpdateCotizacion" FunctionName="CITiendaDBModel.Store.ppUpdateCotizacion" />
+          <FunctionImportMapping FunctionImportName="ppUpdateCotizacionProducto" FunctionName="CITiendaDBModel.Store.ppUpdateCotizacionProducto" />
+          <FunctionImportMapping FunctionImportName="ppUpdateCotizacionServicio" FunctionName="CITiendaDBModel.Store.ppUpdateCotizacionServicio" />
+          <FunctionImportMapping FunctionImportName="ppUpdateCuentaCobrar" FunctionName="CITiendaDBModel.Store.ppUpdateCuentaCobrar" />
+          <FunctionImportMapping FunctionImportName="ppUpdateFactura" FunctionName="CITiendaDBModel.Store.ppUpdateFactura" />
+          <FunctionImportMapping FunctionImportName="ppUpdatePrecioServicio" FunctionName="CITiendaDBModel.Store.ppUpdatePrecioServicio" />
+          <FunctionImportMapping FunctionImportName="ppUpdateProductoInventario" FunctionName="CITiendaDBModel.Store.ppUpdateProductoInventario" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
