@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CITiendaDBModelStoreContainer" CdmEntityContainer="CITiendaDBEntities">
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="CITiendaDBModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cotizacions">
+      <EntityTypeMapping TypeName="CITiendaDBModel.Cotizacion">
+        <MappingFragment StoreEntitySet="Cotizacion">
+          <ScalarProperty Name="noCotizacion" ColumnName="noCotizacion" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="subTotal" ColumnName="subTotal" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas">
+      <EntityTypeMapping TypeName="CITiendaDBModel.Factura">
+        <MappingFragment StoreEntitySet="Factura">
+          <ScalarProperty Name="noFactura" ColumnName="noFactura" />
+          <ScalarProperty Name="noCotizacion" ColumnName="noCotizacion" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="tipoComprobante" ColumnName="tipoComprobante" />
+          <ScalarProperty Name="comprobanteFiscal" ColumnName="comprobanteFiscal" />
+          <ScalarProperty Name="metodoPago" ColumnName="metodoPago" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productoes">
+      <EntityTypeMapping TypeName="CITiendaDBModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="productName" ColumnName="productName" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="productPrice" ColumnName="productPrice" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rols">
+      <EntityTypeMapping TypeName="CITiendaDBModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="rol1" ColumnName="rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servicios">
+      <EntityTypeMapping TypeName="CITiendaDBModel.Servicio">
+        <MappingFragment StoreEntitySet="Servicio">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="serviceName" ColumnName="serviceName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="servicePrice" ColumnName="servicePrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="CITiendaDBModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cotizacion_Producto">
+      <EntityTypeMapping TypeName="CITiendaDBModel.Cotizacion_Producto">
+        <MappingFragment StoreEntitySet="Cotizacion_Producto">
+          <ScalarProperty Name="noCotizacion" ColumnName="noCotizacion" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="subTotal" ColumnName="subTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cotizacion_Servicio">
+      <EntityTypeMapping TypeName="CITiendaDBModel.Cotizacion_Servicio">
+        <MappingFragment StoreEntitySet="Cotizacion_Servicio">
+          <ScalarProperty Name="noCotizacion" ColumnName="noCotizacion" />
+          <ScalarProperty Name="serviceId" ColumnName="serviceId" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="subTotal" ColumnName="subTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cuentas_Cobrar">
+      <EntityTypeMapping TypeName="CITiendaDBModel.Cuentas_Cobrar">
+        <MappingFragment StoreEntitySet="Cuentas_Cobrar">
+          <ScalarProperty Name="noFactura" ColumnName="noFactura" />
+          <ScalarProperty Name="montoDeuda" ColumnName="montoDeuda" />
+          <ScalarProperty Name="fechaPago" ColumnName="fechaPago" />
+          <ScalarProperty Name="fechaLimitePago" ColumnName="fechaLimitePago" />
+          <ScalarProperty Name="estadoPago" ColumnName="estadoPago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ppDeleteCliente" FunctionName="CITiendaDBModel.Store.ppDeleteCliente" />
+    <FunctionImportMapping FunctionImportName="ppDeleteCotizacion" FunctionName="CITiendaDBModel.Store.ppDeleteCotizacion" />
+    <FunctionImportMapping FunctionImportName="ppDeleteCotizacionProducto" FunctionName="CITiendaDBModel.Store.ppDeleteCotizacionProducto" />
+    <FunctionImportMapping FunctionImportName="ppDeleteCotizacionServicio" FunctionName="CITiendaDBModel.Store.ppDeleteCotizacionServicio" />
+    <FunctionImportMapping FunctionImportName="ppDeleteCuentaCobrar" FunctionName="CITiendaDBModel.Store.ppDeleteCuentaCobrar" />
+    <FunctionImportMapping FunctionImportName="ppDeleteFactura" FunctionName="CITiendaDBModel.Store.ppDeleteFactura" />
+    <FunctionImportMapping FunctionImportName="ppDeleteProducto" FunctionName="CITiendaDBModel.Store.ppDeleteProducto" />
+    <FunctionImportMapping FunctionImportName="ppDeleteRol" FunctionName="CITiendaDBModel.Store.ppDeleteRol" />
+    <FunctionImportMapping FunctionImportName="ppDeleteServicio" FunctionName="CITiendaDBModel.Store.ppDeleteServicio" />
+    <FunctionImportMapping FunctionImportName="ppDeleteUsuario" FunctionName="CITiendaDBModel.Store.ppDeleteUsuario" />
+    <FunctionImportMapping FunctionImportName="ppGetCotizacionProducto" FunctionName="CITiendaDBModel.Store.ppGetCotizacionProducto" />
+    <FunctionImportMapping FunctionImportName="ppGetCotizacionServicio" FunctionName="CITiendaDBModel.Store.ppGetCotizacionServicio" />
+    <FunctionImportMapping FunctionImportName="ppGetCuentaCobrar" FunctionName="CITiendaDBModel.Store.ppGetCuentaCobrar" />
+    <FunctionImportMapping FunctionImportName="ppGetProductsCotizacion" FunctionName="CITiendaDBModel.Store.ppGetProductsCotizacion" />
+    <FunctionImportMapping FunctionImportName="ppGetServicioCotizacion" FunctionName="CITiendaDBModel.Store.ppGetServicioCotizacion" />
+    <FunctionImportMapping FunctionImportName="ppInsertCliente" FunctionName="CITiendaDBModel.Store.ppInsertCliente" />
+    <FunctionImportMapping FunctionImportName="ppInsertCotizacion" FunctionName="CITiendaDBModel.Store.ppInsertCotizacion" />
+    <FunctionImportMapping FunctionImportName="ppInsertCotizacionProducto" FunctionName="CITiendaDBModel.Store.ppInsertCotizacionProducto" />
+    <FunctionImportMapping FunctionImportName="ppInsertCotizacionServicio" FunctionName="CITiendaDBModel.Store.ppInsertCotizacionServicio" />
+    <FunctionImportMapping FunctionImportName="ppInsertCuentaCobrar" FunctionName="CITiendaDBModel.Store.ppInsertCuentaCobrar" />
+    <FunctionImportMapping FunctionImportName="ppInsertFactura" FunctionName="CITiendaDBModel.Store.ppInsertFactura" />
+    <FunctionImportMapping FunctionImportName="ppInsertProducto" FunctionName="CITiendaDBModel.Store.ppInsertProducto" />
+    <FunctionImportMapping FunctionImportName="ppInsertRol" FunctionName="CITiendaDBModel.Store.ppInsertRol" />
+    <FunctionImportMapping FunctionImportName="ppInsertServicio" FunctionName="CITiendaDBModel.Store.ppInsertServicio" />
+    <FunctionImportMapping FunctionImportName="ppInsertUsuario" FunctionName="CITiendaDBModel.Store.ppInsertUsuario" />
+    <FunctionImportMapping FunctionImportName="ppReadCliente" FunctionName="CITiendaDBModel.Store.ppReadCliente" />
+    <FunctionImportMapping FunctionImportName="ppReadCotizacion" FunctionName="CITiendaDBModel.Store.ppReadCotizacion" />
+    <FunctionImportMapping FunctionImportName="ppReadCotizacionProducto" FunctionName="CITiendaDBModel.Store.ppReadCotizacionProducto" />
+    <FunctionImportMapping FunctionImportName="ppReadCotizacionServicio" FunctionName="CITiendaDBModel.Store.ppReadCotizacionServicio" />
+    <FunctionImportMapping FunctionImportName="ppReadCuentaCobrar" FunctionName="CITiendaDBModel.Store.ppReadCuentaCobrar" />
+    <FunctionImportMapping FunctionImportName="ppReadFactura" FunctionName="CITiendaDBModel.Store.ppReadFactura" />
+    <FunctionImportMapping FunctionImportName="ppReadProducto" FunctionName="CITiendaDBModel.Store.ppReadProducto" />
+    <FunctionImportMapping FunctionImportName="ppReadRol" FunctionName="CITiendaDBModel.Store.ppReadRol" />
+    <FunctionImportMapping FunctionImportName="ppReadServicio" FunctionName="CITiendaDBModel.Store.ppReadServicio" />
+    <FunctionImportMapping FunctionImportName="ppReadUsuario" FunctionName="CITiendaDBModel.Store.ppReadUsuario" />
+    <FunctionImportMapping FunctionImportName="ppUpdateCotizacion" FunctionName="CITiendaDBModel.Store.ppUpdateCotizacion" />
+    <FunctionImportMapping FunctionImportName="ppUpdateCotizacionProducto" FunctionName="CITiendaDBModel.Store.ppUpdateCotizacionProducto" />
+    <FunctionImportMapping FunctionImportName="ppUpdateCotizacionServicio" FunctionName="CITiendaDBModel.Store.ppUpdateCotizacionServicio" />
+    <FunctionImportMapping FunctionImportName="ppUpdateCuentaCobrar" FunctionName="CITiendaDBModel.Store.ppUpdateCuentaCobrar" />
+    <FunctionImportMapping FunctionImportName="ppUpdateFactura" FunctionName="CITiendaDBModel.Store.ppUpdateFactura" />
+    <FunctionImportMapping FunctionImportName="ppUpdatePrecioServicio" FunctionName="CITiendaDBModel.Store.ppUpdatePrecioServicio" />
+    <FunctionImportMapping FunctionImportName="ppUpdateProductoInventario" FunctionName="CITiendaDBModel.Store.ppUpdateProductoInventario" />
+  </EntityContainerMapping>
+</Mapping>

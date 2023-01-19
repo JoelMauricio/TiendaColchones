@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CITiendaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cedula" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="correo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cotizacions" Relationship="Self.FK__Cotizacio__clien__59FA5E80" FromRole="Cliente" ToRole="Cotizacion" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK__Factura__cliente__5BE2A6F2" FromRole="Cliente" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="Cotizacion">
+    <Key>
+      <PropertyRef Name="noCotizacion" />
+    </Key>
+    <Property Name="noCotizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cliente" Type="Int32" Nullable="false" />
+    <Property Name="subTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="tax" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cliente1" Relationship="Self.FK__Cotizacio__clien__59FA5E80" FromRole="Cotizacion" ToRole="Cliente" />
+    <NavigationProperty Name="Cotizacion_Producto" Relationship="Self.FK__Cotizacio__noCot__571DF1D5" FromRole="Cotizacion" ToRole="Cotizacion_Producto" />
+    <NavigationProperty Name="Cotizacion_Servicio" Relationship="Self.FK__Cotizacio__noCot__59063A47" FromRole="Cotizacion" ToRole="Cotizacion_Servicio" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK__Factura__noCotiz__5AEE82B9" FromRole="Cotizacion" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="noFactura" />
+    </Key>
+    <Property Name="noFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="noCotizacion" Type="Int32" />
+    <Property Name="cliente" Type="Int32" Nullable="false" />
+    <Property Name="tipoComprobante" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="comprobanteFiscal" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="metodoPago" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cliente1" Relationship="Self.FK__Factura__cliente__5BE2A6F2" FromRole="Factura" ToRole="Cliente" />
+    <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Factura__noCotiz__5AEE82B9" FromRole="Factura" ToRole="Cotizacion" />
+    <NavigationProperty Name="Cuentas_Cobrar" Relationship="Self.FK__Cuentas_C__noFac__5CD6CB2B" FromRole="Factura" ToRole="Cuentas_Cobrar" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productName" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="size" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="productPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="stock" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cotizacion_Producto" Relationship="Self.FK__Cotizacio__produ__5629CD9C" FromRole="Producto" ToRole="Cotizacion_Producto" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rol1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuario__rol__5535A963" FromRole="Rol" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="serviceName" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="servicePrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Cotizacion_Servicio" Relationship="Self.FK__Cotizacio__servi__5812160E" FromRole="Servicio" ToRole="Cotizacion_Servicio" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cedula" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="correo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rol" Type="Int32" Nullable="false" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Rol1" Relationship="Self.FK__Usuario__rol__5535A963" FromRole="Usuario" ToRole="Rol" />
+  </EntityType>
+  <EntityType Name="Cotizacion_Producto">
+    <Key>
+      <PropertyRef Name="noCotizacion" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="subTotal" />
+    </Key>
+    <Property Name="noCotizacion" Type="Int32" Nullable="false" />
+    <Property Name="productId" Type="Int32" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="subTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Cotizacio__noCot__571DF1D5" FromRole="Cotizacion_Producto" ToRole="Cotizacion" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__Cotizacio__produ__5629CD9C" FromRole="Cotizacion_Producto" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Cotizacion_Servicio">
+    <Key>
+      <PropertyRef Name="noCotizacion" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="subTotal" />
+    </Key>
+    <Property Name="noCotizacion" Type="Int32" Nullable="false" />
+    <Property Name="serviceId" Type="Int32" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="subTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Cotizacio__noCot__59063A47" FromRole="Cotizacion_Servicio" ToRole="Cotizacion" />
+    <NavigationProperty Name="Servicio" Relationship="Self.FK__Cotizacio__servi__5812160E" FromRole="Cotizacion_Servicio" ToRole="Servicio" />
+  </EntityType>
+  <EntityType Name="Cuentas_Cobrar">
+    <Key>
+      <PropertyRef Name="noFactura" />
+      <PropertyRef Name="estadoPago" />
+    </Key>
+    <Property Name="noFactura" Type="Int32" Nullable="false" />
+    <Property Name="montoDeuda" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="fechaPago" Type="DateTime" Precision="3" />
+    <Property Name="fechaLimitePago" Type="DateTime" Precision="3" />
+    <Property Name="estadoPago" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Factura" Relationship="Self.FK__Cuentas_C__noFac__5CD6CB2B" FromRole="Cuentas_Cobrar" ToRole="Factura" />
+  </EntityType>
+  <Association Name="FK__Cotizacio__clien__59FA5E80">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cotizacion">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Factura__cliente__5BE2A6F2">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__noCot__571DF1D5">
+    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="1" />
+    <End Role="Cotizacion_Producto" Type="Self.Cotizacion_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cotizacion">
+        <PropertyRef Name="noCotizacion" />
+      </Principal>
+      <Dependent Role="Cotizacion_Producto">
+        <PropertyRef Name="noCotizacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__noCot__59063A47">
+    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="1" />
+    <End Role="Cotizacion_Servicio" Type="Self.Cotizacion_Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cotizacion">
+        <PropertyRef Name="noCotizacion" />
+      </Principal>
+      <Dependent Role="Cotizacion_Servicio">
+        <PropertyRef Name="noCotizacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Factura__noCotiz__5AEE82B9">
+    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="0..1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cotizacion">
+        <PropertyRef Name="noCotizacion" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="noCotizacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cuentas_C__noFac__5CD6CB2B">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="Cuentas_Cobrar" Type="Self.Cuentas_Cobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="noFactura" />
+      </Principal>
+      <Dependent Role="Cuentas_Cobrar">
+        <PropertyRef Name="noFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__produ__5629CD9C">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Cotizacion_Producto" Type="Self.Cotizacion_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cotizacion_Producto">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__rol__5535A963">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__servi__5812160E">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+    <End Role="Cotizacion_Servicio" Type="Self.Cotizacion_Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cotizacion_Servicio">
+        <PropertyRef Name="serviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CITiendaDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="Cotizacions" EntityType="Self.Cotizacion" />
+    <EntitySet Name="Facturas" EntityType="Self.Factura" />
+    <EntitySet Name="Productoes" EntityType="Self.Producto" />
+    <EntitySet Name="Rols" EntityType="Self.Rol" />
+    <EntitySet Name="Servicios" EntityType="Self.Servicio" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <EntitySet Name="Cotizacion_Producto" EntityType="Self.Cotizacion_Producto" />
+    <EntitySet Name="Cotizacion_Servicio" EntityType="Self.Cotizacion_Servicio" />
+    <EntitySet Name="Cuentas_Cobrar" EntityType="Self.Cuentas_Cobrar" />
+    <AssociationSet Name="FK__Cotizacio__clien__59FA5E80" Association="Self.FK__Cotizacio__clien__59FA5E80">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Cotizacion" EntitySet="Cotizacions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Factura__cliente__5BE2A6F2" Association="Self.FK__Factura__cliente__5BE2A6F2">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Factura" EntitySet="Facturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__noCot__571DF1D5" Association="Self.FK__Cotizacio__noCot__571DF1D5">
+      <End Role="Cotizacion" EntitySet="Cotizacions" />
+      <End Role="Cotizacion_Producto" EntitySet="Cotizacion_Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__noCot__59063A47" Association="Self.FK__Cotizacio__noCot__59063A47">
+      <End Role="Cotizacion" EntitySet="Cotizacions" />
+      <End Role="Cotizacion_Servicio" EntitySet="Cotizacion_Servicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Factura__noCotiz__5AEE82B9" Association="Self.FK__Factura__noCotiz__5AEE82B9">
+      <End Role="Cotizacion" EntitySet="Cotizacions" />
+      <End Role="Factura" EntitySet="Facturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cuentas_C__noFac__5CD6CB2B" Association="Self.FK__Cuentas_C__noFac__5CD6CB2B">
+      <End Role="Factura" EntitySet="Facturas" />
+      <End Role="Cuentas_Cobrar" EntitySet="Cuentas_Cobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__produ__5629CD9C" Association="Self.FK__Cotizacio__produ__5629CD9C">
+      <End Role="Producto" EntitySet="Productoes" />
+      <End Role="Cotizacion_Producto" EntitySet="Cotizacion_Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__rol__5535A963" Association="Self.FK__Usuario__rol__5535A963">
+      <End Role="Rol" EntitySet="Rols" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__servi__5812160E" Association="Self.FK__Cotizacio__servi__5812160E">
+      <End Role="Servicio" EntitySet="Servicios" />
+      <End Role="Cotizacion_Servicio" EntitySet="Cotizacion_Servicio" />
+    </AssociationSet>
+    <FunctionImport Name="ppDeleteCliente">
+      <Parameter Name="targetCliente" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteCotizacion">
+      <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteCotizacionProducto">
+      <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="targetProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteCotizacionServicio">
+      <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="targetServicio" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteCuentaCobrar">
+      <Parameter Name="targetFactura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteFactura">
+      <Parameter Name="targetFactura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteProducto">
+      <Parameter Name="targetProduct" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteRol">
+      <Parameter Name="targetRol" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteServicio">
+      <Parameter Name="targetServicio" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppDeleteUsuario">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppGetCotizacionProducto" EntitySet="Cotizacion_Producto" ReturnType="Collection(CITiendaDBModel.Cotizacion_Producto)">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="idProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppGetCotizacionServicio" EntitySet="Cotizacion_Servicio" ReturnType="Collection(CITiendaDBModel.Cotizacion_Servicio)">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="idServicio" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppGetCuentaCobrar" EntitySet="Cuentas_Cobrar" ReturnType="Collection(CITiendaDBModel.Cuentas_Cobrar)">
+      <Parameter Name="noFactura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppGetProductsCotizacion" EntitySet="Cotizacion_Producto" ReturnType="Collection(CITiendaDBModel.Cotizacion_Producto)">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppGetServicioCotizacion" EntitySet="Cotizacion_Servicio" ReturnType="Collection(CITiendaDBModel.Cotizacion_Servicio)">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertCliente">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellido" Mode="In" Type="String" />
+      <Parameter Name="sexo" Mode="In" Type="String" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertCotizacion">
+      <Parameter Name="cliente" Mode="In" Type="Int32" />
+      <Parameter Name="subTotal" Mode="In" Type="Decimal" />
+      <Parameter Name="tax" Mode="In" Type="Decimal" />
+      <Parameter Name="total" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertCotizacionProducto">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="productId" Mode="In" Type="Int32" />
+      <Parameter Name="cantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertCotizacionServicio">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="serviceId" Mode="In" Type="Int32" />
+      <Parameter Name="cantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertCuentaCobrar">
+      <Parameter Name="noFactura" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertFactura">
+      <Parameter Name="noCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="cliente" Mode="In" Type="Int32" />
+      <Parameter Name="tipoComprobante" Mode="In" Type="String" />
+      <Parameter Name="comprobanteFiscal" Mode="In" Type="String" />
+      <Parameter Name="metodoPago" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertProducto">
+      <Parameter Name="productName" Mode="In" Type="String" />
+      <Parameter Name="size" Mode="In" Type="String" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="productPrice" Mode="In" Type="Decimal" />
+      <Parameter Name="stock" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertRol">
+      <Parameter Name="rol" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertServicio">
+      <Parameter Name="serviceName" Mode="In" Type="String" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="servicePrice" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ppInsertUsuario">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellido" Mode="In" Type="String" />
+      <Parameter Name="sexo" Mode="In" Type="String" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ppReadCliente" EntitySet="Clientes" ReturnType="Collection(CITiendaDBModel.Cliente)" />
+    <FunctionImport Name="ppReadCotizacion" EntitySet="Cotizacions" ReturnType="Collection(CITiendaDBModel.Cotizacion)" />
+    <FunctionImport Name="ppReadCotizacionProducto" EntitySet="Cotizacion_Producto" ReturnType="Collection(CITiendaDBModel.Cotizacion_Producto)" />
+    <FunctionImport Name="ppReadCotizacionServicio" EntitySet="Cotizacion_Servicio" ReturnType="Collection(CITiendaDBModel.Cotizacion_Servicio)" />
+    <FunctionImport Name="ppReadCuentaCobrar" EntitySet="Cuentas_Cobrar" ReturnType="Collection(CITiendaDBModel.Cuentas_Cobrar)" />
+    <FunctionImport Name="ppReadFactura" EntitySet="Facturas" ReturnType="Collection(CITiendaDBModel.Factura)" />
+    <FunctionImport Name="ppReadProducto" EntitySet="Productoes" ReturnType="Collection(CITiendaDBModel.Producto)" />
+    <FunctionImport Name="ppReadRol" EntitySet="Rols" ReturnType="Collection(CITiendaDBModel.Rol)" />
+    <FunctionImport Name="ppReadServicio" EntitySet="Servicios" ReturnType="Collection(CITiendaDBModel.Servicio)" />
+    <FunctionImport Name="ppReadUsuario" EntitySet="Usuarios" ReturnType="Collection(CITiendaDBModel.Usuario)" />
+    <FunctionImport Name="ppUpdateCotizacion">
+      <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppUpdateCotizacionProducto">
+      <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="targetProduct" Mode="In" Type="Int32" />
+      <Parameter Name="newCantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppUpdateCotizacionServicio">
+      <Parameter Name="targetCotizacion" Mode="In" Type="Int32" />
+      <Parameter Name="targetServicio" Mode="In" Type="Int32" />
+      <Parameter Name="newCantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ppUpdateCuentaCobrar">
+      <Parameter Name="targetFactura" Mode="In" Type="Int32" />
+      <Parameter Name="newEstadoPago" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="ppUpdateFactura">
+      <Parameter Name="targetFactura" Mode="In" Type="Int32" />
+      <Parameter Name="tipoComprobante" Mode="In" Type="String" />
+      <Parameter Name="comprobanteFiscal" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ppUpdatePrecioServicio">
+      <Parameter Name="targetServicio" Mode="In" Type="Int32" />
+      <Parameter Name="newPrecio" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ppUpdateProductoInventario">
+      <Parameter Name="targetProduct" Mode="In" Type="Int32" />
+      <Parameter Name="changeStock" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="ppGetCotizacionProducto_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="productId" Nullable="true" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppGetCotizacionServicio_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="serviceId" Nullable="true" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppGetCuentaCobrar_Result">
+    <Property Type="Int32" Name="noFactura" Nullable="false" />
+    <Property Type="Decimal" Name="montoDeuda" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="fechaPago" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaLimitePago" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="estadoPago" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppGetProductsCotizacion_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="productId" Nullable="true" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppGetServicioCotizacion_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="serviceId" Nullable="true" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppReadCliente_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="cedula" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="apellido" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="sexo" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="telefono" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="correo" Nullable="false" MaxLength="200" />
+    <Property Type="Boolean" Name="state" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppReadCotizacion_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="cliente" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="tax" Nullable="true" Precision="3" Scale="2" />
+    <Property Type="Decimal" Name="total" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="state" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppReadCotizacionProducto_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="productId" Nullable="true" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppReadCotizacionServicio_Result">
+    <Property Type="Int32" Name="noCotizacion" Nullable="false" />
+    <Property Type="Int32" Name="serviceId" Nullable="true" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppReadCuentaCobrar_Result">
+    <Property Type="Int32" Name="noFactura" Nullable="false" />
+    <Property Type="Decimal" Name="montoDeuda" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="fechaPago" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaLimitePago" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="estadoPago" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppReadFactura_Result">
+    <Property Type="Int32" Name="noFactura" Nullable="false" />
+    <Property Type="Int32" Name="noCotizacion" Nullable="true" />
+    <Property Type="Int32" Name="cliente" Nullable="false" />
+    <Property Type="String" Name="tipoComprobante" Nullable="false" MaxLength="18" />
+    <Property Type="String" Name="comprobanteFiscal" Nullable="false" MaxLength="13" />
+    <Property Type="String" Name="metodoPago" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="created_at" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="state" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppReadProducto_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="productName" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="size" Nullable="false" MaxLength="6" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="Max" />
+    <Property Type="Decimal" Name="productPrice" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Int32" Name="stock" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ppReadRol_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="rol" Nullable="false" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="ppReadServicio_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="serviceName" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="Max" />
+    <Property Type="Decimal" Name="servicePrice" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="ppReadUsuario_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="cedula" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="apellido" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="sexo" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="telefono" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="correo" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="rol" Nullable="false" />
+    <Property Type="Boolean" Name="state" Nullable="false" />
+  </ComplexType>
+</Schema>

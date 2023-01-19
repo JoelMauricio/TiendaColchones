@@ -55,6 +55,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -83,6 +84,178 @@
       <DependentUpon>CITiendaDB.mdf</DependentUpon>
     </Content>
     <Content Include="CapaIntegracionWS.asmx" />
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.Cliente.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.Cotizacion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.Cotizacion_Producto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.Cotizacion_Servicio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.Cuentas_Cobrar.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.DeleteCotizacionProductoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.DeleteCotizacionServicioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.DeleteCuentaCobrarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.Factura.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetClientesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetCotizacionesProductosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetCotizacionesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetCotizacionesServiciosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetCotizacionProdcutoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetCotizacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetCotizacionServicioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetCuentaCobrarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetCuentasCobrarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetFacturaesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetFacturaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetProductoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetProductosPorCotizacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetProductosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetRolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetServicioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetServiciosPorCotizacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetServiciosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.GetUsuariosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.Producto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.RegistrarClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.RegistrarCotizacionProductoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.RegistrarCotizacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.RegistrarCotizacionServicioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.RegistrarCuentaCobrarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.RegistrarFacturaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.RegistrarProductoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.RegistrarRolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.RegistrarServicioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.RegistrarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.Rol.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.Servicio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.UpdateClienteesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.UpdateCotizacionesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.UpdateCotizacionProductoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.UpdateCotizacionServicioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.UpdateCuentaCobrarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.UpdateFacturaesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.UpdateProductoesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.UpdateRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.UpdateServicioesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.UpdateUsuarioesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CoreService\CapaIntegracion.CoreService.Usuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\CoreService\TCCoreService.disco" />
+    <None Include="Connected Services\CoreService\configuration91.svcinfo" />
+    <None Include="Connected Services\CoreService\configuration.svcinfo" />
+    <None Include="Connected Services\CoreService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="ModelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelDB.edmx</DependentUpon>
@@ -103,7 +276,21 @@
     <Compile Include="Cliente.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\CoreService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\CIRoles.cs" />
+    <Compile Include="Controllers\CICliente.cs" />
+    <Compile Include="Controllers\CIFactura.cs" />
+    <Compile Include="Controllers\CIProduto.cs" />
+    <Compile Include="Controllers\CIUsuario.cs" />
+    <Compile Include="Controllers\CICotizacion.cs" />
+    <Compile Include="Controllers\CICotizacionProducto.cs" />
+    <Compile Include="Controllers\CICotizacionServicio.cs" />
+    <Compile Include="Controllers\CICuentasCobrar.cs" />
+    <Compile Include="Controllers\CIServicio.cs" />
     <Compile Include="Cotizacion.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -157,6 +344,7 @@
     <Content Include="ModelDB.edmx.diagram">
       <DependentUpon>ModelDB.edmx</DependentUpon>
     </Content>
+    <None Include="Connected Services\CoreService\TCCoreService.wsdl" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -168,7 +356,12 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CoreService\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

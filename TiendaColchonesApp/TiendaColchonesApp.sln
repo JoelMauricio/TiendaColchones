@@ -11,6 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProbardorCore", "ProbardorC
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaIntegracion", "CapaIntegracion\CapaIntegracion.csproj", "{B7E59DB5-62CE-4049-B1D1-E9AE15A73604}"
+	ProjectSection(ProjectDependencies) = postProject
+		{283B415E-A252-40DE-888C-0CE70BA5A4DE} = {283B415E-A252-40DE-888C-0CE70BA5A4DE}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

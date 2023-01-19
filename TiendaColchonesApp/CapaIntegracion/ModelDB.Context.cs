@@ -30,7 +30,7 @@ namespace CapaIntegracion
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<Cotizacion> Cotizacions { get; set; }
         public virtual DbSet<Factura> Facturas { get; set; }
-        public virtual DbSet<Producto> Productoes { get; set; }
+        public virtual DbSet<Producto> Productos { get; set; }
         public virtual DbSet<Rol> Rols { get; set; }
         public virtual DbSet<Servicio> Servicios { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }

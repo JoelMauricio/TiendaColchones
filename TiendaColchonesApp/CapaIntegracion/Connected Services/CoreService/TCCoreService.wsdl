@@ -1,0 +1,2338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://TiendaColchonesCore.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://TiendaColchonesCore.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://TiendaColchonesCore.org/">
+      <s:element name="GetRoles">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRolesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRolesResult" type="tns:ArrayOfRol" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRol">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Rol" nillable="true" type="tns:Rol" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Rol">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="rol1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuarios" type="tns:ArrayOfUsuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUsuario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Usuario" nillable="true" type="tns:Usuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Usuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sexo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="rol" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="state" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rol1" type="tns:Rol" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRol">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRolResult" type="tns:Rol" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarRol">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rol" type="tns:Rol" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarRolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarRolResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRoles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rol" type="tns:Rol" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRolesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateRolesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRoles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rolId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRolesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteRolesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetClientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientesResult" type="tns:ArrayOfCliente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCliente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cliente" nillable="true" type="tns:Cliente" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cliente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sexo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="state" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cotizacions" type="tns:ArrayOfCotizacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="Facturas" type="tns:ArrayOfFactura" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCotizacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cotizacion" nillable="true" type="tns:Cotizacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cotizacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="noCotizacion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="cliente" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="subTotal" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="tax" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="total" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="created_at" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="state" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cliente1" type="tns:Cliente" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cotizacion_Producto" type="tns:ArrayOfCotizacion_Producto" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cotizacion_Servicio" type="tns:ArrayOfCotizacion_Servicio" />
+          <s:element minOccurs="0" maxOccurs="1" name="Facturas" type="tns:ArrayOfFactura" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCotizacion_Producto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cotizacion_Producto" nillable="true" type="tns:Cotizacion_Producto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cotizacion_Producto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="noCotizacion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="productId" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="cantidad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="subTotal" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cotizacion" type="tns:Cotizacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="Producto" type="tns:Producto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Producto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="size" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="productPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="stock" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cotizacion_Producto" type="tns:ArrayOfCotizacion_Producto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCotizacion_Servicio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cotizacion_Servicio" nillable="true" type="tns:Cotizacion_Servicio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cotizacion_Servicio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="noCotizacion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="serviceId" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="cantidad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="subTotal" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cotizacion" type="tns:Cotizacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="Servicio" type="tns:Servicio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Servicio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="serviceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="servicePrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cotizacion_Servicio" type="tns:ArrayOfCotizacion_Servicio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFactura">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Factura" nillable="true" type="tns:Factura" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Factura">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="noFactura" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="noCotizacion" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="cliente" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipoComprobante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="comprobanteFiscal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="metodoPago" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="created_at" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="state" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cliente1" type="tns:Cliente" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cotizacion" type="tns:Cotizacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cuentas_Cobrar" type="tns:ArrayOfCuentas_Cobrar" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCuentas_Cobrar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cuentas_Cobrar" nillable="true" type="tns:Cuentas_Cobrar" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cuentas_Cobrar">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="noFactura" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="montoDeuda" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaPago" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaLimitePago" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="estadoPago" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Factura" type="tns:Factura" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClienteResult" type="tns:Cliente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cliente" type="tns:Cliente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarClienteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateClientees">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cliente" type="tns:Cliente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateClienteesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateClienteesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteClientees">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clienteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteClienteesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteClienteesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsuarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUsuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsuariosResult" type="tns:ArrayOfUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsuarioResult" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUsuarioes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUsuarioesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateUsuarioesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteUsuarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductos">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProductosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductosResult" type="tns:ArrayOfProducto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProducto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Producto" nillable="true" type="tns:Producto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductoResult" type="tns:Producto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="producto" type="tns:Producto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarProductoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProductoes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="producto" type="tns:Producto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProductoesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateProductoesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteProductoes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productoId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteProductoesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteProductoesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServicios">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServiciosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServiciosResult" type="tns:ArrayOfServicio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfServicio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Servicio" nillable="true" type="tns:Servicio" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetServicio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServicioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServicioResult" type="tns:Servicio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarServicio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="servicio" type="tns:Servicio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarServicioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarServicioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateServicioes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="servicio" type="tns:Servicio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateServicioesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateServicioesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteServicioes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="servicioId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteServicioesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteServicioesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCotizaciones">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCotizacionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCotizacionesResult" type="tns:ArrayOfCotizacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCotizacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCotizacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCotizacionResult" type="tns:Cotizacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarCotizacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cotizacion" type="tns:Cotizacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarCotizacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarCotizacionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCotizaciones">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cotizacion" type="tns:Cotizacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCotizacionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCotizacionesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCotizaciones">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cotizacionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCotizacionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCotizacionesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacturaes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFacturaesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFacturaesResult" type="tns:ArrayOfFactura" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFactura">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFacturaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFacturaResult" type="tns:Factura" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarFactura">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Factura" type="tns:Factura" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarFacturaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarFacturaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFacturaes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Factura" type="tns:Factura" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFacturaesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateFacturaesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFacturaes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FacturaId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFacturaesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteFacturaesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCotizacionesProductos">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCotizacionesProductosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCotizacionesProductosResult" type="tns:ArrayOfCotizacion_Producto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductosPorCotizacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="noCotizacion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductosPorCotizacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductosPorCotizacionResult" type="tns:ArrayOfCotizacion_Producto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCotizacionProdcuto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="noCotizacion" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idProducto" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCotizacionProdcutoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCotizacionProdcutoResult" type="tns:Cotizacion_Producto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarCotizacionProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c_p" type="tns:Cotizacion_Producto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarCotizacionProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarCotizacionProductoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCotizacionProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c_p" type="tns:Cotizacion_Producto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCotizacionProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCotizacionProductoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCotizacionProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c_p" type="tns:Cotizacion_Producto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCotizacionProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCotizacionProductoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCuentasCobrar">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCuentasCobrarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCuentasCobrarResult" type="tns:ArrayOfCuentas_Cobrar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCuentaCobrar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="noFactura" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCuentaCobrarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCuentaCobrarResult" type="tns:Cuentas_Cobrar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarCuentaCobrar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cc" type="tns:Cuentas_Cobrar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarCuentaCobrarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarCuentaCobrarResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCuentaCobrar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cc" type="tns:Cuentas_Cobrar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCuentaCobrarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCuentaCobrarResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCuentaCobrar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cc" type="tns:Cuentas_Cobrar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCuentaCobrarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCuentaCobrarResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCotizacionesServicios">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCotizacionesServiciosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCotizacionesServiciosResult" type="tns:ArrayOfCotizacion_Servicio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiciosPorCotizacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="noCotizacion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiciosPorCotizacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServiciosPorCotizacionResult" type="tns:ArrayOfCotizacion_Servicio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCotizacionServicio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="noCotizacion" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idServicio" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCotizacionServicioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCotizacionServicioResult" type="tns:Cotizacion_Servicio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarCotizacionServicio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c_p" type="tns:Cotizacion_Servicio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarCotizacionServicioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarCotizacionServicioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCotizacionServicio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c_p" type="tns:Cotizacion_Servicio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCotizacionServicioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCotizacionServicioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCotizacionServicio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c_p" type="tns:Cotizacion_Servicio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCotizacionServicioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCotizacionServicioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetRolesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoles" />
+  </wsdl:message>
+  <wsdl:message name="GetRolesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRolSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRol" />
+  </wsdl:message>
+  <wsdl:message name="GetRolSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarRolSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarRol" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarRolSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRolesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRoles" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRolesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRolesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteRoles" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRolesSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClientes" />
+  </wsdl:message>
+  <wsdl:message name="GetClientesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCliente" />
+  </wsdl:message>
+  <wsdl:message name="GetClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarCliente" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateClienteesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateClientees" />
+  </wsdl:message>
+  <wsdl:message name="UpdateClienteesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateClienteesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteClienteesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteClientees" />
+  </wsdl:message>
+  <wsdl:message name="DeleteClienteesSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteClienteesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="GetUsuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsuario" />
+  </wsdl:message>
+  <wsdl:message name="GetUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUsuarioesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUsuarioes" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUsuarioesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUsuarioesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteUsuario" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductos" />
+  </wsdl:message>
+  <wsdl:message name="GetProductosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProducto" />
+  </wsdl:message>
+  <wsdl:message name="GetProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarProducto" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProductoesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateProductoes" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProductoesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateProductoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteProductoesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteProductoes" />
+  </wsdl:message>
+  <wsdl:message name="DeleteProductoesSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteProductoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiciosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServicios" />
+  </wsdl:message>
+  <wsdl:message name="GetServiciosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServiciosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServicioSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServicio" />
+  </wsdl:message>
+  <wsdl:message name="GetServicioSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarServicioSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarServicio" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarServicioSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateServicioesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateServicioes" />
+  </wsdl:message>
+  <wsdl:message name="UpdateServicioesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateServicioesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServicioesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteServicioes" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServicioesSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteServicioesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCotizacionesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCotizaciones" />
+  </wsdl:message>
+  <wsdl:message name="GetCotizacionesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCotizacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCotizacionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCotizacion" />
+  </wsdl:message>
+  <wsdl:message name="GetCotizacionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCotizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarCotizacionSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarCotizacion" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarCotizacionSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarCotizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCotizacionesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCotizaciones" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCotizacionesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCotizacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCotizacionesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCotizaciones" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCotizacionesSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCotizacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFacturaesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFacturaes" />
+  </wsdl:message>
+  <wsdl:message name="GetFacturaesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFacturaesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFacturaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFactura" />
+  </wsdl:message>
+  <wsdl:message name="GetFacturaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFacturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarFacturaSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarFactura" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarFacturaSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarFacturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFacturaesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFacturaes" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFacturaesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFacturaesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFacturaesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFacturaes" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFacturaesSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFacturaesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCotizacionesProductosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCotizacionesProductos" />
+  </wsdl:message>
+  <wsdl:message name="GetCotizacionesProductosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCotizacionesProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductosPorCotizacionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductosPorCotizacion" />
+  </wsdl:message>
+  <wsdl:message name="GetProductosPorCotizacionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductosPorCotizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCotizacionProdcutoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCotizacionProdcuto" />
+  </wsdl:message>
+  <wsdl:message name="GetCotizacionProdcutoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCotizacionProdcutoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarCotizacionProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarCotizacionProducto" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarCotizacionProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarCotizacionProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCotizacionProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCotizacionProducto" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCotizacionProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCotizacionProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCotizacionProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCotizacionProducto" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCotizacionProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCotizacionProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCuentasCobrarSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCuentasCobrar" />
+  </wsdl:message>
+  <wsdl:message name="GetCuentasCobrarSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCuentasCobrarResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCuentaCobrarSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCuentaCobrar" />
+  </wsdl:message>
+  <wsdl:message name="GetCuentaCobrarSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCuentaCobrarResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarCuentaCobrarSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarCuentaCobrar" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarCuentaCobrarSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarCuentaCobrarResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCuentaCobrarSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCuentaCobrar" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCuentaCobrarSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCuentaCobrarResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCuentaCobrarSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCuentaCobrar" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCuentaCobrarSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCuentaCobrarResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCotizacionesServiciosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCotizacionesServicios" />
+  </wsdl:message>
+  <wsdl:message name="GetCotizacionesServiciosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCotizacionesServiciosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiciosPorCotizacionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiciosPorCotizacion" />
+  </wsdl:message>
+  <wsdl:message name="GetServiciosPorCotizacionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServiciosPorCotizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCotizacionServicioSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCotizacionServicio" />
+  </wsdl:message>
+  <wsdl:message name="GetCotizacionServicioSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCotizacionServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarCotizacionServicioSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarCotizacionServicio" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarCotizacionServicioSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarCotizacionServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCotizacionServicioSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCotizacionServicio" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCotizacionServicioSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCotizacionServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCotizacionServicioSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCotizacionServicio" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCotizacionServicioSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCotizacionServicioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TCCoreServiceSoap">
+    <wsdl:operation name="GetRoles">
+      <wsdl:input message="tns:GetRolesSoapIn" />
+      <wsdl:output message="tns:GetRolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRol">
+      <wsdl:input message="tns:GetRolSoapIn" />
+      <wsdl:output message="tns:GetRolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarRol">
+      <wsdl:input message="tns:RegistrarRolSoapIn" />
+      <wsdl:output message="tns:RegistrarRolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoles">
+      <wsdl:input message="tns:UpdateRolesSoapIn" />
+      <wsdl:output message="tns:UpdateRolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRoles">
+      <wsdl:input message="tns:DeleteRolesSoapIn" />
+      <wsdl:output message="tns:DeleteRolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientes">
+      <wsdl:input message="tns:GetClientesSoapIn" />
+      <wsdl:output message="tns:GetClientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCliente">
+      <wsdl:input message="tns:GetClienteSoapIn" />
+      <wsdl:output message="tns:GetClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCliente">
+      <wsdl:input message="tns:RegistrarClienteSoapIn" />
+      <wsdl:output message="tns:RegistrarClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientees">
+      <wsdl:input message="tns:UpdateClienteesSoapIn" />
+      <wsdl:output message="tns:UpdateClienteesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClientees">
+      <wsdl:input message="tns:DeleteClienteesSoapIn" />
+      <wsdl:output message="tns:DeleteClienteesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsuarios">
+      <wsdl:input message="tns:GetUsuariosSoapIn" />
+      <wsdl:output message="tns:GetUsuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsuario">
+      <wsdl:input message="tns:GetUsuarioSoapIn" />
+      <wsdl:output message="tns:GetUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuario">
+      <wsdl:input message="tns:RegistrarUsuarioSoapIn" />
+      <wsdl:output message="tns:RegistrarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUsuarioes">
+      <wsdl:input message="tns:UpdateUsuarioesSoapIn" />
+      <wsdl:output message="tns:UpdateUsuarioesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUsuario">
+      <wsdl:input message="tns:DeleteUsuarioSoapIn" />
+      <wsdl:output message="tns:DeleteUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductos">
+      <wsdl:input message="tns:GetProductosSoapIn" />
+      <wsdl:output message="tns:GetProductosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducto">
+      <wsdl:input message="tns:GetProductoSoapIn" />
+      <wsdl:output message="tns:GetProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarProducto">
+      <wsdl:input message="tns:RegistrarProductoSoapIn" />
+      <wsdl:output message="tns:RegistrarProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProductoes">
+      <wsdl:input message="tns:UpdateProductoesSoapIn" />
+      <wsdl:output message="tns:UpdateProductoesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductoes">
+      <wsdl:input message="tns:DeleteProductoesSoapIn" />
+      <wsdl:output message="tns:DeleteProductoesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServicios">
+      <wsdl:input message="tns:GetServiciosSoapIn" />
+      <wsdl:output message="tns:GetServiciosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServicio">
+      <wsdl:input message="tns:GetServicioSoapIn" />
+      <wsdl:output message="tns:GetServicioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarServicio">
+      <wsdl:input message="tns:RegistrarServicioSoapIn" />
+      <wsdl:output message="tns:RegistrarServicioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServicioes">
+      <wsdl:input message="tns:UpdateServicioesSoapIn" />
+      <wsdl:output message="tns:UpdateServicioesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServicioes">
+      <wsdl:input message="tns:DeleteServicioesSoapIn" />
+      <wsdl:output message="tns:DeleteServicioesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizaciones">
+      <wsdl:input message="tns:GetCotizacionesSoapIn" />
+      <wsdl:output message="tns:GetCotizacionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacion">
+      <wsdl:input message="tns:GetCotizacionSoapIn" />
+      <wsdl:output message="tns:GetCotizacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCotizacion">
+      <wsdl:input message="tns:RegistrarCotizacionSoapIn" />
+      <wsdl:output message="tns:RegistrarCotizacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCotizaciones">
+      <wsdl:input message="tns:UpdateCotizacionesSoapIn" />
+      <wsdl:output message="tns:UpdateCotizacionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCotizaciones">
+      <wsdl:input message="tns:DeleteCotizacionesSoapIn" />
+      <wsdl:output message="tns:DeleteCotizacionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacturaes">
+      <wsdl:input message="tns:GetFacturaesSoapIn" />
+      <wsdl:output message="tns:GetFacturaesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFactura">
+      <wsdl:input message="tns:GetFacturaSoapIn" />
+      <wsdl:output message="tns:GetFacturaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarFactura">
+      <wsdl:input message="tns:RegistrarFacturaSoapIn" />
+      <wsdl:output message="tns:RegistrarFacturaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFacturaes">
+      <wsdl:input message="tns:UpdateFacturaesSoapIn" />
+      <wsdl:output message="tns:UpdateFacturaesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFacturaes">
+      <wsdl:input message="tns:DeleteFacturaesSoapIn" />
+      <wsdl:output message="tns:DeleteFacturaesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacionesProductos">
+      <wsdl:input message="tns:GetCotizacionesProductosSoapIn" />
+      <wsdl:output message="tns:GetCotizacionesProductosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductosPorCotizacion">
+      <wsdl:input message="tns:GetProductosPorCotizacionSoapIn" />
+      <wsdl:output message="tns:GetProductosPorCotizacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacionProdcuto">
+      <wsdl:input message="tns:GetCotizacionProdcutoSoapIn" />
+      <wsdl:output message="tns:GetCotizacionProdcutoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCotizacionProducto">
+      <wsdl:input message="tns:RegistrarCotizacionProductoSoapIn" />
+      <wsdl:output message="tns:RegistrarCotizacionProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCotizacionProducto">
+      <wsdl:input message="tns:UpdateCotizacionProductoSoapIn" />
+      <wsdl:output message="tns:UpdateCotizacionProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCotizacionProducto">
+      <wsdl:input message="tns:DeleteCotizacionProductoSoapIn" />
+      <wsdl:output message="tns:DeleteCotizacionProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCuentasCobrar">
+      <wsdl:input message="tns:GetCuentasCobrarSoapIn" />
+      <wsdl:output message="tns:GetCuentasCobrarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCuentaCobrar">
+      <wsdl:input message="tns:GetCuentaCobrarSoapIn" />
+      <wsdl:output message="tns:GetCuentaCobrarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCuentaCobrar">
+      <wsdl:input message="tns:RegistrarCuentaCobrarSoapIn" />
+      <wsdl:output message="tns:RegistrarCuentaCobrarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCuentaCobrar">
+      <wsdl:input message="tns:UpdateCuentaCobrarSoapIn" />
+      <wsdl:output message="tns:UpdateCuentaCobrarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCuentaCobrar">
+      <wsdl:input message="tns:DeleteCuentaCobrarSoapIn" />
+      <wsdl:output message="tns:DeleteCuentaCobrarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacionesServicios">
+      <wsdl:input message="tns:GetCotizacionesServiciosSoapIn" />
+      <wsdl:output message="tns:GetCotizacionesServiciosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiciosPorCotizacion">
+      <wsdl:input message="tns:GetServiciosPorCotizacionSoapIn" />
+      <wsdl:output message="tns:GetServiciosPorCotizacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacionServicio">
+      <wsdl:input message="tns:GetCotizacionServicioSoapIn" />
+      <wsdl:output message="tns:GetCotizacionServicioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCotizacionServicio">
+      <wsdl:input message="tns:RegistrarCotizacionServicioSoapIn" />
+      <wsdl:output message="tns:RegistrarCotizacionServicioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCotizacionServicio">
+      <wsdl:input message="tns:UpdateCotizacionServicioSoapIn" />
+      <wsdl:output message="tns:UpdateCotizacionServicioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCotizacionServicio">
+      <wsdl:input message="tns:DeleteCotizacionServicioSoapIn" />
+      <wsdl:output message="tns:DeleteCotizacionServicioSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TCCoreServiceSoap" type="tns:TCCoreServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRoles">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRol">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarRol">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/RegistrarRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoles">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/UpdateRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRoles">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/DeleteRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientes">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCliente">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCliente">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/RegistrarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientees">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/UpdateClientees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClientees">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/DeleteClientees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsuarios">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsuario">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuario">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/RegistrarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUsuarioes">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/UpdateUsuarioes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUsuario">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/DeleteUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductos">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducto">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarProducto">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/RegistrarProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProductoes">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/UpdateProductoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductoes">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/DeleteProductoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicios">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetServicios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicio">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarServicio">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/RegistrarServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServicioes">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/UpdateServicioes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServicioes">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/DeleteServicioes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizaciones">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetCotizaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacion">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetCotizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCotizacion">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/RegistrarCotizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCotizaciones">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/UpdateCotizaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCotizaciones">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/DeleteCotizaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacturaes">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetFacturaes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFactura">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetFactura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarFactura">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/RegistrarFactura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFacturaes">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/UpdateFacturaes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFacturaes">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/DeleteFacturaes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacionesProductos">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetCotizacionesProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductosPorCotizacion">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetProductosPorCotizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacionProdcuto">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetCotizacionProdcuto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCotizacionProducto">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/RegistrarCotizacionProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCotizacionProducto">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/UpdateCotizacionProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCotizacionProducto">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/DeleteCotizacionProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCuentasCobrar">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetCuentasCobrar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCuentaCobrar">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetCuentaCobrar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCuentaCobrar">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/RegistrarCuentaCobrar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCuentaCobrar">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/UpdateCuentaCobrar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCuentaCobrar">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/DeleteCuentaCobrar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacionesServicios">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetCotizacionesServicios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiciosPorCotizacion">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetServiciosPorCotizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacionServicio">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/GetCotizacionServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCotizacionServicio">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/RegistrarCotizacionServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCotizacionServicio">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/UpdateCotizacionServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCotizacionServicio">
+      <soap:operation soapAction="http://TiendaColchonesCore.org/DeleteCotizacionServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TCCoreServiceSoap12" type="tns:TCCoreServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRoles">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRol">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetRol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarRol">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/RegistrarRol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoles">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/UpdateRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRoles">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/DeleteRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientes">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetClientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCliente">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCliente">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/RegistrarCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientees">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/UpdateClientees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClientees">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/DeleteClientees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsuarios">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetUsuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsuario">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarUsuario">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/RegistrarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUsuarioes">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/UpdateUsuarioes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUsuario">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/DeleteUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductos">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetProductos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducto">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarProducto">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/RegistrarProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProductoes">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/UpdateProductoes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductoes">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/DeleteProductoes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicios">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetServicios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicio">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetServicio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarServicio">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/RegistrarServicio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServicioes">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/UpdateServicioes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServicioes">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/DeleteServicioes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizaciones">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetCotizaciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacion">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetCotizacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCotizacion">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/RegistrarCotizacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCotizaciones">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/UpdateCotizaciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCotizaciones">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/DeleteCotizaciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacturaes">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetFacturaes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFactura">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetFactura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarFactura">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/RegistrarFactura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFacturaes">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/UpdateFacturaes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFacturaes">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/DeleteFacturaes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacionesProductos">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetCotizacionesProductos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductosPorCotizacion">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetProductosPorCotizacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacionProdcuto">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetCotizacionProdcuto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCotizacionProducto">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/RegistrarCotizacionProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCotizacionProducto">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/UpdateCotizacionProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCotizacionProducto">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/DeleteCotizacionProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCuentasCobrar">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetCuentasCobrar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCuentaCobrar">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetCuentaCobrar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCuentaCobrar">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/RegistrarCuentaCobrar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCuentaCobrar">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/UpdateCuentaCobrar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCuentaCobrar">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/DeleteCuentaCobrar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacionesServicios">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetCotizacionesServicios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiciosPorCotizacion">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetServiciosPorCotizacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCotizacionServicio">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/GetCotizacionServicio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCotizacionServicio">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/RegistrarCotizacionServicio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCotizacionServicio">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/UpdateCotizacionServicio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCotizacionServicio">
+      <soap12:operation soapAction="http://TiendaColchonesCore.org/DeleteCotizacionServicio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TCCoreService">
+    <wsdl:port name="TCCoreServiceSoap" binding="tns:TCCoreServiceSoap">
+      <soap:address location="http://localhost:61947/TCCoreService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TCCoreServiceSoap12" binding="tns:TCCoreServiceSoap12">
+      <soap12:address location="http://localhost:61947/TCCoreService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

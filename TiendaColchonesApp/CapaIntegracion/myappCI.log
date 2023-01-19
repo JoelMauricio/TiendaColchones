@@ -1,0 +1,5 @@
+2023-01-19 15:05:06,316 [10] INFO CapaIntegracion.CapaIntegracionWS - Se llama el metodo GetClientes() del Core
+2023-01-19 15:05:06,332 [10] INFO CapaIntegracion.CapaIntegracionWS - Se intenta traer los registros de los Clientes
+2023-01-19 15:05:06,517 [10] ERROR CapaIntegracion.CapaIntegracionWS - Ocurrio un error al traer los registros de los clientes
+2023-01-19 16:10:50,005 [57] INFO CapaIntegracion.CapaIntegracionWS - Se llama el metodo GetClientes() del Core
+2023-01-19 16:10:50,021 [57] INFO CapaIntegracion.CapaIntegracionWS - Se intenta traer los registros de los Clientes
