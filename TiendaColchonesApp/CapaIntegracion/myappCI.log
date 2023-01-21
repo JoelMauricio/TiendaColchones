@@ -3,3 +3,17 @@
 2023-01-19 15:05:06,517 [10] ERROR CapaIntegracion.CapaIntegracionWS - Ocurrio un error al traer los registros de los clientes
 2023-01-19 16:10:50,005 [57] INFO CapaIntegracion.CapaIntegracionWS - Se llama el metodo GetClientes() del Core
 2023-01-19 16:10:50,021 [57] INFO CapaIntegracion.CapaIntegracionWS - Se intenta traer los registros de los Clientes
+2023-01-19 16:34:13,802 [6] INFO CapaIntegracion.CapaIntegracionWS - Se llama el metodo GetClientes() del Core
+2023-01-19 16:34:13,818 [6] INFO CapaIntegracion.CapaIntegracionWS - Se intenta traer los registros de los Clientes
+2023-01-19 18:05:08,804 [44] INFO CapaIntegracion.CapaIntegracionWS - Se llama el metodo GetClientes() del Core
+2023-01-19 18:05:08,819 [44] INFO CapaIntegracion.CapaIntegracionWS - Se intenta traer los registros de los Clientes
+2023-01-19 18:12:56,661 [47] INFO CapaIntegracion.CapaIntegracionWS - Se llama el metodo GetProductoes() del Core
+2023-01-19 18:12:56,661 [47] INFO CapaIntegracion.CapaIntegracionWS - Se intenta traer los registros de los productos
+2023-01-19 18:17:24,736 [7] INFO CapaIntegracion.CapaIntegracionWS - Se llama el metodo GetProductoes() del Core
+2023-01-19 18:17:24,736 [7] INFO CapaIntegracion.CapaIntegracionWS - Se intenta traer los registros de los productos
+2023-01-19 18:24:20,741 [48] INFO CapaIntegracion.CapaIntegracionWS - Se llama el metodo GetClientes() del Core
+2023-01-19 18:24:20,741 [48] INFO CapaIntegracion.CapaIntegracionWS - Se intenta traer los registros de los Clientes
+2023-01-19 18:24:44,402 [13] INFO CapaIntegracion.CapaIntegracionWS - Se llama el metodo GetProductoes() del Core
+2023-01-19 18:24:44,402 [13] INFO CapaIntegracion.CapaIntegracionWS - Se intenta traer los registros de los productos
+2023-01-19 18:25:02,963 [14] INFO CapaIntegracion.CapaIntegracionWS - Se llama el metodo GetProductoes() del Core
+2023-01-19 18:25:02,963 [14] INFO CapaIntegracion.CapaIntegracionWS - Se intenta traer los registros de los productos

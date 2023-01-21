@@ -1,0 +1,8 @@
+C:\Users\mauri\TiendaColchones\TiendaColchonesApp\ProbardorCore\bin\Debug\ProbardorCore.exe.config
+C:\Users\mauri\TiendaColchones\TiendaColchonesApp\ProbardorCore\bin\Debug\ProbardorCore.exe
+C:\Users\mauri\TiendaColchones\TiendaColchonesApp\ProbardorCore\bin\Debug\ProbardorCore.pdb
+C:\Users\mauri\TiendaColchones\TiendaColchonesApp\ProbardorCore\obj\Debug\ProbardorCore.csproj.AssemblyReference.cache
+C:\Users\mauri\TiendaColchones\TiendaColchonesApp\ProbardorCore\obj\Debug\ProbardorCore.csproj.SuggestedBindingRedirects.cache
+C:\Users\mauri\TiendaColchones\TiendaColchonesApp\ProbardorCore\obj\Debug\ProbardorCore.csproj.CoreCompileInputs.cache
+C:\Users\mauri\TiendaColchones\TiendaColchonesApp\ProbardorCore\obj\Debug\ProbardorCore.exe
+C:\Users\mauri\TiendaColchones\TiendaColchonesApp\ProbardorCore\obj\Debug\ProbardorCore.pdb

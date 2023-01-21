@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost:61947/TCCoreService.asmx?wsdl" docRef="http://localhost:61947/TCCoreService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost:61947/TCCoreService.asmx" xmlns:q1="http://TiendaColchonesCore.org/" binding="q1:TCCoreServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:61947/TCCoreService.asmx" xmlns:q2="http://TiendaColchonesCore.org/" binding="q2:TCCoreServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

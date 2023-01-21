@@ -163,3 +163,128 @@
 2023-01-13 20:17:28,044 [26] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacion() del Core
 2023-01-13 20:17:28,059 [26] INFO TC_Core.TCCoreService - Se intenta traer los datos
 2023-01-13 20:17:29,501 [26] ERROR TC_Core.TCCoreService - Ha ocurrido un error al traer los datos de cotizacion_servicio
+2023-01-19 15:05:47,488 [37] INFO TC_Core.TCCoreService - Se llama el metodo GetClientes() del Core
+2023-01-19 15:05:47,504 [37] INFO TC_Core.TCCoreService - Se intenta traer los registros de los Clientes
+2023-01-19 16:10:50,251 [46] INFO TC_Core.TCCoreService - Se llama el metodo GetClientes() del Core
+2023-01-19 16:10:50,251 [46] INFO TC_Core.TCCoreService - Se intenta traer los registros de los Clientes
+2023-01-19 16:34:14,123 [8] INFO TC_Core.TCCoreService - Se llama el metodo GetClientes() del Core
+2023-01-19 16:34:14,137 [8] INFO TC_Core.TCCoreService - Se intenta traer los registros de los Clientes
+2023-01-19 18:05:09,134 [46] INFO TC_Core.TCCoreService - Se llama el metodo GetClientes() del Core
+2023-01-19 18:05:09,151 [46] INFO TC_Core.TCCoreService - Se intenta traer los registros de los Clientes
+2023-01-19 18:12:56,671 [54] INFO TC_Core.TCCoreService - Se llama el metodo GetProductoes() del Core
+2023-01-19 18:12:56,671 [54] INFO TC_Core.TCCoreService - Se intenta traer los registros de los productos
+2023-01-19 18:17:24,740 [55] INFO TC_Core.TCCoreService - Se llama el metodo GetProductoes() del Core
+2023-01-19 18:17:24,740 [55] INFO TC_Core.TCCoreService - Se intenta traer los registros de los productos
+2023-01-19 18:24:20,745 [21] INFO TC_Core.TCCoreService - Se llama el metodo GetClientes() del Core
+2023-01-19 18:24:20,745 [21] INFO TC_Core.TCCoreService - Se intenta traer los registros de los Clientes
+2023-01-19 18:24:44,404 [12] INFO TC_Core.TCCoreService - Se llama el metodo GetProductoes() del Core
+2023-01-19 18:24:44,404 [12] INFO TC_Core.TCCoreService - Se intenta traer los registros de los productos
+2023-01-19 18:25:02,965 [12] INFO TC_Core.TCCoreService - Se llama el metodo GetProductoes() del Core
+2023-01-19 18:25:02,965 [12] INFO TC_Core.TCCoreService - Se intenta traer los registros de los productos
+2023-01-19 19:22:18,974 [82] INFO TC_Core.TCCoreService - Se llama el metodo GetRoles() del Core
+2023-01-19 19:22:18,974 [82] INFO TC_Core.TCCoreService - Se intenta traer los registros de los Roles
+2023-01-19 19:22:33,260 [86] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-19 19:22:33,260 [86] INFO TC_Core.TCCoreService - Se intenta traer los registros de las cotizaciones
+2023-01-19 19:22:51,899 [85] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacion() del Core
+2023-01-19 19:22:51,899 [85] INFO TC_Core.TCCoreService - Se intenta traer el registro de Cotizacion deseado
+2023-01-19 19:23:01,307 [84] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacion() del Core
+2023-01-19 19:23:01,307 [84] INFO TC_Core.TCCoreService - Se intenta traer el registro de Cotizacion deseado
+2023-01-19 19:23:54,463 [84] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-19 19:23:54,463 [84] INFO TC_Core.TCCoreService - Se intenta traer los registros de Cotizacion_Producto
+2023-01-19 19:24:08,733 [87] INFO TC_Core.TCCoreService - Se llama el metodo GetProducto() del Core
+2023-01-19 19:24:08,733 [87] INFO TC_Core.TCCoreService - Se intenta traer el registro de Producto deseado
+2023-01-19 19:24:45,031 [72] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-19 19:24:45,031 [72] INFO TC_Core.TCCoreService - Se intenta traer los registros de Cotizacion_Producto
+2023-01-19 19:25:03,405 [84] INFO TC_Core.TCCoreService - Se llama el metodo UpdateCotizaciones() del Core
+2023-01-19 19:25:28,642 [72] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-19 19:25:28,642 [72] INFO TC_Core.TCCoreService - Se intenta traer los registros de Cotizacion_Producto
+2023-01-19 19:25:35,999 [80] INFO TC_Core.TCCoreService - Se llama el metodo UpdateCotizaciones() del Core
+2023-01-19 19:25:41,000 [88] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-19 19:25:41,001 [88] INFO TC_Core.TCCoreService - Se intenta traer los registros de Cotizacion_Producto
+2023-01-19 19:25:52,405 [72] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacionesServicios() del Core
+2023-01-19 19:25:52,405 [72] INFO TC_Core.TCCoreService - Se intenta traer los registros del metodo GetCotizacion_Servicio
+2023-01-19 19:26:00,646 [88] INFO TC_Core.TCCoreService - Se llama el metodo UpdateCotizaciones() del Core
+2023-01-19 19:26:06,820 [86] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacionesServicios() del Core
+2023-01-19 19:26:06,820 [86] INFO TC_Core.TCCoreService - Se intenta traer los registros del metodo GetCotizacion_Servicio
+2023-01-19 19:26:18,696 [81] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-19 19:26:18,696 [81] INFO TC_Core.TCCoreService - Se intenta traer los registros de las cotizaciones
+2023-01-19 19:26:31,974 [86] INFO TC_Core.TCCoreService - Se llama el metodo UpdateCotizaciones() del Core
+2023-01-19 19:26:37,920 [84] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacion() del Core
+2023-01-19 19:26:37,920 [84] INFO TC_Core.TCCoreService - Se intenta traer el registro de Cotizacion deseado
+2023-01-19 19:27:57,900 [87] INFO TC_Core.TCCoreService - Se llama el metodo GetFacturaes() del Core
+2023-01-19 19:27:57,900 [87] INFO TC_Core.TCCoreService - Se intenta traer los registros de las Facturas
+2023-01-20 19:52:04,810 [9] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 19:52:04,824 [9] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 19:53:53,794 [8] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 19:53:53,795 [8] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 19:55:27,792 [15] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 19:55:27,792 [15] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 19:55:27,852 [9] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 19:55:27,852 [9] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:04:20,791 [14] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:04:20,807 [14] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:04:21,590 [10] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:04:21,590 [10] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:04:38,653 [10] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:04:38,653 [10] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:04:38,703 [7] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:04:38,703 [7] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:05:19,357 [11] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:05:19,358 [11] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:05:19,421 [12] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:05:19,421 [12] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:06:18,512 [7] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:06:18,512 [7] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:06:18,582 [10] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:06:18,582 [10] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:06:33,289 [7] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:06:33,289 [7] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:06:44,441 [5] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:06:44,441 [5] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:06:44,912 [12] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:06:44,912 [12] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:06:49,827 [13] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:06:49,827 [13] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:07:01,899 [7] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-20 22:07:01,899 [7] INFO TC_Core.TCCoreService - Se intenta traer los registros de las cotizaciones
+2023-01-20 22:07:14,763 [5] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-20 22:07:14,763 [5] INFO TC_Core.TCCoreService - Se intenta traer los registros de Cotizacion_Producto
+2023-01-20 22:07:24,196 [13] INFO TC_Core.TCCoreService - Se llama el metodo UpdateCotizaciones() del Core
+2023-01-20 22:07:32,297 [14] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-20 22:07:32,297 [14] INFO TC_Core.TCCoreService - Se intenta traer los registros de Cotizacion_Producto
+2023-01-20 22:07:43,728 [9] INFO TC_Core.TCCoreService - Se llama el metodo UpdateCotizaciones() del Core
+2023-01-20 22:07:54,528 [14] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacionesServicios() del Core
+2023-01-20 22:07:54,528 [14] INFO TC_Core.TCCoreService - Se intenta traer los registros del metodo GetCotizacion_Servicio
+2023-01-20 22:08:11,820 [13] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-20 22:08:11,820 [13] INFO TC_Core.TCCoreService - Se intenta traer los registros de las cotizaciones
+2023-01-20 22:09:06,413 [12] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:09:06,413 [12] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:09:06,477 [11] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:09:06,477 [11] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:09:14,875 [7] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-20 22:09:14,876 [7] INFO TC_Core.TCCoreService - Se intenta traer los registros de las cotizaciones
+2023-01-20 22:09:21,827 [9] INFO TC_Core.TCCoreService - Se llama el metodo UpdateCotizaciones() del Core
+2023-01-20 22:09:29,125 [7] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-20 22:09:29,125 [7] INFO TC_Core.TCCoreService - Se intenta traer los registros de las cotizaciones
+2023-01-20 22:09:53,449 [13] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:09:53,449 [13] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:09:53,518 [16] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:09:53,518 [16] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:09:57,326 [11] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizaciones() del Core
+2023-01-20 22:09:57,326 [11] INFO TC_Core.TCCoreService - Se intenta traer los registros de las cotizaciones
+2023-01-20 22:10:11,174 [16] INFO TC_Core.TCCoreService - Se llama el metodo GetCotizacion() del Core
+2023-01-20 22:10:11,174 [16] INFO TC_Core.TCCoreService - Se intenta traer el registro de Cotizacion deseado
+2023-01-20 22:10:19,239 [5] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:10:19,239 [5] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:46:02,660 [11] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:46:02,675 [11] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:46:03,238 [13] INFO TC_Core.TCCoreService - Se llama el metodo GetUsuarioes() del Core
+2023-01-20 22:46:03,238 [13] INFO TC_Core.TCCoreService - Se intenta trer los registros de los usuarios
+2023-01-20 22:46:29,965 [14] INFO TC_Core.TCCoreService - Se llama el metodo GetServicioes() del Core
+2023-01-20 22:46:29,965 [14] INFO TC_Core.TCCoreService - Se intenta traer los registros de los Servicios
+2023-01-20 22:47:09,530 [16] INFO TC_Core.TCCoreService - Se llama el metodo GetServicioes() del Core
+2023-01-20 22:47:09,530 [16] INFO TC_Core.TCCoreService - Se intenta traer los registros de los Servicios
+2023-01-20 22:47:19,663 [11] INFO TC_Core.TCCoreService - Se llama el metodo GetServicioes() del Core
+2023-01-20 22:47:19,663 [11] INFO TC_Core.TCCoreService - Se intenta traer los registros de los Servicios
+2023-01-20 22:47:35,250 [14] INFO TC_Core.TCCoreService - Se llama el metodo GetServicioes() del Core
+2023-01-20 22:47:35,250 [14] INFO TC_Core.TCCoreService - Se intenta traer los registros de los Servicios

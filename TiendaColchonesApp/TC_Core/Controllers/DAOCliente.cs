@@ -1,29 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace TC_Core.Controllers
 {
     public class DAOCliente
     {
-
-        static TiendaColchonesDBEntities db = new TiendaColchonesDBEntities();
+        private static TiendaColchonesDBEntities db = new TiendaColchonesDBEntities();
 
         // GET: api/Clientes
-        static public List<Cliente> GetClientes()
+        public static List<Cliente> GetClientes()
         {
             db.Configuration.ProxyCreationEnabled = false;
             return db.Clientes.ToList();
         }
 
-        static public Cliente GetCliente(int id)
+        public static Cliente GetCliente(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
             return db.Clientes.Find(id);
         }
 
-        static public int RegistrarCliente(Cliente Cli)
+        public static int RegistrarCliente(Cliente Cli)
         {
             db.Configuration.ProxyCreationEnabled = false;
             try
@@ -38,7 +36,7 @@ namespace TC_Core.Controllers
             }
         }
 
-        static public int UpdateCliente(Cliente Cliente) //cambiar contraseña 
+        public static int UpdateCliente(Cliente Cliente) //cambiar contraseña
         {
             db.Configuration.ProxyCreationEnabled = false;
             var retrievedCliente = db.Clientes.Find(Cliente.id);
@@ -46,7 +44,7 @@ namespace TC_Core.Controllers
             return db.SaveChanges();
         }
 
-        static public int DeleteCliente(int ClienteId)
+        public static int DeleteCliente(int ClienteId)
         {
             db.Configuration.ProxyCreationEnabled = false;
             db.ppDeleteCliente(ClienteId);
