@@ -10,7 +10,7 @@ namespace ProbardorCore
     internal class Program
     {
         private static string mensajeError = "No hay resultado disponibles, asegure haber ingresado los datos correctos";
-
+        private static string mensajeError2 = "Ha ocurrido un error, asegure que los datos ingresados son correctos.";
         static void Main(string[] args)
         {
             CoreService.TCCoreServiceSoapClient Core = new CoreService.TCCoreServiceSoapClient();
@@ -76,47 +76,75 @@ namespace ProbardorCore
                             {
                                 case "1":
                                     Console.Clear();
-                                    CoreService.Rol rol = new CoreService.Rol();
-                                    Console.WriteLine("Nombre del rol:");
-                                    rol.rol1 = Console.ReadLine();
-                                    Core.RegistrarRol(rol);
+                                    try
+                                    {
+                                        CoreService.Rol rol = new CoreService.Rol();
+                                        Console.WriteLine("Nombre del rol:");
+                                        rol.rol1 = Console.ReadLine();
+                                        Core.RegistrarRol(rol);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "2":
                                     Console.Clear();
-                                    Console.WriteLine("Inserte el Id del Rol que desea buscar");
-                                    int rolId = Int32.Parse(Console.ReadLine());
-                                    CoreService.Rol resultadoRol = Core.GetRol(rolId);
-                                    if (resultadoRol != null)
+                                    try
                                     {
-                                        Console.WriteLine("");
-                                        Console.WriteLine("Id: \t" + resultadoRol.id);
-                                        Console.WriteLine("Nombre del Rol: " + resultadoRol.rol1);
+                                        Console.WriteLine("Inserte el Id del Rol que desea buscar");
+                                        int rolId = Int32.Parse(Console.ReadLine());
+                                        CoreService.Rol resultadoRol = Core.GetRol(rolId);
+                                        if (resultadoRol != null)
+                                        {
+                                            Console.WriteLine("");
+                                            Console.WriteLine("Id: \t" + resultadoRol.id);
+                                            Console.WriteLine("Nombre del Rol: " + resultadoRol.rol1);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine(mensajeError);
+                                        }
                                     }
-                                    else
+                                    catch (Exception)
                                     {
-                                        Console.WriteLine(mensajeError);
+                                        Console.WriteLine(mensajeError2);
                                     }
                                     Console.ReadKey();
                                     break;
                                 case "3":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Rol que desea modificar");
-                                    int UpdateRol = Int32.Parse(Console.ReadLine());
-                                    CoreService.Rol rolUpdate = new CoreService.Rol();
-                                    rolUpdate.id = UpdateRol;
-                                    Console.WriteLine("Ingrese el nuevo nombre del rol");
-                                    rolUpdate.rol1 = Console.ReadLine();
-                                    Core.UpdateRoles(rolUpdate);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Rol que desea modificar");
+                                        int UpdateRol = Int32.Parse(Console.ReadLine());
+                                        CoreService.Rol rolUpdate = new CoreService.Rol();
+                                        rolUpdate.id = UpdateRol;
+                                        Console.WriteLine("Ingrese el nuevo nombre del rol");
+                                        rolUpdate.rol1 = Console.ReadLine();
+                                        Core.UpdateRoles(rolUpdate);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "4":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Rol que desea Borrar");
-                                    int delRol = Int32.Parse(Console.ReadLine());
-                                    CoreService.Rol rolDelete = new CoreService.Rol();
-                                    rolDelete.id = delRol;
-                                    Core.DeleteRoles(rolDelete.id);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Rol que desea Borrar");
+                                        int delRol = Int32.Parse(Console.ReadLine());
+                                        CoreService.Rol rolDelete = new CoreService.Rol();
+                                        rolDelete.id = delRol;
+                                        Core.DeleteRoles(rolDelete.id);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "5":
@@ -150,67 +178,95 @@ namespace ProbardorCore
                             {
                                 case "1":
                                     Console.Clear();
-                                    CoreService.Usuario u = new CoreService.Usuario();
-                                    Console.WriteLine("Nombre del Usuario:");
-                                    u.nombre = Console.ReadLine();
-                                    Console.WriteLine("Apellido del Usuario:");
-                                    u.apellido = Console.ReadLine();
-                                    Console.WriteLine("Username del Usuario:");
-                                    u.username = Console.ReadLine();
-                                    Console.WriteLine("Contraseña del Usuario:");
-                                    u.password = Console.ReadLine();
-                                    Console.WriteLine("Sexo del Usuario: (S/M)");
-                                    u.sexo = Console.ReadLine();
-                                    u.cedula = "100000000";
-                                    u.telefono = "8090009999";
-                                    u.correo = "c" + u.nombre + "@email.com";
-                                    Core.RegistrarUsuario(u);
+                                    try
+                                    {
+                                        CoreService.Usuario u = new CoreService.Usuario();
+                                        Console.WriteLine("Nombre del Usuario:");
+                                        u.nombre = Console.ReadLine();
+                                        Console.WriteLine("Apellido del Usuario:");
+                                        u.apellido = Console.ReadLine();
+                                        Console.WriteLine("Username del Usuario:");
+                                        u.username = Console.ReadLine();
+                                        Console.WriteLine("Contraseña del Usuario:");
+                                        u.password = Console.ReadLine();
+                                        Console.WriteLine("Sexo del Usuario: (S/M)");
+                                        u.sexo = Console.ReadLine();
+                                        u.cedula = "100000000";
+                                        u.telefono = "8090009999";
+                                        u.correo = "c" + u.nombre + "@email.com";
+                                        Core.RegistrarUsuario(u);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "2":
                                     Console.Clear();
-                                    Console.WriteLine("Inserte el Id del Usuario que desea buscar");
-                                    int userId = Int32.Parse(Console.ReadLine());
-                                    CoreService.Usuario resultadoUser = Core.GetUsuario(userId);
-                                    if (resultadoUser != null)
+                                    try
                                     {
-                                        Console.WriteLine("");
-                                        Console.WriteLine("Id: \t" + resultadoUser.id);
-                                        Console.WriteLine("Nombre del Usuario: " + resultadoUser.nombre);
-                                        Console.WriteLine("Apellido del Usuario: " + resultadoUser.apellido);
-                                        Console.WriteLine("Username del Usuario: " + resultadoUser.username);
-                                        Console.WriteLine("Password del Usuario: " + resultadoUser.password);
-                                        Console.WriteLine("Cedula del Usuario: " + resultadoUser.cedula);
-                                        Console.WriteLine("Sexo del Usuario: " + resultadoUser.sexo);
-                                        Console.WriteLine("Telefono del Usuario: " + resultadoUser.telefono);
-                                        Console.WriteLine("Correo del Usuario: " + resultadoUser.correo);
-                                        Console.WriteLine("Rol del Usuario: " + resultadoUser.rol);
-                                        Console.WriteLine("status del Usuario: " + resultadoUser.state);
+                                        Console.WriteLine("Inserte el Id del Usuario que desea buscar");
+                                        int userId = Int32.Parse(Console.ReadLine());
+                                        CoreService.Usuario resultadoUser = Core.GetUsuario(userId);
+                                        if (resultadoUser != null)
+                                        {
+                                            Console.WriteLine("");
+                                            Console.WriteLine("Id: \t" + resultadoUser.id);
+                                            Console.WriteLine("Nombre del Usuario: " + resultadoUser.nombre);
+                                            Console.WriteLine("Apellido del Usuario: " + resultadoUser.apellido);
+                                            Console.WriteLine("Username del Usuario: " + resultadoUser.username);
+                                            Console.WriteLine("Password del Usuario: " + resultadoUser.password);
+                                            Console.WriteLine("Cedula del Usuario: " + resultadoUser.cedula);
+                                            Console.WriteLine("Sexo del Usuario: " + resultadoUser.sexo);
+                                            Console.WriteLine("Telefono del Usuario: " + resultadoUser.telefono);
+                                            Console.WriteLine("Correo del Usuario: " + resultadoUser.correo);
+                                            Console.WriteLine("Rol del Usuario: " + resultadoUser.rol);
+                                            Console.WriteLine("status del Usuario: " + resultadoUser.state);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine(mensajeError);
+                                        }
                                     }
-                                    else
+                                    catch (Exception)
                                     {
-                                        Console.WriteLine(mensajeError);
+                                        Console.WriteLine(mensajeError2);
                                     }
                                     Console.ReadKey();
                                     break;
                                 case "3":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Usuario que desea modificar");
-                                    int UpdateUser = Int32.Parse(Console.ReadLine());
-                                    CoreService.Usuario UserUpdate = new CoreService.Usuario();
-                                    UserUpdate.id = UpdateUser;
-                                    Console.WriteLine("Ingrese el nuevo nombre del rol");
-                                    UserUpdate.password = Console.ReadLine();
-                                    Core.UpdateUsuarioes(UserUpdate);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Usuario que desea modificar");
+                                        int UpdateUser = Int32.Parse(Console.ReadLine());
+                                        CoreService.Usuario UserUpdate = new CoreService.Usuario();
+                                        UserUpdate.id = UpdateUser;
+                                        Console.WriteLine("Ingrese el nuevo nombre del rol");
+                                        UserUpdate.password = Console.ReadLine();
+                                        Core.UpdateUsuarioes(UserUpdate);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "4":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Usuario que desea Borrar");
-                                    int delUser = Int32.Parse(Console.ReadLine());
-                                    CoreService.Usuario UserDelete = new CoreService.Usuario();
-                                    UserDelete.id = delUser;
-                                    Core.DeleteUsuario(delUser);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Usuario que desea Borrar");
+                                        int delUser = Int32.Parse(Console.ReadLine());
+                                        CoreService.Usuario UserDelete = new CoreService.Usuario();
+                                        UserDelete.id = delUser;
+                                        Core.DeleteUsuario(delUser);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "5":
@@ -254,65 +310,93 @@ namespace ProbardorCore
                                 case "1":
                                     Console.Clear();
                                     CoreService.Cliente c = new CoreService.Cliente();
-                                    Console.WriteLine("Nombre del Cliente:");
-                                    c.nombre = Console.ReadLine();
-                                    Console.WriteLine("Apellido del Cliente:");
-                                    c.apellido = Console.ReadLine();
-                                    Console.WriteLine("Username del Cliente:");
-                                    c.username = Console.ReadLine();
-                                    Console.WriteLine("Contraseña del Cliente:");
-                                    c.password = Console.ReadLine();
-                                    Console.WriteLine("Sexo del Cliente: (S/M)");
-                                    c.sexo = Console.ReadLine();
-                                    c.cedula = "100000000";
-                                    c.telefono = "8090009999";
-                                    c.correo = "c" + c.nombre + "@email.com";
-                                    Core.RegistrarCliente(c);
+                                    try
+                                    {
+                                        Console.WriteLine("Nombre del Cliente:");
+                                        c.nombre = Console.ReadLine();
+                                        Console.WriteLine("Apellido del Cliente:");
+                                        c.apellido = Console.ReadLine();
+                                        Console.WriteLine("Username del Cliente:");
+                                        c.username = Console.ReadLine();
+                                        Console.WriteLine("Contraseña del Cliente:");
+                                        c.password = Console.ReadLine();
+                                        Console.WriteLine("Sexo del Cliente: (S/M)");
+                                        c.sexo = Console.ReadLine();
+                                        c.cedula = "100000000";
+                                        c.telefono = "8090009999";
+                                        c.correo = "c" + c.nombre + "@email.com";
+                                        Core.RegistrarCliente(c);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "2":
                                     Console.Clear();
-                                    Console.WriteLine("Inserte el Id del Cliente que desea buscar");
-                                    int userId = Int32.Parse(Console.ReadLine());
-                                    CoreService.Cliente resultadoUser = Core.GetCliente(userId);
-                                    if (resultadoUser != null)
+                                    try
                                     {
-                                        Console.WriteLine("");
-                                        Console.WriteLine("Id: \t" + resultadoUser.id);
-                                        Console.WriteLine("Nombre del Cliente: " + resultadoUser.nombre);
-                                        Console.WriteLine("Apellido del Cliente: " + resultadoUser.apellido);
-                                        Console.WriteLine("Username del Cliente: " + resultadoUser.username);
-                                        Console.WriteLine("Password del Cliente: " + resultadoUser.password);
-                                        Console.WriteLine("Cedula del Cliente: " + resultadoUser.cedula);
-                                        Console.WriteLine("Sexo del Cliente: " + resultadoUser.sexo);
-                                        Console.WriteLine("Telefono del Cliente: " + resultadoUser.telefono);
-                                        Console.WriteLine("Correo del Cliente: " + resultadoUser.correo);
-                                        Console.WriteLine("status del Cliente: " + resultadoUser.state);
+                                        Console.WriteLine("Inserte el Id del Cliente que desea buscar");
+                                        int userId = Int32.Parse(Console.ReadLine());
+                                        CoreService.Cliente resultadoUser = Core.GetCliente(userId);
+                                        if (resultadoUser != null)
+                                        {
+                                            Console.WriteLine("");
+                                            Console.WriteLine("Id: \t" + resultadoUser.id);
+                                            Console.WriteLine("Nombre del Cliente: " + resultadoUser.nombre);
+                                            Console.WriteLine("Apellido del Cliente: " + resultadoUser.apellido);
+                                            Console.WriteLine("Username del Cliente: " + resultadoUser.username);
+                                            Console.WriteLine("Password del Cliente: " + resultadoUser.password);
+                                            Console.WriteLine("Cedula del Cliente: " + resultadoUser.cedula);
+                                            Console.WriteLine("Sexo del Cliente: " + resultadoUser.sexo);
+                                            Console.WriteLine("Telefono del Cliente: " + resultadoUser.telefono);
+                                            Console.WriteLine("Correo del Cliente: " + resultadoUser.correo);
+                                            Console.WriteLine("status del Cliente: " + resultadoUser.state);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine(mensajeError);
+                                        }
                                     }
-                                    else
+                                    catch (Exception)
                                     {
-                                        Console.WriteLine(mensajeError);
+                                        Console.WriteLine(mensajeError2);
                                     }
                                     Console.ReadKey();
                                     break;
                                 case "3":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Cliente que desea modificar");
-                                    int UpdateUser = Int32.Parse(Console.ReadLine());
-                                    CoreService.Cliente UserUpdate = new CoreService.Cliente();
-                                    UserUpdate.id = UpdateUser;
-                                    Console.WriteLine("Ingrese el nuevo nombre del rol");
-                                    UserUpdate.password = Console.ReadLine();
-                                    Core.UpdateClientees(UserUpdate);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Cliente que desea modificar");
+                                        int UpdateUser = Int32.Parse(Console.ReadLine());
+                                        CoreService.Cliente UserUpdate = new CoreService.Cliente();
+                                        UserUpdate.id = UpdateUser;
+                                        Console.WriteLine("Ingrese el nuevo nombre del rol");
+                                        UserUpdate.password = Console.ReadLine();
+                                        Core.UpdateClientees(UserUpdate);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "4":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Cliente que desea Borrar");
-                                    int delCliente = Int32.Parse(Console.ReadLine());
-                                    CoreService.Cliente ClienteDelete = new CoreService.Cliente();
-                                    ClienteDelete.id = delCliente;
-                                    Core.DeleteClientees(ClienteDelete.id);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Cliente que desea Borrar");
+                                        int delCliente = Int32.Parse(Console.ReadLine());
+                                        CoreService.Cliente ClienteDelete = new CoreService.Cliente();
+                                        ClienteDelete.id = delCliente;
+                                        Core.DeleteClientees(ClienteDelete.id);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "5":
@@ -355,58 +439,86 @@ namespace ProbardorCore
                                 case "1":
                                     Console.Clear();
                                     CoreService.Producto p = new CoreService.Producto();
-                                    Console.WriteLine("Nombre del Producto:");
-                                    p.productName = Console.ReadLine();
-                                    Console.WriteLine("Size del Producto:");
-                                    p.size = Console.ReadLine();
-                                    Console.WriteLine("Descripción del Producto:");
-                                    p.description = Console.ReadLine();
-                                    Console.WriteLine("Precio del Producto:");
-                                    p.productPrice = Decimal.Parse(Console.ReadLine());
-                                    Console.WriteLine("Cantidad en Stock: ");
-                                    p.stock = Int32.Parse(Console.ReadLine());
-                                    Core.RegistrarProducto(p);
+                                    try
+                                    {
+                                        Console.WriteLine("Nombre del Producto:");
+                                        p.productName = Console.ReadLine();
+                                        Console.WriteLine("Size del Producto:");
+                                        p.size = Console.ReadLine();
+                                        Console.WriteLine("Descripción del Producto:");
+                                        p.description = Console.ReadLine();
+                                        Console.WriteLine("Precio del Producto:");
+                                        p.productPrice = Decimal.Parse(Console.ReadLine());
+                                        Console.WriteLine("Cantidad en Stock: ");
+                                        p.stock = Int32.Parse(Console.ReadLine());
+                                        Core.RegistrarProducto(p);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "2":
                                     Console.Clear();
-                                    Console.WriteLine("Inserte el Id del Producto que desea buscar");
-                                    int pId = Int32.Parse(Console.ReadLine());
-                                    CoreService.Producto resultadoP = Core.GetProducto(pId);
-                                    if (resultadoP != null)
+                                    try
                                     {
-                                        Console.WriteLine("");
-                                        Console.WriteLine("Id: \t" + resultadoP.id);
-                                        Console.WriteLine("Nombre del Producto: " + resultadoP.productName);
-                                        Console.WriteLine("size del Producto: " + resultadoP.size);
-                                        Console.WriteLine("descripción del Producto: " + resultadoP.description);
-                                        Console.WriteLine("Price del Producto: " + resultadoP.productPrice);
-                                        Console.WriteLine("Stock del Producto: " + resultadoP.stock);
+                                        Console.WriteLine("Inserte el Id del Producto que desea buscar");
+                                        int pId = Int32.Parse(Console.ReadLine());
+                                        CoreService.Producto resultadoP = Core.GetProducto(pId);
+                                        if (resultadoP != null)
+                                        {
+                                            Console.WriteLine("");
+                                            Console.WriteLine("Id: \t" + resultadoP.id);
+                                            Console.WriteLine("Nombre del Producto: " + resultadoP.productName);
+                                            Console.WriteLine("size del Producto: " + resultadoP.size);
+                                            Console.WriteLine("descripción del Producto: " + resultadoP.description);
+                                            Console.WriteLine("Price del Producto: " + resultadoP.productPrice);
+                                            Console.WriteLine("Stock del Producto: " + resultadoP.stock);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine(mensajeError);
+                                        }
                                     }
-                                    else
+                                    catch (Exception)
                                     {
-                                        Console.WriteLine(mensajeError);
+                                        Console.WriteLine(mensajeError2);
                                     }
                                     Console.ReadKey();
                                     break;
                                 case "3":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Producto que desea modificar");
-                                    int UpdateProduct = Int32.Parse(Console.ReadLine());
-                                    CoreService.Producto ProductoUpdate = new CoreService.Producto();
-                                    ProductoUpdate.id = UpdateProduct;
-                                    Console.WriteLine("Ingrese el nuevo precio del producto");
-                                    ProductoUpdate.productPrice = Decimal.Parse(Console.ReadLine());
-                                    Core.UpdateProductoes(ProductoUpdate);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Producto que desea modificar");
+                                        int UpdateProduct = Int32.Parse(Console.ReadLine());
+                                        CoreService.Producto ProductoUpdate = new CoreService.Producto();
+                                        ProductoUpdate.id = UpdateProduct;
+                                        Console.WriteLine("Ingrese el nuevo precio del producto");
+                                        ProductoUpdate.productPrice = Decimal.Parse(Console.ReadLine());
+                                        Core.UpdateProductoes(ProductoUpdate);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "4":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Producto que desea Borrar");
-                                    int delProducto = Int32.Parse(Console.ReadLine());
-                                    CoreService.Producto ProductoDelete = new CoreService.Producto();
-                                    ProductoDelete.id = delProducto;
-                                    Core.DeleteProductoes(ProductoDelete.id);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Producto que desea Borrar");
+                                        int delProducto = Int32.Parse(Console.ReadLine());
+                                        CoreService.Producto ProductoDelete = new CoreService.Producto();
+                                        ProductoDelete.id = delProducto;
+                                        Core.DeleteProductoes(ProductoDelete.id);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "5":
@@ -444,53 +556,81 @@ namespace ProbardorCore
                             {
                                 case "1":
                                     Console.Clear();
-                                    CoreService.Servicio s = new CoreService.Servicio();
-                                    Console.WriteLine("Nombre del Servicio:");
-                                    s.serviceName = Console.ReadLine();
-                                    Console.WriteLine("Descripción del Servicio:");
-                                    s.description = Console.ReadLine();
-                                    Console.WriteLine("Precio del Servicio:");
-                                    s.servicePrice = Decimal.Parse(Console.ReadLine());
-                                    Core.RegistrarServicio(s);
+                                    try
+                                    {
+                                        CoreService.Servicio s = new CoreService.Servicio();
+                                        Console.WriteLine("Nombre del Servicio:");
+                                        s.serviceName = Console.ReadLine();
+                                        Console.WriteLine("Descripción del Servicio:");
+                                        s.description = Console.ReadLine();
+                                        Console.WriteLine("Precio del Servicio:");
+                                        s.servicePrice = Decimal.Parse(Console.ReadLine());
+                                        Core.RegistrarServicio(s);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "2":
                                     Console.Clear();
-                                    Console.WriteLine("Inserte el Id del Servicio que desea buscar");
-                                    int sId = Int32.Parse(Console.ReadLine());
-                                    CoreService.Servicio resultadoS = Core.GetServicio(sId);
-                                    if (resultadoS != null)
+                                    try
                                     {
-                                        Console.WriteLine("");
-                                        Console.WriteLine("Id: \t" + resultadoS.id);
-                                        Console.WriteLine("Nombre del Servicio: " + resultadoS.serviceName);
-                                        Console.WriteLine("descripción del Servicio: " + resultadoS.description);
-                                        Console.WriteLine("Precio del Servicio: " + resultadoS.servicePrice);
+                                        Console.WriteLine("Inserte el Id del Servicio que desea buscar");
+                                        int sId = Int32.Parse(Console.ReadLine());
+                                        CoreService.Servicio resultadoS = Core.GetServicio(sId);
+                                        if (resultadoS != null)
+                                        {
+                                            Console.WriteLine("");
+                                            Console.WriteLine("Id: \t" + resultadoS.id);
+                                            Console.WriteLine("Nombre del Servicio: " + resultadoS.serviceName);
+                                            Console.WriteLine("descripción del Servicio: " + resultadoS.description);
+                                            Console.WriteLine("Precio del Servicio: " + resultadoS.servicePrice);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine(mensajeError);
+                                        }
                                     }
-                                    else
+                                    catch (Exception)
                                     {
-                                        Console.WriteLine(mensajeError);
+                                        Console.WriteLine(mensajeError2);
                                     }
                                     Console.ReadKey();
                                     break;
                                 case "3":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Servicio que desea modificar");
-                                    int UpdateServicio = Int32.Parse(Console.ReadLine());
-                                    CoreService.Servicio ServicioUpdate = new CoreService.Servicio();
-                                    ServicioUpdate.id = UpdateServicio;
-                                    Console.WriteLine("Ingrese el nuevo precio del Servicio");
-                                    ServicioUpdate.servicePrice = Decimal.Parse(Console.ReadLine());
-                                    Core.UpdateServicioes(ServicioUpdate);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Servicio que desea modificar");
+                                        int UpdateServicio = Int32.Parse(Console.ReadLine());
+                                        CoreService.Servicio ServicioUpdate = new CoreService.Servicio();
+                                        ServicioUpdate.id = UpdateServicio;
+                                        Console.WriteLine("Ingrese el nuevo precio del Servicio");
+                                        ServicioUpdate.servicePrice = Decimal.Parse(Console.ReadLine());
+                                        Core.UpdateServicioes(ServicioUpdate);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "4":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Servicio que desea Borrar");
-                                    int delServicio = Int32.Parse(Console.ReadLine());
-                                    CoreService.Servicio ServicioDelete = new CoreService.Servicio();
-                                    ServicioDelete.id = delServicio;
-                                    Core.DeleteServicioes(ServicioDelete.id);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Servicio que desea Borrar");
+                                        int delServicio = Int32.Parse(Console.ReadLine());
+                                        CoreService.Servicio ServicioDelete = new CoreService.Servicio();
+                                        ServicioDelete.id = delServicio;
+                                        Core.DeleteServicioes(ServicioDelete.id);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "5":
@@ -527,53 +667,81 @@ namespace ProbardorCore
                                 case "1":
                                     Console.Clear();
                                     CoreService.Cotizacion c = new CoreService.Cotizacion();
-                                    Console.WriteLine("Id del clinete de la Cotizacion:");
-                                    c.cliente = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Subtotal de la Cotizacion:");
-                                    c.subTotal = Decimal.Parse(Console.ReadLine());
-                                    Console.WriteLine("Impuesto del Cotizacion:");
-                                    c.tax = Decimal.Parse(Console.ReadLine());
-                                    Console.WriteLine("Mont del Cotizacion:");
-                                    c.total = Decimal.Parse(Console.ReadLine());
-                                    Core.RegistrarCotizacion(c);
+                                    try
+                                    {
+                                        Console.WriteLine("Id del clinete de la Cotizacion:");
+                                        c.cliente = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Subtotal de la Cotizacion:");
+                                        c.subTotal = Decimal.Parse(Console.ReadLine());
+                                        Console.WriteLine("Impuesto del Cotizacion:");
+                                        c.tax = Decimal.Parse(Console.ReadLine());
+                                        Console.WriteLine("Mont del Cotizacion:");
+                                        c.total = Decimal.Parse(Console.ReadLine());
+                                        Core.RegistrarCotizacion(c);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "2":
                                     Console.Clear();
-                                    Console.WriteLine("Inserte el Id del Cotizacion que desea buscar");
-                                    int cId = Int32.Parse(Console.ReadLine());
-                                    CoreService.Cotizacion resultadoC = Core.GetCotizacion(cId);
-                                    if (resultadoC != null)
+                                    try
                                     {
-                                        Console.WriteLine("");
-                                        Console.WriteLine("No. Cotizacion: \t" + resultadoC.noCotizacion);
-                                        Console.WriteLine("Id del cliente de la Cotizacion: " + resultadoC.cliente);
-                                        Console.WriteLine("Subtotal de la Cotizacion: " + resultadoC.subTotal);
-                                        Console.WriteLine("Impuesto de la Cotizacion: " + resultadoC.tax);
-                                        Console.WriteLine("Monto total de la Cotizacion: " + resultadoC.total);
+                                        Console.WriteLine("Inserte el Id del Cotizacion que desea buscar");
+                                        int cId = Int32.Parse(Console.ReadLine());
+                                        CoreService.Cotizacion resultadoC = Core.GetCotizacion(cId);
+                                        if (resultadoC != null)
+                                        {
+                                            Console.WriteLine("");
+                                            Console.WriteLine("No. Cotizacion: \t" + resultadoC.noCotizacion);
+                                            Console.WriteLine("Id del cliente de la Cotizacion: " + resultadoC.cliente);
+                                            Console.WriteLine("Subtotal de la Cotizacion: " + resultadoC.subTotal);
+                                            Console.WriteLine("Impuesto de la Cotizacion: " + resultadoC.tax);
+                                            Console.WriteLine("Monto total de la Cotizacion: " + resultadoC.total);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine(mensajeError);
+                                        }
                                     }
-                                    else
+                                    catch (Exception)
                                     {
-                                        Console.WriteLine(mensajeError);
+                                        Console.WriteLine(mensajeError2);
                                     }
                                     Console.ReadKey();
                                     break;
                                 case "3":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Cotizacion que desea Actualizar");
-                                    int UpdateCotizacion = Int32.Parse(Console.ReadLine());
                                     CoreService.Cotizacion CotizacionUpdate = new CoreService.Cotizacion();
-                                    CotizacionUpdate.noCotizacion = UpdateCotizacion;
-                                    Core.UpdateCotizaciones(CotizacionUpdate);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Cotizacion que desea Actualizar");
+                                        int UpdateCotizacion = Int32.Parse(Console.ReadLine());
+                                        CotizacionUpdate.noCotizacion = UpdateCotizacion;
+                                        Core.UpdateCotizaciones(CotizacionUpdate);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "4":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Cotizacion que desea Borrar");
-                                    int delCotizacion = Int32.Parse(Console.ReadLine());
                                     CoreService.Cotizacion CotizacionDelete = new CoreService.Cotizacion();
-                                    CotizacionDelete.noCotizacion = delCotizacion;
-                                    Core.DeleteCotizaciones(CotizacionDelete.noCotizacion);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Cotizacion que desea Borrar");
+                                        int delCotizacion = Int32.Parse(Console.ReadLine());
+                                        CotizacionDelete.noCotizacion = delCotizacion;
+                                        Core.DeleteCotizaciones(CotizacionDelete.noCotizacion);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "5":
@@ -612,56 +780,84 @@ namespace ProbardorCore
                                 case "1":
                                     Console.Clear();
                                     CoreService.Cotizacion_Producto c = new CoreService.Cotizacion_Producto();
-                                    Console.WriteLine("No. de la Cotizacion:");
-                                    c.noCotizacion = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Id del Producto:");
-                                    c.productId = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Cantidad:");
-                                    c.cantidad = Int32.Parse(Console.ReadLine());
-                                    Core.RegistrarCotizacionProducto(c);
+                                    try
+                                    {
+                                        Console.WriteLine("No. de la Cotizacion:");
+                                        c.noCotizacion = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Id del Producto:");
+                                        c.productId = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Cantidad:");
+                                        c.cantidad = Int32.Parse(Console.ReadLine());
+                                        Core.RegistrarCotizacionProducto(c);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "2":
                                     Console.Clear();
-                                    Console.WriteLine("Inserte el Id del Cotizacion que desea buscar");
-                                    int cId = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Inserte el Id del Producto que desea buscar");
-                                    int pId = Int32.Parse(Console.ReadLine());
-                                    CoreService.Cotizacion_Producto resultadoC = Core.GetCotizacionProdcuto(cId, pId);
-                                    if (resultadoC != null)
+                                    try
                                     {
-                                        Console.WriteLine("");
-                                        Console.WriteLine("Id de la cotizacion: " + resultadoC.noCotizacion);
-                                        Console.WriteLine("Id del producto: " + resultadoC.productId);
-                                        Console.WriteLine("Cantidad: " + resultadoC.cantidad);
-                                        Console.WriteLine("Subtotal: " + resultadoC.subTotal);
+                                        Console.WriteLine("Inserte el Id del Cotizacion que desea buscar");
+                                        int cId = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Inserte el Id del Producto que desea buscar");
+                                        int pId = Int32.Parse(Console.ReadLine());
+                                        CoreService.Cotizacion_Producto resultadoC = Core.GetCotizacionProdcuto(cId, pId);
+                                        if (resultadoC != null)
+                                        {
+                                            Console.WriteLine("");
+                                            Console.WriteLine("Id de la cotizacion: " + resultadoC.noCotizacion);
+                                            Console.WriteLine("Id del producto: " + resultadoC.productId);
+                                            Console.WriteLine("Cantidad: " + resultadoC.cantidad);
+                                            Console.WriteLine("Subtotal: " + resultadoC.subTotal);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine(mensajeError);
+                                        }
                                     }
-                                    else
+                                    catch (Exception)
                                     {
-                                        Console.WriteLine(mensajeError);
+                                        Console.WriteLine(mensajeError2);
                                     }
                                     Console.ReadKey();
                                     break;
                                 case "3":
                                     Console.Clear();
                                     CoreService.Cotizacion_Producto Cotizacion_ProductoUpdate = new CoreService.Cotizacion_Producto();
-                                    Console.WriteLine("Ingrese el Id de la Cotizacion que desea Actualizar");
-                                    Cotizacion_ProductoUpdate.noCotizacion = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Ingrese el Id del Producto que desea Actualizar");
-                                    Cotizacion_ProductoUpdate.productId = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Ingrese la nueva cantidad");
-                                    Cotizacion_ProductoUpdate.cantidad = Int32.Parse(Console.ReadLine());
-                                    Core.UpdateCotizacionProducto(Cotizacion_ProductoUpdate);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id de la Cotizacion que desea Actualizar");
+                                        Cotizacion_ProductoUpdate.noCotizacion = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Ingrese el Id del Producto que desea Actualizar");
+                                        Cotizacion_ProductoUpdate.productId = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Ingrese la nueva cantidad");
+                                        Cotizacion_ProductoUpdate.cantidad = Int32.Parse(Console.ReadLine());
+                                        Core.UpdateCotizacionProducto(Cotizacion_ProductoUpdate);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "4":
                                     Console.Clear();
                                     CoreService.Cotizacion_Producto Cotizacion_ProductoDelete = new CoreService.Cotizacion_Producto();
-                                    Console.WriteLine("Ingrese el Id de la Cotizacion que desea Borrar");
-                                    Cotizacion_ProductoDelete.noCotizacion = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Ingrese el Id del Producto que desea Borrar");
-                                    Cotizacion_ProductoDelete.productId = Int32.Parse(Console.ReadLine());
-                                    Core.DeleteCotizacionProducto(Cotizacion_ProductoDelete);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id de la Cotizacion que desea Borrar");
+                                        Cotizacion_ProductoDelete.noCotizacion = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Ingrese el Id del Producto que desea Borrar");
+                                        Cotizacion_ProductoDelete.productId = Int32.Parse(Console.ReadLine());
+                                        Core.DeleteCotizacionProducto(Cotizacion_ProductoDelete);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "5":
@@ -686,23 +882,30 @@ namespace ProbardorCore
                                     break;
                                 case "6":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id de la Cotizacion: ");
-                                    int noCot = Int32.Parse(Console.ReadLine());
-                                    List<CoreService.Cotizacion_Producto> listC = Core.GetProductosPorCotizacion(noCot).ToList();
-                                    if (listC.Any())
+                                    try
                                     {
-                                        foreach (CoreService.Cotizacion_Producto item in listC)
+                                        Console.WriteLine("Ingrese el Id de la Cotizacion: ");
+                                        int noCot = Int32.Parse(Console.ReadLine());
+                                        List<CoreService.Cotizacion_Producto> listC = Core.GetProductosPorCotizacion(noCot).ToList();
+                                        if (listC.Any())
                                         {
-                                            Console.WriteLine("");
-                                            Console.WriteLine("Id de la cotizacion: " + item.noCotizacion);
-                                            Console.WriteLine("Id del producto: " + item.productId);
-                                            Console.WriteLine("Cantidad: " + item.cantidad);
-                                            Console.WriteLine("Subtotal: " + item.subTotal);
+                                            foreach (CoreService.Cotizacion_Producto item in listC)
+                                            {
+                                                Console.WriteLine("");
+                                                Console.WriteLine("Id de la cotizacion: " + item.noCotizacion);
+                                                Console.WriteLine("Id del producto: " + item.productId);
+                                                Console.WriteLine("Cantidad: " + item.cantidad);
+                                                Console.WriteLine("Subtotal: " + item.subTotal);
+                                            }
+                                        }
+                                        else if (!listC.Any())
+                                        {
+                                            Console.WriteLine(mensajeError);
                                         }
                                     }
-                                    else if (!listC.Any())
+                                    catch (Exception)
                                     {
-                                        Console.WriteLine(mensajeError);
+                                        Console.WriteLine(mensajeError2);
                                     }
                                     Console.ReadKey();
                                     break;
@@ -721,56 +924,84 @@ namespace ProbardorCore
                                 case "1":
                                     Console.Clear();
                                     CoreService.Cotizacion_Servicio cs = new CoreService.Cotizacion_Servicio();
-                                    Console.WriteLine("No. de la Cotizacion:");
-                                    cs.noCotizacion = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Id del Servicio:");
-                                    cs.serviceId = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Cantidad:");
-                                    cs.cantidad = Int32.Parse(Console.ReadLine());
-                                    Core.RegistrarCotizacionServicio(cs);
+                                    try
+                                    {
+                                        Console.WriteLine("No. de la Cotizacion:");
+                                        cs.noCotizacion = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Id del Servicio:");
+                                        cs.serviceId = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Cantidad:");
+                                        cs.cantidad = Int32.Parse(Console.ReadLine());
+                                        Core.RegistrarCotizacionServicio(cs);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "2":
                                     Console.Clear();
-                                    Console.WriteLine("Inserte el Id de la Cotizacion que desea buscar");
-                                    int csId = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Inserte el Id del Servicio que desea buscar");
-                                    int sId = Int32.Parse(Console.ReadLine());
-                                    CoreService.Cotizacion_Servicio resultadoCS = Core.GetCotizacionServicio(csId, sId);
-                                    if (resultadoCS != null)
+                                    try
                                     {
-                                        Console.WriteLine("");
-                                        Console.WriteLine("Id de la cotizacion: " + resultadoCS.noCotizacion);
-                                        Console.WriteLine("Id del servicio: " + resultadoCS.serviceId);
-                                        Console.WriteLine("Cantidad: " + resultadoCS.cantidad);
-                                        Console.WriteLine("Subtotal: " + resultadoCS.subTotal);
+                                        Console.WriteLine("Inserte el Id de la Cotizacion que desea buscar");
+                                        int csId = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Inserte el Id del Servicio que desea buscar");
+                                        int sId = Int32.Parse(Console.ReadLine());
+                                        CoreService.Cotizacion_Servicio resultadoCS = Core.GetCotizacionServicio(csId, sId);
+                                        if (resultadoCS != null)
+                                        {
+                                            Console.WriteLine("");
+                                            Console.WriteLine("Id de la cotizacion: " + resultadoCS.noCotizacion);
+                                            Console.WriteLine("Id del servicio: " + resultadoCS.serviceId);
+                                            Console.WriteLine("Cantidad: " + resultadoCS.cantidad);
+                                            Console.WriteLine("Subtotal: " + resultadoCS.subTotal);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine(mensajeError);
+                                        }
                                     }
-                                    else
+                                    catch (Exception)
                                     {
-                                        Console.WriteLine(mensajeError);
+                                        Console.WriteLine(mensajeError2);
                                     }
                                     Console.ReadKey();
                                     break;
                                 case "3":
                                     Console.Clear();
-                                    CoreService.Cotizacion_Servicio Cotizacion_ServicioUpdate = new CoreService.Cotizacion_Servicio();
-                                    Console.WriteLine("Ingrese el Id de la Cotizacion que desea Actualizar");
-                                    Cotizacion_ServicioUpdate.noCotizacion = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Ingrese el Id del Servicio que desea Actualizar");
-                                    Cotizacion_ServicioUpdate.serviceId = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Ingrese la nueva cantidad");
-                                    Cotizacion_ServicioUpdate.cantidad = Int32.Parse(Console.ReadLine());
-                                    Core.UpdateCotizacionServicio(Cotizacion_ServicioUpdate);
+                                    try
+                                    {
+                                        CoreService.Cotizacion_Servicio Cotizacion_ServicioUpdate = new CoreService.Cotizacion_Servicio();
+                                        Console.WriteLine("Ingrese el Id de la Cotizacion que desea Actualizar");
+                                        Cotizacion_ServicioUpdate.noCotizacion = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Ingrese el Id del Servicio que desea Actualizar");
+                                        Cotizacion_ServicioUpdate.serviceId = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Ingrese la nueva cantidad");
+                                        Cotizacion_ServicioUpdate.cantidad = Int32.Parse(Console.ReadLine());
+                                        Core.UpdateCotizacionServicio(Cotizacion_ServicioUpdate);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "4":
                                     Console.Clear();
-                                    CoreService.Cotizacion_Servicio Cotizacion_ServicioDelete = new CoreService.Cotizacion_Servicio();
-                                    Console.WriteLine("Ingrese el Id de la Cotizacion que desea Borrar");
-                                    Cotizacion_ServicioDelete.noCotizacion = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Ingrese el Id del Servicio que desea Borrar");
-                                    Cotizacion_ServicioDelete.serviceId = Int32.Parse(Console.ReadLine());
-                                    Core.DeleteCotizacionServicio(Cotizacion_ServicioDelete);
+                                    try
+                                    {
+                                        CoreService.Cotizacion_Servicio Cotizacion_ServicioDelete = new CoreService.Cotizacion_Servicio();
+                                        Console.WriteLine("Ingrese el Id de la Cotizacion que desea Borrar");
+                                        Cotizacion_ServicioDelete.noCotizacion = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Ingrese el Id del Servicio que desea Borrar");
+                                        Cotizacion_ServicioDelete.serviceId = Int32.Parse(Console.ReadLine());
+                                        Core.DeleteCotizacionServicio(Cotizacion_ServicioDelete);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "5":
@@ -795,25 +1026,32 @@ namespace ProbardorCore
                                     break;
                                 case "6":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id de la Cotizacion: ");
-                                    int noCot = Int32.Parse(Console.ReadLine());
-                                    List<CoreService.Cotizacion_Servicio> listC = Core.GetServiciosPorCotizacion(noCot).ToList();
-                                    if (listC.Any())
+                                    try
                                     {
-                                        foreach (CoreService.Cotizacion_Servicio item in listC)
+                                        Console.WriteLine("Ingrese el Id de la Cotizacion: ");
+                                        int noCot = Int32.Parse(Console.ReadLine());
+                                        List<CoreService.Cotizacion_Servicio> listC = Core.GetServiciosPorCotizacion(noCot).ToList();
+                                        if (listC.Any())
                                         {
-                                            Console.WriteLine("");
-                                            Console.WriteLine("Id de la cotizacion: " + item.noCotizacion);
-                                            Console.WriteLine("Id del producto: " + item.serviceId);
-                                            Console.WriteLine("Cantidad: " + item.cantidad);
-                                            Console.WriteLine("Subtotal: " + item.subTotal);
+                                            foreach (CoreService.Cotizacion_Servicio item in listC)
+                                            {
+                                                Console.WriteLine("");
+                                                Console.WriteLine("Id de la cotizacion: " + item.noCotizacion);
+                                                Console.WriteLine("Id del producto: " + item.serviceId);
+                                                Console.WriteLine("Cantidad: " + item.cantidad);
+                                                Console.WriteLine("Subtotal: " + item.subTotal);
+                                            }
                                         }
+                                        else if (!listC.Any())
+                                        {
+                                            Console.WriteLine(mensajeError);
+                                        }
+                                        Console.ReadKey();
                                     }
-                                    else if (!listC.Any())
+                                    catch (Exception)
                                     {
-                                        Console.WriteLine(mensajeError);
+                                        Console.WriteLine(mensajeError2);
                                     }
-                                    Console.ReadKey();
                                     break;
                                 default:
                                     Console.WriteLine("NO existe esta opcion");
@@ -829,60 +1067,88 @@ namespace ProbardorCore
                                 case "1":
                                     Console.Clear();
                                     CoreService.Factura f = new CoreService.Factura();
-                                    Console.WriteLine("No. de la Cotizacion:");
-                                    f.noCotizacion = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Id del cliente:");
-                                    f.cliente = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Tipo de comprobante:");
-                                    f.tipoComprobante = Console.ReadLine();
-                                    Console.WriteLine("Comprobante:");
-                                    f.comprobanteFiscal = Console.ReadLine();
-                                    Console.WriteLine("Metodo de Pago:");
-                                    f.metodoPago = Console.ReadLine();
-                                    Core.RegistrarFactura(f);
+                                    try
+                                    {
+                                        Console.WriteLine("No. de la Cotizacion:");
+                                        f.noCotizacion = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Id del cliente:");
+                                        f.cliente = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Tipo de comprobante:");
+                                        f.tipoComprobante = Console.ReadLine();
+                                        Console.WriteLine("Comprobante:");
+                                        f.comprobanteFiscal = Console.ReadLine();
+                                        Console.WriteLine("Metodo de Pago:");
+                                        f.metodoPago = Console.ReadLine();
+                                        Core.RegistrarFactura(f);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "2":
                                     Console.Clear();
-                                    Console.WriteLine("Inserte el Id del Facturaque desea buscar");
-                                    int cId = Int32.Parse(Console.ReadLine());
-                                    CoreService.Factura resultadoF = Core.GetFactura(cId);
-                                    if (resultadoF != null)
+                                    try
                                     {
-                                        Console.WriteLine("");
-                                        Console.WriteLine("No. Factura: \t" + resultadoF.noFactura);
-                                        Console.WriteLine("Id de la cotizacion: " + resultadoF.noCotizacion);
-                                        Console.WriteLine("Id del cliente de la factura: " + resultadoF.cliente);
-                                        Console.WriteLine("Tipo de comprobante fiscal: " + resultadoF.tipoComprobante);
-                                        Console.WriteLine("Comprobante Fiscal: " + resultadoF.comprobanteFiscal);
-                                        Console.WriteLine("Metodo de pago de la factura: " + resultadoF.metodoPago);
+                                        Console.WriteLine("Inserte el Id del Facturaque desea buscar");
+                                        int cId = Int32.Parse(Console.ReadLine());
+                                        CoreService.Factura resultadoF = Core.GetFactura(cId);
+                                        if (resultadoF != null)
+                                        {
+                                            Console.WriteLine("");
+                                            Console.WriteLine("No. Factura: \t" + resultadoF.noFactura);
+                                            Console.WriteLine("Id de la cotizacion: " + resultadoF.noCotizacion);
+                                            Console.WriteLine("Id del cliente de la factura: " + resultadoF.cliente);
+                                            Console.WriteLine("Tipo de comprobante fiscal: " + resultadoF.tipoComprobante);
+                                            Console.WriteLine("Comprobante Fiscal: " + resultadoF.comprobanteFiscal);
+                                            Console.WriteLine("Metodo de pago de la factura: " + resultadoF.metodoPago);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine(mensajeError);
+                                        }
                                     }
-                                    else
+                                    catch (Exception)
                                     {
-                                        Console.WriteLine(mensajeError);
+                                        Console.WriteLine(mensajeError2);
                                     }
                                     Console.ReadKey();
                                     break;
                                 case "3":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Factura que desea Actualizar");
-                                    int UpdateFactura = Int32.Parse(Console.ReadLine());
                                     CoreService.Factura FacturaUpdate = new CoreService.Factura();
-                                    FacturaUpdate.noFactura = UpdateFactura;
-                                    Console.WriteLine("Ingrese el nuevo Tipo de Comprobante Fiscal");
-                                    FacturaUpdate.tipoComprobante = Console.ReadLine();
-                                    Console.WriteLine("Ingrese el nuevo Comprobante Fiscal");
-                                    FacturaUpdate.comprobanteFiscal = Console.ReadLine();
-                                    Core.UpdateFacturaes(FacturaUpdate);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Factura que desea Actualizar");
+                                        int UpdateFactura = Int32.Parse(Console.ReadLine());
+                                        FacturaUpdate.noFactura = UpdateFactura;
+                                        Console.WriteLine("Ingrese el nuevo Tipo de Comprobante Fiscal");
+                                        FacturaUpdate.tipoComprobante = Console.ReadLine();
+                                        Console.WriteLine("Ingrese el nuevo Comprobante Fiscal");
+                                        FacturaUpdate.comprobanteFiscal = Console.ReadLine();
+                                        Core.UpdateFacturaes(FacturaUpdate);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "4":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Factura que desea Borrar");
-                                    int delFactura = Int32.Parse(Console.ReadLine());
                                     CoreService.Factura FacturaDelete = new CoreService.Factura();
-                                    FacturaDelete.noFactura = delFactura;
-                                    Core.DeleteFacturaes(FacturaDelete.noFactura);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Factura que desea Borrar");
+                                        int delFactura = Int32.Parse(Console.ReadLine());
+                                        FacturaDelete.noFactura = delFactura;
+                                        Core.DeleteFacturaes(FacturaDelete.noFactura);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "5":
@@ -921,48 +1187,76 @@ namespace ProbardorCore
                                 case "1":
                                     Console.Clear();
                                     CoreService.Cuentas_Cobrar cc = new CoreService.Cuentas_Cobrar();
-                                    Console.WriteLine("no. factura de la cuenta a cobrar:");
-                                    cc.noFactura = Int32.Parse(Console.ReadLine());
-                                    Core.RegistrarCuentaCobrar(cc);
+                                    try
+                                    {
+                                        Console.WriteLine("no. factura de la cuenta a cobrar:");
+                                        cc.noFactura = Int32.Parse(Console.ReadLine());
+                                        Core.RegistrarCuentaCobrar(cc);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "2":
                                     Console.Clear();
-                                    Console.WriteLine("Inserte el numero de factura");
-                                    int cId = Int32.Parse(Console.ReadLine());
-                                    CoreService.Cuentas_Cobrar resultadoC = Core.GetCuentaCobrar(cId);
-                                    if (resultadoC != null)
+                                    try
                                     {
-                                        Console.WriteLine("");
-                                        Console.WriteLine("No. de factura: \t" + resultadoC.noFactura);
-                                        Console.WriteLine("Monto de la Cuentas_Cobrar: " + resultadoC.montoDeuda);
-                                        Console.WriteLine("fecha de pago de la Cuentas_Cobrar: " + resultadoC.fechaPago);
-                                        Console.WriteLine("fecha limite de pago de la Cuentas_Cobrar: " + resultadoC.fechaLimitePago);
-                                        Console.WriteLine("estado de pago de la Cuentas_Cobrar: " + resultadoC.estadoPago);
+                                        Console.WriteLine("Inserte el numero de factura");
+                                        int cId = Int32.Parse(Console.ReadLine());
+                                        CoreService.Cuentas_Cobrar resultadoC = Core.GetCuentaCobrar(cId);
+                                        if (resultadoC != null)
+                                        {
+                                            Console.WriteLine("");
+                                            Console.WriteLine("No. de factura: \t" + resultadoC.noFactura);
+                                            Console.WriteLine("Monto de la Cuentas_Cobrar: " + resultadoC.montoDeuda);
+                                            Console.WriteLine("fecha de pago de la Cuentas_Cobrar: " + resultadoC.fechaPago);
+                                            Console.WriteLine("fecha limite de pago de la Cuentas_Cobrar: " + resultadoC.fechaLimitePago);
+                                            Console.WriteLine("estado de pago de la Cuentas_Cobrar: " + resultadoC.estadoPago);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine(mensajeError);
+                                        }
                                     }
-                                    else
+                                    catch (Exception)
                                     {
-                                        Console.WriteLine(mensajeError);
+                                        Console.WriteLine(mensajeError2);
                                     }
                                     Console.ReadKey();
                                     break;
                                 case "3":
                                     Console.Clear();
                                     CoreService.Cuentas_Cobrar Cuentas_CobrarUpdate = new CoreService.Cuentas_Cobrar();
-                                    Console.WriteLine("Ingrese el no. de factura, de la cuenta_cobrar que desea Actualizar");
-                                    Cuentas_CobrarUpdate.noFactura = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Ingrese el nuevo estado de pago");
-                                    Cuentas_CobrarUpdate.estadoPago = bool.Parse(Console.ReadLine());
-                                    Core.UpdateCuentaCobrar(Cuentas_CobrarUpdate);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el no. de factura, de la cuenta_cobrar que desea Actualizar");
+                                        Cuentas_CobrarUpdate.noFactura = Int32.Parse(Console.ReadLine());
+                                        Console.WriteLine("Ingrese el nuevo estado de pago");
+                                        Cuentas_CobrarUpdate.estadoPago = bool.Parse(Console.ReadLine());
+                                        Core.UpdateCuentaCobrar(Cuentas_CobrarUpdate);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "4":
                                     Console.Clear();
-                                    Console.WriteLine("Ingrese el Id del Cuentas_Cobrar que desea Borrar");
-                                    int delCuentas_Cobrar = Int32.Parse(Console.ReadLine());
                                     CoreService.Cuentas_Cobrar Cuentas_CobrarDelete = new CoreService.Cuentas_Cobrar();
-                                    Cuentas_CobrarDelete.noFactura = delCuentas_Cobrar;
-                                    Core.DeleteCuentaCobrar(Cuentas_CobrarDelete);
+                                    try
+                                    {
+                                        Console.WriteLine("Ingrese el Id del Cuentas_Cobrar que desea Borrar");
+                                        int delCuentas_Cobrar = Int32.Parse(Console.ReadLine());
+                                        Cuentas_CobrarDelete.noFactura = delCuentas_Cobrar;
+                                        Core.DeleteCuentaCobrar(Cuentas_CobrarDelete);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine(mensajeError2);
+                                    }
                                     Console.ReadKey();
                                     break;
                                 case "5":
